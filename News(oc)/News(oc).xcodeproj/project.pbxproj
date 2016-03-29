@@ -13,6 +13,8 @@
 		0641ADCB1CAAC7650069559F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADC91CAAC7650069559F /* Main.storyboard */; };
 		0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCC1CAAC7650069559F /* Assets.xcassets */; };
 		0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */; };
+		0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0641ADD81CAAD1E60069559F /* NewsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0641ADDB1CAAD1E60069559F /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADD91CAAD1E60069559F /* NewsViewController.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		0641ADCC1CAAC7650069559F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0641ADCF1CAAC7650069559F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0641ADD11CAAC7650069559F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0641ADD71CAAD1E60069559F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		0641ADD81CAAD1E60069559F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		0641ADD91CAAD1E60069559F /* NewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +68,9 @@
 				0641ADC61CAAC7650069559F /* ViewController.h */,
 				0641ADC71CAAC7650069559F /* ViewController.m */,
 				0641ADC91CAAC7650069559F /* Main.storyboard */,
+				0641ADD71CAAD1E60069559F /* NewsViewController.h */,
+				0641ADD81CAAD1E60069559F /* NewsViewController.m */,
+				0641ADD91CAAD1E60069559F /* NewsViewController.xib */,
 				0641ADCC1CAAC7650069559F /* Assets.xcassets */,
 				0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */,
 				0641ADD11CAAC7650069559F /* Info.plist */,
@@ -139,6 +147,7 @@
 				0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */,
 				0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */,
 				0641ADCB1CAAC7650069559F /* Main.storyboard in Resources */,
+				0641ADDB1CAAD1E60069559F /* NewsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +161,7 @@
 				0641ADC81CAAC7650069559F /* ViewController.m in Sources */,
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
 				0641ADC21CAAC7650069559F /* main.m in Sources */,
+				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +308,7 @@
 				0641ADD61CAAC7650069559F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
