@@ -13,8 +13,9 @@
 		0641ADCB1CAAC7650069559F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADC91CAAC7650069559F /* Main.storyboard */; };
 		0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCC1CAAC7650069559F /* Assets.xcassets */; };
 		0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */; };
-		0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0641ADD81CAAD1E60069559F /* NewsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0641ADDB1CAAD1E60069559F /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADD91CAAD1E60069559F /* NewsViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0641ADD81CAAD1E60069559F /* NewsViewController.m */; };
+		494C676B1CABA16C000FED11 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 494C676A1CABA16C000FED11 /* NewsTableViewCell.m */; };
+		494C67711CABE5E3000FED11 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494C67701CABE5E3000FED11 /* NewsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +31,9 @@
 		0641ADD11CAAC7650069559F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0641ADD71CAAD1E60069559F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		0641ADD81CAAD1E60069559F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
-		0641ADD91CAAD1E60069559F /* NewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
+		494C67691CABA16C000FED11 /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
+		494C676A1CABA16C000FED11 /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
+		494C67701CABE5E3000FED11 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +71,7 @@
 				0641ADC61CAAC7650069559F /* ViewController.h */,
 				0641ADC71CAAC7650069559F /* ViewController.m */,
 				0641ADC91CAAC7650069559F /* Main.storyboard */,
-				0641ADD71CAAD1E60069559F /* NewsViewController.h */,
-				0641ADD81CAAD1E60069559F /* NewsViewController.m */,
-				0641ADD91CAAD1E60069559F /* NewsViewController.xib */,
+				494C67671CABA117000FED11 /* News */,
 				0641ADCC1CAAC7650069559F /* Assets.xcassets */,
 				0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */,
 				0641ADD11CAAC7650069559F /* Info.plist */,
@@ -85,6 +86,18 @@
 				0641ADC11CAAC7650069559F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		494C67671CABA117000FED11 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				0641ADD71CAAD1E60069559F /* NewsViewController.h */,
+				0641ADD81CAAD1E60069559F /* NewsViewController.m */,
+				494C67691CABA16C000FED11 /* NewsTableViewCell.h */,
+				494C676A1CABA16C000FED11 /* NewsTableViewCell.m */,
+				494C67701CABE5E3000FED11 /* NewsTableViewCell.xib */,
+			);
+			name = News;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +159,8 @@
 			files = (
 				0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */,
 				0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */,
+				494C67711CABE5E3000FED11 /* NewsTableViewCell.xib in Resources */,
 				0641ADCB1CAAC7650069559F /* Main.storyboard in Resources */,
-				0641ADDB1CAAD1E60069559F /* NewsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0641ADC81CAAC7650069559F /* ViewController.m in Sources */,
+				494C676B1CABA16C000FED11 /* NewsTableViewCell.m in Sources */,
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
 				0641ADC21CAAC7650069559F /* main.m in Sources */,
 				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,

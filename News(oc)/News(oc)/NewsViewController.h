@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView *newsImageView;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
-@property (strong, nonatomic) IBOutlet UILabel *contentLabel;
+@property (strong, nonatomic) IBOutlet UIScrollView *buttonScrollView;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *contentScrollView;
 
 @end
