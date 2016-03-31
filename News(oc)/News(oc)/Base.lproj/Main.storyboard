@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MWc-Nz-ytU">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
@@ -90,7 +91,7 @@
                                     <constraint firstAttribute="height" constant="24" id="Y8h-Pd-cOd"/>
                                 </constraints>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgS-gh-QuY">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgS-gh-QuY">
                                 <rect key="frame" x="0.0" y="88" width="600" height="463"/>
                             </scrollView>
                         </subviews>
@@ -256,7 +257,7 @@
         <!--新闻-->
         <scene sceneID="JoC-vd-MKO">
             <objects>
-                <navigationController id="kKb-ng-1ge" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kKb-ng-1ge" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="新闻" id="r9X-Uz-dXC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3x-Hr-C86">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

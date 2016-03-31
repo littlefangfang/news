@@ -7,7 +7,7 @@
 //
 
 #import "NewsViewController.h"
-#import "NewsTableViewCell.h"
+#import "FirstTableViewCell.h"
 
 
 @interface NewsViewController ()<UITableViewDataSource, UITableViewDelegate>{
@@ -22,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     btnTitleArray = [NSArray arrayWithObjects:@"推荐",@"科技",@"娱乐",@"游戏",@"汽车", nil];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setButtonScrollView];
     [self setContentScrollView];
 }
@@ -44,7 +45,9 @@
 {
     _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count * _contentScrollView.frame.size.width, _contentScrollView.frame.size.height);
     for (int i = 0; i < btnTitleArray.count; i++) {
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(i * _contentScrollView.frame.size.width, 0, _contentScrollView.frame.size.width, _contentScrollView.frame.size.height)];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        tableView.tag = i;
+        [tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         tableView.delegate = self;
         tableView.dataSource = self;
         [_contentScrollView addSubview:tableView];
@@ -70,10 +73,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *vc = [[UIViewController alloc] initWithNibName:@"NewsTableViewCell" bundle:nil];
-    [vc.view setRestorationIdentifier:@"cell"];
-
+    FirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    cell.titleLabel.text = @"新建一个 Table View Controller 页面，并把我们之前创建的 Swift on iOS 那个按钮的点击事件绑定过去，我们得到";
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
 }
 
 

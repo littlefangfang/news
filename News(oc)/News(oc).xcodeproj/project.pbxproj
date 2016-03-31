@@ -14,8 +14,8 @@
 		0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCC1CAAC7650069559F /* Assets.xcassets */; };
 		0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */; };
 		0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0641ADD81CAAD1E60069559F /* NewsViewController.m */; };
-		494C676B1CABA16C000FED11 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 494C676A1CABA16C000FED11 /* NewsTableViewCell.m */; };
-		494C67711CABE5E3000FED11 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494C67701CABE5E3000FED11 /* NewsTableViewCell.xib */; };
+		494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */; };
+		494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +31,9 @@
 		0641ADD11CAAC7650069559F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0641ADD71CAAD1E60069559F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		0641ADD81CAAD1E60069559F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
-		494C67691CABA16C000FED11 /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
-		494C676A1CABA16C000FED11 /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
-		494C67701CABE5E3000FED11 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		494D22DF1CACCEFB0069CCAE /* FirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableViewCell.h; sourceTree = "<group>"; };
+		494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewCell.m; sourceTree = "<group>"; };
+		494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +93,9 @@
 			children = (
 				0641ADD71CAAD1E60069559F /* NewsViewController.h */,
 				0641ADD81CAAD1E60069559F /* NewsViewController.m */,
-				494C67691CABA16C000FED11 /* NewsTableViewCell.h */,
-				494C676A1CABA16C000FED11 /* NewsTableViewCell.m */,
-				494C67701CABE5E3000FED11 /* NewsTableViewCell.xib */,
+				494D22DF1CACCEFB0069CCAE /* FirstTableViewCell.h */,
+				494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */,
+				494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -131,6 +131,7 @@
 				TargetAttributes = {
 					0641ADBC1CAAC7650069559F = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 8U3VM32L8Q;
 					};
 				};
 			};
@@ -157,9 +158,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */,
 				0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */,
 				0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */,
-				494C67711CABE5E3000FED11 /* NewsTableViewCell.xib in Resources */,
 				0641ADCB1CAAC7650069559F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,7 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0641ADC81CAAC7650069559F /* ViewController.m in Sources */,
-				494C676B1CABA16C000FED11 /* NewsTableViewCell.m in Sources */,
+				494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */,
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
 				0641ADC21CAAC7650069559F /* main.m in Sources */,
 				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,
@@ -285,10 +286,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "News(oc)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.founder.News-oc-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -296,10 +301,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "News(oc)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.founder.News-oc-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
