@@ -32,7 +32,7 @@
 {
     _buttonScrollView.contentSize = CGSizeMake(10 + btnTitleArray.count * 50 + 10, _buttonScrollView.frame.size.height);
     for (int i = 0; i < btnTitleArray.count; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10 + i * 50, 2, 40, 20)];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10 + i * 70, 2, 40, 20)];
         [button setTitle:[btnTitleArray objectAtIndex:i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         
@@ -43,7 +43,7 @@
 
 - (void)setContentScrollView
 {
-    _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count * _contentScrollView.frame.size.width, _contentScrollView.frame.size.height);
+    _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count  * [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     for (int i = 0; i < btnTitleArray.count; i++) {
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         tableView.tag = i;
@@ -76,6 +76,9 @@
     FirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     cell.titleLabel.text = @"新建一个 Table View Controller 页面，并把我们之前创建的 Swift on iOS 那个按钮的点击事件绑定过去，我们得到";
+    cell.contentLabel.text = @"新建一个 Table View Controller 页面，并把我们之前创建的 Swift on iOS 那个按钮的点击事件绑定过去，我们得到";
+    cell.titleImageView.image = [UIImage imageNamed:@"81.jpg"];
+    
     return cell;
 }
 

@@ -14,6 +14,9 @@
 		0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCC1CAAC7650069559F /* Assets.xcassets */; };
 		0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */; };
 		0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0641ADD81CAAD1E60069559F /* NewsViewController.m */; };
+		0641ADDF1CAD67EC0069559F /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0641ADDE1CAD67EC0069559F /* HttpTool.m */; settings = {ASSET_TAGS = (); }; };
+		0641ADE11CAD72C90069559F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADE01CAD72C90069559F /* test.jpg */; settings = {ASSET_TAGS = (); }; };
+		0641ADE31CAD74D20069559F /* 81.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADE21CAD74D20069559F /* 81.jpg */; settings = {ASSET_TAGS = (); }; };
 		494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */; };
 		494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -31,6 +34,10 @@
 		0641ADD11CAAC7650069559F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0641ADD71CAAD1E60069559F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		0641ADD81CAAD1E60069559F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		0641ADDD1CAD67EC0069559F /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
+		0641ADDE1CAD67EC0069559F /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
+		0641ADE01CAD72C90069559F /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		0641ADE21CAD74D20069559F /* 81.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 81.jpg; sourceTree = "<group>"; };
 		494D22DF1CACCEFB0069CCAE /* FirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableViewCell.h; sourceTree = "<group>"; };
 		494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewCell.m; sourceTree = "<group>"; };
 		494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTableViewCell.xib; sourceTree = "<group>"; };
@@ -72,6 +79,7 @@
 				0641ADC71CAAC7650069559F /* ViewController.m */,
 				0641ADC91CAAC7650069559F /* Main.storyboard */,
 				494C67671CABA117000FED11 /* News */,
+				0641ADDC1CAD67AC0069559F /* Connection */,
 				0641ADCC1CAAC7650069559F /* Assets.xcassets */,
 				0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */,
 				0641ADD11CAAC7650069559F /* Info.plist */,
@@ -83,9 +91,20 @@
 		0641ADC01CAAC7650069559F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0641ADE01CAD72C90069559F /* test.jpg */,
+				0641ADE21CAD74D20069559F /* 81.jpg */,
 				0641ADC11CAAC7650069559F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0641ADDC1CAD67AC0069559F /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				0641ADDD1CAD67EC0069559F /* HttpTool.h */,
+				0641ADDE1CAD67EC0069559F /* HttpTool.m */,
+			);
+			name = Connection;
 			sourceTree = "<group>";
 		};
 		494C67671CABA117000FED11 /* News */ = {
@@ -159,8 +178,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */,
+				0641ADE11CAD72C90069559F /* test.jpg in Resources */,
 				0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */,
 				0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */,
+				0641ADE31CAD74D20069559F /* 81.jpg in Resources */,
 				0641ADCB1CAAC7650069559F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +198,7 @@
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
 				0641ADC21CAAC7650069559F /* main.m in Sources */,
 				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,
+				0641ADDF1CAD67EC0069559F /* HttpTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
