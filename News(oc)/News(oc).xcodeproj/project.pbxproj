@@ -14,9 +14,9 @@
 		0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCC1CAAC7650069559F /* Assets.xcassets */; };
 		0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */; };
 		0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0641ADD81CAAD1E60069559F /* NewsViewController.m */; };
-		0641ADDF1CAD67EC0069559F /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0641ADDE1CAD67EC0069559F /* HttpTool.m */; settings = {ASSET_TAGS = (); }; };
-		0641ADE11CAD72C90069559F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADE01CAD72C90069559F /* test.jpg */; settings = {ASSET_TAGS = (); }; };
-		0641ADE31CAD74D20069559F /* 81.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADE21CAD74D20069559F /* 81.jpg */; settings = {ASSET_TAGS = (); }; };
+		0641ADDF1CAD67EC0069559F /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0641ADDE1CAD67EC0069559F /* HttpTool.m */; };
+		0641ADE11CAD72C90069559F /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADE01CAD72C90069559F /* test.jpg */; };
+		0641ADE31CAD74D20069559F /* 81.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADE21CAD74D20069559F /* 81.jpg */; };
 		494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */; };
 		494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -150,7 +150,7 @@
 				TargetAttributes = {
 					0641ADBC1CAAC7650069559F = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 8U3VM32L8Q;
+						DevelopmentTeam = H2YLKVCAJJ;
 					};
 				};
 			};
@@ -313,7 +313,7 @@
 				INFOPLIST_FILE = "News(oc)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.founder.News-oc-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fy.newsoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -328,7 +328,7 @@
 				INFOPLIST_FILE = "News(oc)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.founder.News-oc-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fy.newsoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -35,7 +35,6 @@
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10 + i * 70, 2, 40, 20)];
         [button setTitle:[btnTitleArray objectAtIndex:i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        
         [button setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
         [_buttonScrollView addSubview:button];
     }
@@ -43,14 +42,16 @@
 
 - (void)setContentScrollView
 {
-    _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count  * [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count  * [UIScreen mainScreen].bounds.size.width, _contentScrollView.frame.size.height);
     for (int i = 0; i < btnTitleArray.count; i++) {
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-        tableView.tag = i;
+        UIViewController *vc = [[UIViewController alloc] init];
+        [vc.view setFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:vc.view.frame];
         [tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         tableView.delegate = self;
         tableView.dataSource = self;
-        [_contentScrollView addSubview:tableView];
+        [vc.view addSubview:tableView];
+        [self addChildViewController:vc];
     }
 }
 
