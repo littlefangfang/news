@@ -9,6 +9,8 @@
 #import "NewsViewController.h"
 #import "NewsTableViewController.h"
 
+#define SCREEN_W [UIScreen mainScreen].bounds.size.width
+#define SCREEN_H [UIScreen mainScreen].bounds.size.height
 
 @interface NewsViewController ()<UIScrollViewDelegate>{
     NSArray *btnTitleArray;
@@ -36,7 +38,7 @@
         [button setTitle:[btnTitleArray objectAtIndex:i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-        button.tag = i * [UIScreen mainScreen].bounds.size.width;
+        button.tag = i * SCREEN_W;
         [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [_buttonScrollView addSubview:button];
     }
@@ -44,11 +46,12 @@
 
 - (void)setContentScrollView
 {
-    _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count  * [UIScreen mainScreen].bounds.size.width, _contentScrollView.frame.size.height);
+    _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count  * SCREEN_W, _contentScrollView.frame.size.height);
+    _contentScrollView.delegate = self;
     for (int i = 0; i < btnTitleArray.count; i++) {
         NewsTableViewController *vc = [[NewsTableViewController alloc] init];
-        vc.view.tag = i;
-        [vc.view setFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        
+        [vc.view setFrame:CGRectMake(i * SCREEN_W, 0, SCREEN_W, SCREEN_H)];
 
         [self addChildViewController:vc];
     }
@@ -68,7 +71,10 @@
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    
+    NSInteger index = scrollView.contentOffset.x / SCREEN_W;
+
+    [self.childViewControllers[index].view setFrame:_contentScrollView.frame];
+    [_contentScrollView addSubview:self.childViewControllers[index].view];
 }
 
 /*
