@@ -50,8 +50,6 @@
     _contentScrollView.delegate = self;
     for (int i = 0; i < btnTitleArray.count; i++) {
         NewsTableViewController *vc = [[NewsTableViewController alloc] init];
-        
-        [vc.view setFrame:CGRectMake(i * SCREEN_W, 0, SCREEN_W, SCREEN_H)];
 
         [self addChildViewController:vc];
     }
@@ -72,8 +70,7 @@
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
     NSInteger index = scrollView.contentOffset.x / SCREEN_W;
-
-    [self.childViewControllers[index].view setFrame:_contentScrollView.frame];
+    [self.childViewControllers[index].view setFrame:CGRectMake(index * SCREEN_W, 0, SCREEN_W, _contentScrollView.frame.size.height)];
     [_contentScrollView addSubview:self.childViewControllers[index].view];
 }
 
