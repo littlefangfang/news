@@ -7,10 +7,10 @@
 //
 
 #import "NewsViewController.h"
-#import "FirstTableViewCell.h"
+#import "NewsTableViewController.h"
 
 
-@interface NewsViewController ()<UITableViewDataSource, UITableViewDelegate>{
+@interface NewsViewController ()<UIScrollViewDelegate>{
     NSArray *btnTitleArray;
 }
 
@@ -36,6 +36,8 @@
         [button setTitle:[btnTitleArray objectAtIndex:i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        button.tag = i * [UIScreen mainScreen].bounds.size.width;
+        [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [_buttonScrollView addSubview:button];
     }
 }
@@ -44,15 +46,17 @@
 {
     _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count  * [UIScreen mainScreen].bounds.size.width, _contentScrollView.frame.size.height);
     for (int i = 0; i < btnTitleArray.count; i++) {
-        UIViewController *vc = [[UIViewController alloc] init];
+        NewsTableViewController *vc = [[NewsTableViewController alloc] init];
+        vc.view.tag = i;
         [vc.view setFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-        UITableView *tableView = [[UITableView alloc] initWithFrame:vc.view.frame];
-        [tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        [vc.view addSubview:tableView];
+
         [self addChildViewController:vc];
     }
+}
+
+- (void)clickButton:(UIButton *)sender
+{
+    [_contentScrollView setContentOffset:CGPointMake(sender.tag, 0) animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,39 +64,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UITableView Data Source
+#pragma mark - UIScrollViewDelegate methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return btnTitleArray.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    FirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-    cell.titleLabel.text = @"新建一个 Table View Controller 页面，并把我们之前创建的 Swift on iOS 那个按钮的点击事件绑定过去，我们得到";
-    cell.contentLabel.text = @"新建一个 Table View Controller 页面，并把我们之前创建的 Swift on iOS 那个按钮的点击事件绑定过去，我们得到";
-    cell.titleImageView.image = [UIImage imageNamed:@"81.jpg"];
-    
-    return cell;
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return UITableViewAutomaticDimension;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return UITableViewAutomaticDimension;
-}
-
 
 /*
 #pragma mark - Navigation

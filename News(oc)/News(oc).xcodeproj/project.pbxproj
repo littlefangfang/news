@@ -19,6 +19,7 @@
 		0641ADE31CAD74D20069559F /* 81.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0641ADE21CAD74D20069559F /* 81.jpg */; };
 		494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */; };
 		494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */; };
+		49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		494D22DF1CACCEFB0069CCAE /* FirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableViewCell.h; sourceTree = "<group>"; };
 		494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewCell.m; sourceTree = "<group>"; };
 		494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTableViewCell.xib; sourceTree = "<group>"; };
+		49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
+		49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 			children = (
 				0641ADD71CAAD1E60069559F /* NewsViewController.h */,
 				0641ADD81CAAD1E60069559F /* NewsViewController.m */,
+				49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */,
+				49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */,
 				494D22DF1CACCEFB0069CCAE /* FirstTableViewCell.h */,
 				494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */,
 				494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */,
@@ -150,7 +155,7 @@
 				TargetAttributes = {
 					0641ADBC1CAAC7650069559F = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = H2YLKVCAJJ;
+						DevelopmentTeam = 8U3VM32L8Q;
 					};
 				};
 			};
@@ -195,6 +200,7 @@
 			files = (
 				0641ADC81CAAC7650069559F /* ViewController.m in Sources */,
 				494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */,
+				49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */,
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
 				0641ADC21CAAC7650069559F /* main.m in Sources */,
 				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,
@@ -313,7 +319,7 @@
 				INFOPLIST_FILE = "News(oc)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fy.newsoc;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test3.inltee-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -328,7 +334,7 @@
 				INFOPLIST_FILE = "News(oc)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fy.newsoc;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test3.inltee-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
