@@ -30,6 +30,8 @@
 }
 
 #pragma mark - Helper
+
+
 - (void)setButtonScrollView
 {
     _buttonScrollView.contentSize = CGSizeMake(10 + btnTitleArray.count * 50 + 10, _buttonScrollView.frame.size.height);
@@ -71,6 +73,7 @@
 {
     NSInteger index = scrollView.contentOffset.x / SCREEN_W;
     [self.childViewControllers[index].view setFrame:CGRectMake(index * SCREEN_W, 0, SCREEN_W, _contentScrollView.frame.size.height)];
+    self.childViewControllers[index].view.tag = index + 100;
     [_contentScrollView addSubview:self.childViewControllers[index].view];
 }
 

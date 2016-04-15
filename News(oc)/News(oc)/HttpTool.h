@@ -10,4 +10,7 @@
 
 @interface HttpTool : NSObject
 
+@property (nonatomic, copy) void (^ handlerBlock)(NSData *data,NSURLResponse *response,NSError *error);
+
+- (void)getData:(NSURL *)url;
 @end
