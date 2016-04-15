@@ -30,6 +30,7 @@ NSArray *dataArray;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     [self loadNewsData];
+    _tableView.contentInset = UIEdgeInsetsMake(0, 0, 137, 0);
 }
 
 #pragma mark Helper

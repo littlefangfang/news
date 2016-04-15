@@ -7,6 +7,7 @@
 //
 
 #import "PictureTableViewCell.h"
+#import "UIImageView+Category.h"
 
 @implementation PictureTableViewCell
 
@@ -22,6 +23,8 @@
 {
     for (NSInteger i = 0; i < _pictureArray.count; i ++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, self.frame.size.height)];
+        [imageView downloadImageWithURL:[_pictureArray objectAtIndex:i]];
+        [_scrollView insertSubview:imageView belowSubview:_pageControl];
     }
     
 }
