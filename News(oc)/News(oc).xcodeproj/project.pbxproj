@@ -20,6 +20,8 @@
 		494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */; };
 		494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */; };
 		499CC8601CC0C8F30055680D /* UIImageView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 499CC85F1CC0C8F30055680D /* UIImageView+Category.m */; };
+		499CC8641CC0DE000055680D /* PictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 499CC8621CC0DE000055680D /* PictureTableViewCell.m */; };
+		499CC8651CC0DE000055680D /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499CC8631CC0DE000055680D /* PictureTableViewCell.xib */; };
 		49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,9 @@
 		494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTableViewCell.xib; sourceTree = "<group>"; };
 		499CC85E1CC0C8F30055680D /* UIImageView+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Category.h"; sourceTree = "<group>"; };
 		499CC85F1CC0C8F30055680D /* UIImageView+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Category.m"; sourceTree = "<group>"; };
+		499CC8611CC0DE000055680D /* PictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureTableViewCell.h; sourceTree = "<group>"; };
+		499CC8621CC0DE000055680D /* PictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureTableViewCell.m; sourceTree = "<group>"; };
+		499CC8631CC0DE000055680D /* PictureTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureTableViewCell.xib; sourceTree = "<group>"; };
 		49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
 		49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +126,9 @@
 				0641ADD81CAAD1E60069559F /* NewsViewController.m */,
 				49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */,
 				49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */,
+				499CC8611CC0DE000055680D /* PictureTableViewCell.h */,
+				499CC8621CC0DE000055680D /* PictureTableViewCell.m */,
+				499CC8631CC0DE000055680D /* PictureTableViewCell.xib */,
 				494D22DF1CACCEFB0069CCAE /* FirstTableViewCell.h */,
 				494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */,
 				494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */,
@@ -195,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				499CC8651CC0DE000055680D /* PictureTableViewCell.xib in Resources */,
 				494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */,
 				0641ADE11CAD72C90069559F /* test.jpg in Resources */,
 				0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */,
@@ -214,6 +223,7 @@
 				0641ADC81CAAC7650069559F /* ViewController.m in Sources */,
 				494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */,
 				49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */,
+				499CC8641CC0DE000055680D /* PictureTableViewCell.m in Sources */,
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
 				0641ADC21CAAC7650069559F /* main.m in Sources */,
 				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,

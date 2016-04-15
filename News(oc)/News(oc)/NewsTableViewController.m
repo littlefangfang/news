@@ -74,7 +74,6 @@ NSArray *dataArray;
         if (indexPath.row > 0) {
             cell.titleLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"title"];
             [cell.titleImageView downloadImageWithURL:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"]];
-            NSLog(@"%@",[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"]);
             cell.contentLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"digest"];
         }
         
