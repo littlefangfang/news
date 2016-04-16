@@ -18,14 +18,18 @@
     [super awakeFromNib];
     // Initialization code
 
-
+    _scrollView.delegate = self;
 }
 
 
 
 #pragma mark - Helper
 
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSInteger index = _scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width + 0.5;
+    _pageControl.currentPage = index;
+}
 
 
 

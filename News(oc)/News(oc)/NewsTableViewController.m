@@ -81,7 +81,8 @@ NSArray *dataArray;
         }else{
             PictureTableViewCell *cell0 = [tableView dequeueReusableCellWithIdentifier:@"picture_cell"];
             NSMutableArray *pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
-            for (NSInteger i = 0; i < pictureArray.count; i ++) {
+            cell0.scrollView.contentSize = CGSizeMake(pictureArray.count * [UIScreen mainScreen].bounds.size.width, cell0.frame.size.height);
+            for (NSInteger i = 0; i < pictureArray.count; i++) {
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, cell0.frame.size.height)];
                 [imageView downloadImageWithURL:[[pictureArray objectAtIndex:i] objectForKey:@"imgsrc"]];
                 cell0.pageControl.numberOfPages = pictureArray.count;

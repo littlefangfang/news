@@ -17,29 +17,25 @@
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-wT-tFZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
-                        <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="hUG-gn-RYI">
-                                <rect key="frame" x="287" y="154" width="80" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="U5y-bf-w0e"/>
-                                </constraints>
-                                <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                            </pageControl>
-                        </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="199" id="0J6-sJ-M8z"/>
-                            <constraint firstItem="hUG-gn-RYI" firstAttribute="top" secondItem="KbR-wT-tFZ" secondAttribute="top" constant="154" id="36i-Or-1iv"/>
-                            <constraint firstItem="hUG-gn-RYI" firstAttribute="bottom" secondItem="KbR-wT-tFZ" secondAttribute="bottomMargin" id="4Af-tj-Yb9"/>
-                            <constraint firstItem="hUG-gn-RYI" firstAttribute="leading" secondItem="KbR-wT-tFZ" secondAttribute="leading" constant="287" id="Jt4-eA-0MJ"/>
-                            <constraint firstItem="hUG-gn-RYI" firstAttribute="trailing" secondItem="KbR-wT-tFZ" secondAttribute="trailingMargin" id="YIC-Yt-sU0"/>
                         </constraints>
                     </scrollView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="hUG-gn-RYI">
+                        <rect key="frame" x="287" y="154" width="80" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="PAz-nU-J8b"/>
+                        </constraints>
+                        <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    </pageControl>
                 </subviews>
                 <constraints>
                     <constraint firstItem="KbR-wT-tFZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="K3R-2Z-oBt"/>
                     <constraint firstItem="KbR-wT-tFZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LeG-eA-bL0"/>
                     <constraint firstAttribute="bottom" secondItem="KbR-wT-tFZ" secondAttribute="bottom" id="P3U-WX-v1w"/>
                     <constraint firstAttribute="trailing" secondItem="KbR-wT-tFZ" secondAttribute="trailing" id="Rh2-2l-sta"/>
+                    <constraint firstItem="hUG-gn-RYI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ip4-XW-rhn"/>
+                    <constraint firstItem="hUG-gn-RYI" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="lDG-zX-BzE"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
