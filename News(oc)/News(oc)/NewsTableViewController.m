@@ -10,6 +10,7 @@
 #import "FirstTableViewCell.h"
 #import "HttpTool.h"
 #import "UIImageView+Category.h"
+#import "PictureTableViewCell.h"
 
 @interface NewsTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -26,6 +27,7 @@ NSArray *dataArray;
     // Do any additional setup after loading the view.
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [_tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"picture_cell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
@@ -76,6 +78,17 @@ NSArray *dataArray;
             cell.titleLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"title"];
             [cell.titleImageView downloadImageWithURL:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"]];
             cell.contentLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"digest"];
+        }else{
+            PictureTableViewCell *cell0 = [tableView dequeueReusableCellWithIdentifier:@"picture_cell"];
+            NSMutableArray *pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
+            for (NSInteger i = 0; i < pictureArray.count; i ++) {
+                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, cell0.frame.size.height)];
+                [imageView downloadImageWithURL:[[pictureArray objectAtIndex:i] objectForKey:@"imgsrc"]];
+                cell0.pageControl.numberOfPages = pictureArray.count;
+                cell0.pageControl.currentPage = 0;
+                [cell0.scrollView insertSubview:imageView belowSubview:cell0.pageControl];
+            }
+            return cell0;
         }
         
     }
@@ -90,6 +103,11 @@ NSArray *dataArray;
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewAutomaticDimension;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%@",indexPath);
 }
 
 /*

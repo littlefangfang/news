@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PictureTableViewCell : UITableViewCell
+@interface PictureTableViewCell : UITableViewCell <UIScrollViewDelegate>
 
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
-
-@property (retain, nonatomic) NSArray *pictureArray;
+@property (retain, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end

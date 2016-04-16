@@ -9,25 +9,26 @@
 #import "PictureTableViewCell.h"
 #import "UIImageView+Category.h"
 
-@implementation PictureTableViewCell
+@implementation PictureTableViewCell{
+    UIViewController *vc;
+    NSMutableArray *controllers;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self setPictures];
+
+
 }
+
+
 
 #pragma mark - Helper
 
-- (void)setPictures
-{
-    for (NSInteger i = 0; i < _pictureArray.count; i ++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, self.frame.size.height)];
-        [imageView downloadImageWithURL:[_pictureArray objectAtIndex:i]];
-        [_scrollView insertSubview:imageView belowSubview:_pageControl];
-    }
-    
-}
+
+
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
