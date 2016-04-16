@@ -96,6 +96,8 @@ NSArray *dataArray;
     return cell;
 }
 
+#pragma mark - UITableViewDelegate methods
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewAutomaticDimension;

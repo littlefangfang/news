@@ -22,6 +22,7 @@
 		499CC8601CC0C8F30055680D /* UIImageView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 499CC85F1CC0C8F30055680D /* UIImageView+Category.m */; };
 		499CC8641CC0DE000055680D /* PictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 499CC8621CC0DE000055680D /* PictureTableViewCell.m */; };
 		499CC8651CC0DE000055680D /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499CC8631CC0DE000055680D /* PictureTableViewCell.xib */; };
+		49A2655E1CC256D600717D59 /* NewsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A2655D1CC256D600717D59 /* NewsDetailTableViewController.m */; };
 		49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		499CC8611CC0DE000055680D /* PictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureTableViewCell.h; sourceTree = "<group>"; };
 		499CC8621CC0DE000055680D /* PictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureTableViewCell.m; sourceTree = "<group>"; };
 		499CC8631CC0DE000055680D /* PictureTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureTableViewCell.xib; sourceTree = "<group>"; };
+		49A2655C1CC256D600717D59 /* NewsDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailTableViewController.h; sourceTree = "<group>"; };
+		49A2655D1CC256D600717D59 /* NewsDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailTableViewController.m; sourceTree = "<group>"; };
 		49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
 		49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +125,7 @@
 		494C67671CABA117000FED11 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				49A2655B1CC2568E00717D59 /* News Detail */,
 				0641ADD71CAAD1E60069559F /* NewsViewController.h */,
 				0641ADD81CAAD1E60069559F /* NewsViewController.m */,
 				49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */,
@@ -143,6 +147,15 @@
 				499CC85F1CC0C8F30055680D /* UIImageView+Category.m */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		49A2655B1CC2568E00717D59 /* News Detail */ = {
+			isa = PBXGroup;
+			children = (
+				49A2655C1CC256D600717D59 /* NewsDetailTableViewController.h */,
+				49A2655D1CC256D600717D59 /* NewsDetailTableViewController.m */,
+			);
+			name = "News Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +238,7 @@
 				49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */,
 				499CC8641CC0DE000055680D /* PictureTableViewCell.m in Sources */,
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
+				49A2655E1CC256D600717D59 /* NewsDetailTableViewController.m in Sources */,
 				0641ADC21CAAC7650069559F /* main.m in Sources */,
 				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,
 				499CC8601CC0C8F30055680D /* UIImageView+Category.m in Sources */,
