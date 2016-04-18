@@ -12,22 +12,30 @@
 #import "UIImageView+Category.h"
 #import "PictureTableViewCell.h"
 
-@interface NewsTableViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface NewsTableViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
 @property (nonatomic, retain) UITableView *tableView;
+
+@property (nonatomic,retain) PictureTableViewCell *pictureCell;
 
 @end
 
 @implementation NewsTableViewController{
+    
+    NSArray *pictureArray;
+    
+    NSInteger currentIdx;
 
-NSArray *dataArray;
+    NSArray *dataArray;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    currentIdx = 1;
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [_tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [_tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"picture_cell"];
+
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
@@ -78,22 +86,49 @@ NSArray *dataArray;
             cell.titleLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"title"];
             [cell.titleImageView downloadImageWithURL:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"]];
             cell.contentLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"digest"];
+            cell.replyLabel.text = [NSString stringWithFormat:@" %@跟帖 ",[[dataArray objectAtIndex:indexPath.row] objectForKey:@"replyCount"]];
+            [cell.replyLabel sizeToFit];
         }else{
-            PictureTableViewCell *cell0 = [tableView dequeueReusableCellWithIdentifier:@"picture_cell"];
-            NSMutableArray *pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
-            cell0.scrollView.contentSize = CGSizeMake(pictureArray.count * [UIScreen mainScreen].bounds.size.width, cell0.frame.size.height);
-            for (NSInteger i = 0; i < pictureArray.count; i++) {
-                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, cell0.frame.size.height)];
-                [imageView downloadImageWithURL:[[pictureArray objectAtIndex:i] objectForKey:@"imgsrc"]];
-                cell0.pageControl.numberOfPages = pictureArray.count;
-                cell0.pageControl.currentPage = 0;
-                [cell0.scrollView insertSubview:imageView belowSubview:cell0.pageControl];
+            if (!_pictureCell) {
+                _pictureCell = [tableView dequeueReusableCellWithIdentifier:@"picture_cell"];
             }
-            return cell0;
+            pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
+            _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
+            _pictureCell.scrollView.delegate = self;
+            [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
+            [_pictureCell.currentImageView downloadImageWithURL:[[pictureArray objectAtIndex:1] objectForKey:@"imgsrc"]];
+            [_pictureCell.afterImageView downloadImageWithURL:[[pictureArray objectAtIndex:2] objectForKey:@"imgsrc"]];
+            return _pictureCell;
         }
-        
     }
     return cell;
+}
+
+#pragma mark - UIScrollViewDelegate methods
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    currentIdx += _pictureCell.scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width - 1;
+    if (currentIdx <= -1) {
+        currentIdx = pictureArray.count - 1;
+    }else if(currentIdx >= pictureArray.count){
+        currentIdx = 0;
+    }
+    [_pictureCell.currentImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx] objectForKey:@"imgsrc"]];
+    [_pictureCell.scrollView setContentOffset:CGPointMake([UIScreen mainScreen].bounds.size.width, 0) animated:NO];
+    
+    if (currentIdx == pictureArray.count - 1) {
+        [_pictureCell.afterImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
+    }else{
+        [_pictureCell.afterImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx + 1] objectForKey:@"imgsrc"]];
+    }
+    if (currentIdx == 0) {
+        [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:pictureArray.count - 1] objectForKey:@"imgsrc"]];
+    }else{
+        [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx - 1] objectForKey:@"imgsrc"]];
+    }
+    _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
+    _pictureCell.pageControl.currentPage = currentIdx;
 }
 
 #pragma mark - UITableViewDelegate methods
@@ -108,10 +143,6 @@ NSArray *dataArray;
     return UITableViewAutomaticDimension;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"%@",indexPath);
-}
 
 /*
 #pragma mark - Navigation

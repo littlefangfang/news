@@ -18,6 +18,7 @@
         
         __block UIImage *image = [UIImage imageWithContentsOfFile:temp];
         
+        
         NSURL *imageURL = [NSURL URLWithString:URL];
         if (!image) {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

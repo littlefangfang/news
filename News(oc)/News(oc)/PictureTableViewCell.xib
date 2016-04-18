@@ -21,6 +21,12 @@
                             <constraint firstAttribute="height" constant="199" id="0J6-sJ-M8z"/>
                         </constraints>
                     </scrollView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ag5-yf-IzN">
+                        <rect key="frame" x="8" y="162" width="269" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="hUG-gn-RYI">
                         <rect key="frame" x="287" y="154" width="80" height="37"/>
                         <constraints>
@@ -30,16 +36,21 @@
                     </pageControl>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ag5-yf-IzN" firstAttribute="centerY" secondItem="hUG-gn-RYI" secondAttribute="centerY" id="6F9-73-ckM"/>
                     <constraint firstItem="KbR-wT-tFZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="K3R-2Z-oBt"/>
                     <constraint firstItem="KbR-wT-tFZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LeG-eA-bL0"/>
                     <constraint firstAttribute="bottom" secondItem="KbR-wT-tFZ" secondAttribute="bottom" id="P3U-WX-v1w"/>
                     <constraint firstAttribute="trailing" secondItem="KbR-wT-tFZ" secondAttribute="trailing" id="Rh2-2l-sta"/>
+                    <constraint firstItem="ag5-yf-IzN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ZZ1-PH-Qpt"/>
                     <constraint firstItem="hUG-gn-RYI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ip4-XW-rhn"/>
                     <constraint firstItem="hUG-gn-RYI" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="lDG-zX-BzE"/>
+                    <constraint firstItem="hUG-gn-RYI" firstAttribute="leading" secondItem="ag5-yf-IzN" secondAttribute="trailing" constant="10" id="lDU-jg-6zq"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ag5-yf-IzN" secondAttribute="bottom" constant="8" id="rCu-Y0-k86"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="pageControl" destination="hUG-gn-RYI" id="Z9Q-cN-7l5"/>
+                <outlet property="pictureTitleLabel" destination="ag5-yf-IzN" id="QRx-Kj-Ur1"/>
                 <outlet property="scrollView" destination="KbR-wT-tFZ" id="2xY-CQ-QRQ"/>
             </connections>
             <point key="canvasLocation" x="340.5" y="323"/>

@@ -33,6 +33,26 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbe-ks-KpW">
+                        <rect key="frame" x="336" y="57" width="31" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="dTu-yF-JM6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.opaque">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="k8s-hl-nfX" secondAttribute="bottom" constant="8" id="1ec-GX-SzO"/>
@@ -40,16 +60,19 @@
                     <constraint firstItem="ruK-ZK-3ir" firstAttribute="leading" secondItem="k8s-hl-nfX" secondAttribute="trailing" constant="8" id="7k0-pf-qWx"/>
                     <constraint firstItem="k8s-hl-nfX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="98e-kP-17p"/>
                     <constraint firstItem="VfP-jh-CXl" firstAttribute="leading" secondItem="k8s-hl-nfX" secondAttribute="trailing" constant="8" id="A3J-QV-zvt"/>
+                    <constraint firstAttribute="trailing" secondItem="rbe-ks-KpW" secondAttribute="trailing" constant="8" id="G3N-Nl-2Kc"/>
                     <constraint firstItem="ruK-ZK-3ir" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="JCw-bb-VpW"/>
                     <constraint firstAttribute="trailing" secondItem="VfP-jh-CXl" secondAttribute="trailing" constant="8" id="StP-sP-Kvo"/>
                     <constraint firstItem="k8s-hl-nfX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="arV-Yu-2xd"/>
                     <constraint firstItem="VfP-jh-CXl" firstAttribute="top" secondItem="ruK-ZK-3ir" secondAttribute="bottom" constant="4" id="biH-Ax-1QB"/>
                     <constraint firstAttribute="bottom" secondItem="VfP-jh-CXl" secondAttribute="bottom" constant="8" id="h40-3c-Lk9"/>
+                    <constraint firstAttribute="bottom" secondItem="rbe-ks-KpW" secondAttribute="bottom" constant="8" id="j1e-63-p9M"/>
                     <constraint firstAttribute="trailing" secondItem="ruK-ZK-3ir" secondAttribute="trailing" constant="8" id="nda-Qm-FAB"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="VfP-jh-CXl" id="cLF-dc-3dP"/>
+                <outlet property="replyLabel" destination="rbe-ks-KpW" id="UmM-tP-mNA"/>
                 <outlet property="titleImageView" destination="k8s-hl-nfX" id="OjE-K4-oEX"/>
                 <outlet property="titleLabel" destination="ruK-ZK-3ir" id="VWm-kd-gMy"/>
             </connections>

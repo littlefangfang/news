@@ -16,4 +16,6 @@
 
 @property(retain, nonatomic) IBOutlet UILabel *contentLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *replyLabel;
+
 @end

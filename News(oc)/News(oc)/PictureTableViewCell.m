@@ -6,6 +6,8 @@
 //  Copyright © 2016年 founder. All rights reserved.
 //
 
+#define SCREEN_W [UIScreen mainScreen].bounds.size.width
+
 #import "PictureTableViewCell.h"
 #import "UIImageView+Category.h"
 
@@ -18,20 +20,13 @@
     [super awakeFromNib];
     // Initialization code
 
-    _scrollView.delegate = self;
+    _beforeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, self.bounds.size.height)];
+    _currentImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_W, 0, SCREEN_W, self.bounds.size.height)];
+    _afterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(2 * SCREEN_W, 0, SCREEN_W, self.bounds.size.height)];
+    [_scrollView addSubview:_beforeImageView];
+    [_scrollView addSubview:_currentImageView];
+    [_scrollView addSubview:_afterImageView];
 }
-
-
-
-#pragma mark - Helper
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    NSInteger index = _scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width + 0.5;
-    _pageControl.currentPage = index;
-}
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

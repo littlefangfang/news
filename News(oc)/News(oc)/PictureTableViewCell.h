@@ -14,4 +14,12 @@
 
 @property (retain, nonatomic) IBOutlet UIPageControl *pageControl;
 
+@property (retain, nonatomic) UIImageView *beforeImageView;
+
+@property (retain, nonatomic) UIImageView *currentImageView;
+
+@property (retain, nonatomic) UIImageView *afterImageView;
+
+@property (strong, nonatomic) IBOutlet UILabel *pictureTitleLabel;
+
 @end
