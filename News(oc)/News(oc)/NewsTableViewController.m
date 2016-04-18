@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     currentIdx = 1;
-    _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 137)];
     [_tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [_tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"picture_cell"];
 
@@ -40,7 +40,6 @@
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     [self loadNewsData];
-    _tableView.contentInset = UIEdgeInsetsMake(0, 0, 137, 0);
 }
 
 #pragma mark Helper
@@ -86,7 +85,7 @@
             cell.titleLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"title"];
             [cell.titleImageView downloadImageWithURL:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"]];
             cell.contentLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"digest"];
-            cell.replyLabel.text = [NSString stringWithFormat:@" %@跟帖 ",[[dataArray objectAtIndex:indexPath.row] objectForKey:@"replyCount"]];
+            cell.replyLabel.text = [NSString stringWithFormat:@"%@跟帖",[[dataArray objectAtIndex:indexPath.row] objectForKey:@"replyCount"]];
             [cell.replyLabel sizeToFit];
         }else{
             if (!_pictureCell) {
@@ -95,13 +94,28 @@
             pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
             _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
             _pictureCell.scrollView.delegate = self;
-            [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
-            [_pictureCell.currentImageView downloadImageWithURL:[[pictureArray objectAtIndex:1] objectForKey:@"imgsrc"]];
-            [_pictureCell.afterImageView downloadImageWithURL:[[pictureArray objectAtIndex:2] objectForKey:@"imgsrc"]];
+            _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:0] objectForKey:@"title"];
+            [self setScrollViewPictures];
             return _pictureCell;
         }
     }
     return cell;
+}
+
+- (void)setScrollViewPictures
+{
+    [_pictureCell.currentImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx] objectForKey:@"imgsrc"]];
+    if (currentIdx == pictureArray.count - 1) {
+        [_pictureCell.afterImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
+    }else{
+        [_pictureCell.afterImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx + 1] objectForKey:@"imgsrc"]];
+    }
+    if (currentIdx == 0) {
+        [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:pictureArray.count - 1] objectForKey:@"imgsrc"]];
+    }else{
+        [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx - 1] objectForKey:@"imgsrc"]];
+    }
+
 }
 
 #pragma mark - UIScrollViewDelegate methods
@@ -114,19 +128,8 @@
     }else if(currentIdx >= pictureArray.count){
         currentIdx = 0;
     }
-    [_pictureCell.currentImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx] objectForKey:@"imgsrc"]];
+    [self setScrollViewPictures];
     [_pictureCell.scrollView setContentOffset:CGPointMake([UIScreen mainScreen].bounds.size.width, 0) animated:NO];
-    
-    if (currentIdx == pictureArray.count - 1) {
-        [_pictureCell.afterImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
-    }else{
-        [_pictureCell.afterImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx + 1] objectForKey:@"imgsrc"]];
-    }
-    if (currentIdx == 0) {
-        [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:pictureArray.count - 1] objectForKey:@"imgsrc"]];
-    }else{
-        [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx - 1] objectForKey:@"imgsrc"]];
-    }
     _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
     _pictureCell.pageControl.currentPage = currentIdx;
 }
