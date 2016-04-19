@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@",self.dataDictionary);
+    _dataDictionary = [NSDictionary dictionary];
+    NSLog(@"%@",_dataDictionary);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

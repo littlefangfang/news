@@ -8,6 +8,7 @@
 
 #import "NewsViewController.h"
 #import "NewsTableViewController.h"
+#import "NewsDetailTableViewController.h"
 
 #define SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height
@@ -110,14 +111,16 @@
     [_contentScrollView addSubview:self.childViewControllers[index].view];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NewsDetailTableViewController *vc = [segue destinationViewController];
+    vc.dataDictionary = sender;
 }
-*/
+
 
 @end

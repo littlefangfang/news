@@ -206,10 +206,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row > 0) {
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        NewsDetailTableViewController *vc = (NewsDetailTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"news_detail"];
-//        detailSegue = [UIStoryboardSegue segueWithIdentifier:@"show_Detail" source:self destination:vc performHandler:nil];
-        [self performSegueWithIdentifier:@"show_Detail" sender:nil];
+
+        [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[dataArray objectAtIndex:indexPath.row]];
+
     }
 }
 
@@ -224,7 +223,6 @@
 {
     return UITableViewAutomaticDimension;
 }
-
 
 
 /*
