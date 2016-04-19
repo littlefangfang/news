@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     currentIdx = 1;
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 137)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 143)];
     [_tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [_tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"picture_cell"];
 
@@ -94,7 +94,7 @@
             pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
             _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
             _pictureCell.scrollView.delegate = self;
-            _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:0] objectForKey:@"title"];
+            _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
             [self setScrollViewPictures];
             return _pictureCell;
         }
