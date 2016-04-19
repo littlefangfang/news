@@ -120,7 +120,7 @@
         <!--新闻详情-->
         <scene sceneID="Bjo-C6-ba7">
             <objects>
-                <tableViewController storyboardIdentifier="news_detail" id="ZOj-Cs-p4R" userLabel="新闻详情" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="news_detail" id="ZOj-Cs-p4R" userLabel="新闻详情" customClass="NewsDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WwP-l5-G8e">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

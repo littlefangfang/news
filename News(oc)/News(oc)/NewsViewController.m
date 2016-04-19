@@ -111,15 +111,16 @@
     [_contentScrollView addSubview:self.childViewControllers[index].view];
 }
 
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NewsDetailTableViewController *vc = [segue destinationViewController];
-    vc.dataDictionary = sender;
+    NewsDetailTableViewController *vc = (NewsDetailTableViewController *)[segue destinationViewController];
+    if ([vc respondsToSelector:@selector(setDataDictionary:)]) {
+        vc.dataDictionary = (NSDictionary *)sender;
+    }
 }
 
 
