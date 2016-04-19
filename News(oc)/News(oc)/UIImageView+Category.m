@@ -26,7 +26,6 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     image = [UIImage imageWithData:imageData];
                     self.image = image;
-                    
                     [imageData writeToFile:temp atomically:YES];
                 });
             });

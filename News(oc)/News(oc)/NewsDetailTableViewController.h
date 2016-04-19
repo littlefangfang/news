@@ -10,4 +10,6 @@
 
 @interface NewsDetailTableViewController : UITableViewController
 
+@property (nonatomic, retain) NSDictionary *dataDictionary;
+
 @end

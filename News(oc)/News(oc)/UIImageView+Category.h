@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsTableViewController.h"
 
 @interface UIImageView (Category)
 
 - (void)downloadImageWithURL:(NSString *)URL;
+
 @end

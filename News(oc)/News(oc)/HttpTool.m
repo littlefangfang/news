@@ -8,7 +8,7 @@
 
 #import "HttpTool.h"
 @implementation HttpTool{
-    __weak HttpTool *weakSelf;
+    __weak typeof(HttpTool *)weakSelf;
 }
 
 

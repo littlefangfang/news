@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface NewsTableViewController : UIViewController
 
 @property (retain, nonatomic) NSArray *titleArray;

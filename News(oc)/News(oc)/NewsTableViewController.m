@@ -11,6 +11,7 @@
 #import "HttpTool.h"
 #import "UIImageView+Category.h"
 #import "PictureTableViewCell.h"
+#import "NewsDetailTableViewController.h"
 
 @interface NewsTableViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
@@ -22,7 +23,7 @@
 
 @implementation NewsTableViewController{
     
-    __weak NewsTableViewController *weakSelf;
+    __weak typeof(NewsTableViewController *)weakSelf;
     
     NSInteger pageNumber;
     
@@ -31,6 +32,8 @@
     NSInteger currentIdx;
 
     NSMutableArray *dataArray;
+    
+    UIStoryboardSegue *detailSegue;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -126,11 +129,19 @@
             if (!_pictureCell) {
                 _pictureCell = [tableView dequeueReusableCellWithIdentifier:@"picture_cell"];
             }
+            if ([[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"]) {
+                pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
+            }else{
+                _pictureCell.scrollView.scrollEnabled = NO;
+                _pictureCell.pageControl.hidden = YES;
+                [_pictureCell.currentImageView downloadImageWithURL:[[dataArray objectAtIndex:0] objectForKey:@"imgsrc"]];
+                _pictureCell.pictureTitleLabel.text = [[dataArray objectAtIndex:0] objectForKey:@"title"];
+                return _pictureCell;
+            }
             
-            pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
             if (pictureArray.count == 1) {
                 _pictureCell.scrollView.scrollEnabled = NO;
-                _pictureCell.pageControl.numberOfPages = pictureArray.count;
+                _pictureCell.pageControl.hidden = YES;
                 [_pictureCell.currentImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
                 _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:0] objectForKey:@"title"];
                 return _pictureCell;
@@ -138,6 +149,7 @@
             _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
             _pictureCell.scrollView.delegate = self;
             _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
+            _pictureCell.pageControl.numberOfPages = pictureArray.count;
             [self setScrollViewPictures];
             return _pictureCell;
         }
@@ -188,6 +200,16 @@
             pageNumber += 20;
             [weakSelf loadNewsData];
         }];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row > 0) {
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        NewsDetailTableViewController *vc = (NewsDetailTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"news_detail"];
+//        detailSegue = [UIStoryboardSegue segueWithIdentifier:@"show_Detail" source:self destination:vc performHandler:nil];
+        [self performSegueWithIdentifier:@"show_Detail" sender:nil];
     }
 }
 
