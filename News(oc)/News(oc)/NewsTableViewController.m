@@ -22,16 +22,21 @@
 
 @implementation NewsTableViewController{
     
+    __weak NewsTableViewController *weakSelf;
+    
+    NSInteger pageNumber;
+    
     NSArray *pictureArray;
     
     NSInteger currentIdx;
 
-    NSArray *dataArray;
+    NSMutableArray *dataArray;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     currentIdx = 1;
+    weakSelf = self;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 143)];
     [_tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [_tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"picture_cell"];
@@ -39,20 +44,55 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
-    [self loadNewsData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+     [self loadNewsData];
 }
 
 #pragma mark Helper
 
 - (void)loadNewsData
 {
+    NSString *requestString;
+    if ([self.title isEqualToString:@"头条"]) {
+        requestString = @"headline/T1348647853363";
+    }else if ([self.title isEqualToString:@"科技"]){
+        requestString = @"list/T1348649580692";
+    }else if ([self.title isEqualToString:@"游戏"]){
+        requestString = @"list/T1348654151579";
+    }else if ([self.title isEqualToString:@"娱乐"]){
+        requestString = @"list/T1348648517839";
+    }else if ([self.title isEqualToString:@"手机"]){
+        requestString = @"list/T1348649654285";
+    }else if ([self.title isEqualToString:@"漫画"]){
+        requestString = @"list/T1444270454635";
+    }
     HttpTool *tool = [[HttpTool alloc] init];
     tool.handlerBlock = ^(NSData *data, NSURLResponse *response, NSError *error){
         NSDictionary *dataJson = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        dataArray = [dataJson objectForKey:@"T1348647853363"];
+        if (dataArray.count > 0) {
+        dataArray = [dataArray arrayByAddingObjectsFromArray:[[dataJson objectForKey:requestString.lastPathComponent] mutableCopy]];
+        }else{
+            dataArray = [dataJson objectForKey:requestString.lastPathComponent];
+        }
         [_tableView reloadData];
     };
-    [tool getData:[NSURL URLWithString:@"http://c.m.163.com/nc/article/headline/T1348647853363/0-20.html"]];
+    if ([self.title isEqualToString:@"头条"]) {
+        [tool getData:[NSString stringWithFormat:@"article/%@/%ld-20.html",requestString,pageNumber]];
+    }else if ([self.title isEqualToString:@"科技"]){
+        [tool getData:[NSString stringWithFormat:@"article/%@/%ld-20.html",requestString,pageNumber]];
+    }else if ([self.title isEqualToString:@"游戏"]){
+        [tool getData:[NSString stringWithFormat:@"article/%@/%ld-20.html",requestString,pageNumber]];
+    }else if ([self.title isEqualToString:@"娱乐"]){
+        [tool getData:[NSString stringWithFormat:@"article/%@/%ld-20.html",requestString,pageNumber]];
+    }else if ([self.title isEqualToString:@"手机"]){
+        [tool getData:[NSString stringWithFormat:@"article/%@/%ld-20.html",requestString,pageNumber]];
+    }else if ([self.title isEqualToString:@"漫画"]){
+        [tool getData:[NSString stringWithFormat:@"article/%@/%ld-20.html",requestString,pageNumber]];
+    }
+    
 }
 
 
@@ -70,17 +110,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
      FirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (self.view.tag == 100) {
-        cell.titleLabel.text = @"新建一个 Table View Controller 页面，并把我们之前创建的 Swift on iOS 那个按钮的点击事件绑定过去，我们得到";
-        cell.contentLabel.text = @"新建一个 Table View Controller 页面，并把我们之前创建的 Swift on iOS 那个按钮的点击事件绑定过去，我们得到";
-        cell.titleImageView.image = [UIImage imageNamed:@"81.jpg"];
-    }else if(self.view.tag == 101){
         if (indexPath.row > 0) {
             cell.titleLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"title"];
             [cell.titleImageView downloadImageWithURL:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"]];
@@ -91,14 +126,22 @@
             if (!_pictureCell) {
                 _pictureCell = [tableView dequeueReusableCellWithIdentifier:@"picture_cell"];
             }
+            
             pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
+            if (pictureArray.count == 1) {
+                _pictureCell.scrollView.scrollEnabled = NO;
+                _pictureCell.pageControl.numberOfPages = pictureArray.count;
+                [_pictureCell.currentImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
+                _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:0] objectForKey:@"title"];
+                return _pictureCell;
+            }
             _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
             _pictureCell.scrollView.delegate = self;
             _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
             [self setScrollViewPictures];
             return _pictureCell;
         }
-    }
+
     return cell;
 }
 
@@ -134,6 +177,20 @@
     _pictureCell.pageControl.currentPage = currentIdx;
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (scrollView.contentOffset.y + scrollView.frame.size.height >= scrollView.contentSize.height) {
+        [UIView animateWithDuration:1.0 animations:^{
+            
+            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 60, 0)];
+        } completion:^(BOOL finished) {
+            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+            pageNumber += 20;
+            [weakSelf loadNewsData];
+        }];
+    }
+}
+
 #pragma mark - UITableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -145,6 +202,7 @@
 {
     return UITableViewAutomaticDimension;
 }
+
 
 
 /*

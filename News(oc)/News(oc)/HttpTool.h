@@ -12,5 +12,5 @@
 
 @property (nonatomic, copy) void (^ handlerBlock)(NSData *data,NSURLResponse *response,NSError *error);
 
-- (void)getData:(NSURL *)url;
+- (void)getData:(NSString *)url;
 @end

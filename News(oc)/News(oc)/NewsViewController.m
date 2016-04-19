@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    btnTitleArray = [NSArray arrayWithObjects:@"推荐",@"科技",@"娱乐",@"游戏",@"汽车", nil];
+    btnTitleArray = [NSArray arrayWithObjects:@"头条",@"科技",@"游戏",@"娱乐",@"手机",@"漫画", nil];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setContentScrollView];
     [self setButtonScrollView];
@@ -54,9 +54,11 @@
     _contentScrollView.delegate = self;
     for (int i = 0; i < btnTitleArray.count; i++) {
         NewsTableViewController *vc = [[NewsTableViewController alloc] init];
-
+        vc.title = [btnTitleArray objectAtIndex:i];
         [self addChildViewController:vc];
     }
+    [_contentScrollView addSubview:self.childViewControllers[0].view];
+
 }
 
 - (void)clickButton:(UIButton *)sender

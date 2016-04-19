@@ -21,8 +21,11 @@
     return self;
 }
 
-- (void)getData:(NSURL *)url
+- (void)getData:(NSString *)urlString
 {
+    NSString *baseURLString = @"http://c.m.163.com/nc/";
+    NSString *fullURLString = [baseURLString stringByAppendingString:urlString];
+    NSURL *url = [NSURL URLWithString:fullURLString];
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
