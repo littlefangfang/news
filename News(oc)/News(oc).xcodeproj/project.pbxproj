@@ -24,10 +24,6 @@
 		499CC8651CC0DE000055680D /* PictureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499CC8631CC0DE000055680D /* PictureTableViewCell.xib */; };
 		49A2655E1CC256D600717D59 /* NewsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A2655D1CC256D600717D59 /* NewsDetailTableViewController.m */; };
 		49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */; };
-		49BAF44F1CC75786009D5FF2 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4481CC75786009D5FF2 /* WebViewJavascriptBridge.m */; };
-		49BAF4501CC75786009D5FF2 /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF44A1CC75786009D5FF2 /* WebViewJavascriptBridge_JS.m */; };
-		49BAF4511CC75786009D5FF2 /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF44C1CC75786009D5FF2 /* WebViewJavascriptBridgeBase.m */; };
-		49BAF4521CC75786009D5FF2 /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF44E1CC75786009D5FF2 /* WKWebViewJavascriptBridge.m */; };
 		49BAF4551CC766B8009D5FF2 /* VideoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4541CC766B8009D5FF2 /* VideoInfo.m */; };
 		49BAF4581CC7679F009D5FF2 /* ImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4571CC7679F009D5FF2 /* ImageInfo.m */; };
 		49BAF45A1CC768B5009D5FF2 /* WebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 49BAF4591CC768B5009D5FF2 /* WebViewHtml.html */; };
@@ -47,6 +43,8 @@
 		49BAF48A1CC7718E009D5FF2 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4781CC7718E009D5FF2 /* UIImageView+HighlightedWebCache.m */; };
 		49BAF48B1CC7718E009D5FF2 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF47A1CC7718E009D5FF2 /* UIImageView+WebCache.m */; };
 		49BAF48C1CC7718E009D5FF2 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF47C1CC7718E009D5FF2 /* UIView+WebCacheOperation.m */; };
+		49BAF48E1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 49BAF48D1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt */; };
+		49BAF4911CC7889C009D5FF2 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4901CC7889C009D5FF2 /* WebViewJavascriptBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,14 +76,6 @@
 		49A2655D1CC256D600717D59 /* NewsDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailTableViewController.m; sourceTree = "<group>"; };
 		49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
 		49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
-		49BAF4471CC75786009D5FF2 /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
-		49BAF4481CC75786009D5FF2 /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
-		49BAF4491CC75786009D5FF2 /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
-		49BAF44A1CC75786009D5FF2 /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
-		49BAF44B1CC75786009D5FF2 /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
-		49BAF44C1CC75786009D5FF2 /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
-		49BAF44D1CC75786009D5FF2 /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
-		49BAF44E1CC75786009D5FF2 /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		49BAF4531CC766B8009D5FF2 /* VideoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfo.h; sourceTree = "<group>"; };
 		49BAF4541CC766B8009D5FF2 /* VideoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfo.m; sourceTree = "<group>"; };
 		49BAF4561CC7679F009D5FF2 /* ImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageInfo.h; sourceTree = "<group>"; };
@@ -124,6 +114,9 @@
 		49BAF47A1CC7718E009D5FF2 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		49BAF47B1CC7718E009D5FF2 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		49BAF47C1CC7718E009D5FF2 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		49BAF48D1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
+		49BAF48F1CC7889C009D5FF2 /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		49BAF4901CC7889C009D5FF2 /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +222,7 @@
 				49BAF4561CC7679F009D5FF2 /* ImageInfo.h */,
 				49BAF4571CC7679F009D5FF2 /* ImageInfo.m */,
 				49BAF4591CC768B5009D5FF2 /* WebViewHtml.html */,
+				49BAF48D1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt */,
 			);
 			name = "News Detail";
 			sourceTree = "<group>";
@@ -245,14 +239,8 @@
 		49BAF4461CC75786009D5FF2 /* WebViewJavascriptBridge */ = {
 			isa = PBXGroup;
 			children = (
-				49BAF4471CC75786009D5FF2 /* WebViewJavascriptBridge.h */,
-				49BAF4481CC75786009D5FF2 /* WebViewJavascriptBridge.m */,
-				49BAF4491CC75786009D5FF2 /* WebViewJavascriptBridge_JS.h */,
-				49BAF44A1CC75786009D5FF2 /* WebViewJavascriptBridge_JS.m */,
-				49BAF44B1CC75786009D5FF2 /* WebViewJavascriptBridgeBase.h */,
-				49BAF44C1CC75786009D5FF2 /* WebViewJavascriptBridgeBase.m */,
-				49BAF44D1CC75786009D5FF2 /* WKWebViewJavascriptBridge.h */,
-				49BAF44E1CC75786009D5FF2 /* WKWebViewJavascriptBridge.m */,
+				49BAF48F1CC7889C009D5FF2 /* WebViewJavascriptBridge.h */,
+				49BAF4901CC7889C009D5FF2 /* WebViewJavascriptBridge.m */,
 			);
 			path = WebViewJavascriptBridge;
 			sourceTree = "<group>";
@@ -360,6 +348,7 @@
 				494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */,
 				0641ADE11CAD72C90069559F /* test.jpg in Resources */,
 				0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */,
+				49BAF48E1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt in Resources */,
 				0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */,
 				0641ADE31CAD74D20069559F /* 81.jpg in Resources */,
 				0641ADCB1CAAC7650069559F /* Main.storyboard in Resources */,
@@ -376,14 +365,12 @@
 				49BAF4871CC7718E009D5FF2 /* UIImage+GIF.m in Sources */,
 				0641ADC81CAAC7650069559F /* ViewController.m in Sources */,
 				49BAF4551CC766B8009D5FF2 /* VideoInfo.m in Sources */,
-				49BAF4511CC75786009D5FF2 /* WebViewJavascriptBridgeBase.m in Sources */,
 				494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */,
 				49BAF4891CC7718E009D5FF2 /* UIImage+WebP.m in Sources */,
 				49BAF47E1CC7718E009D5FF2 /* NSData+ImageContentType.m in Sources */,
 				49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */,
 				49BAF4581CC7679F009D5FF2 /* ImageInfo.m in Sources */,
 				49BAF4811CC7718E009D5FF2 /* SDWebImageDecoder.m in Sources */,
-				49BAF44F1CC75786009D5FF2 /* WebViewJavascriptBridge.m in Sources */,
 				49BAF4861CC7718E009D5FF2 /* UIButton+WebCache.m in Sources */,
 				49BAF4841CC7718E009D5FF2 /* SDWebImageManager.m in Sources */,
 				499CC8641CC0DE000055680D /* PictureTableViewCell.m in Sources */,
@@ -391,7 +378,6 @@
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
 				49A2655E1CC256D600717D59 /* NewsDetailTableViewController.m in Sources */,
 				0641ADC21CAAC7650069559F /* main.m in Sources */,
-				49BAF4501CC75786009D5FF2 /* WebViewJavascriptBridge_JS.m in Sources */,
 				49BAF48A1CC7718E009D5FF2 /* UIImageView+HighlightedWebCache.m in Sources */,
 				49BAF4821CC7718E009D5FF2 /* SDWebImageDownloader.m in Sources */,
 				49BAF4851CC7718E009D5FF2 /* SDWebImagePrefetcher.m in Sources */,
@@ -400,11 +386,11 @@
 				49BAF4831CC7718E009D5FF2 /* SDWebImageDownloaderOperation.m in Sources */,
 				499CC8601CC0C8F30055680D /* UIImageView+Category.m in Sources */,
 				49BAF47D1CC7718E009D5FF2 /* MKAnnotationView+WebCache.m in Sources */,
+				49BAF4911CC7889C009D5FF2 /* WebViewJavascriptBridge.m in Sources */,
 				49BAF4881CC7718E009D5FF2 /* UIImage+MultiFormat.m in Sources */,
 				49BAF48C1CC7718E009D5FF2 /* UIView+WebCacheOperation.m in Sources */,
 				49BAF4801CC7718E009D5FF2 /* SDWebImageCompat.m in Sources */,
 				0641ADDF1CAD67EC0069559F /* HttpTool.m in Sources */,
-				49BAF4521CC75786009D5FF2 /* WKWebViewJavascriptBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

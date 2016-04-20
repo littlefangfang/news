@@ -35,9 +35,12 @@
 - (void)initJSBridge
 {
     [WebViewJavascriptBridge enableLogging];
-    _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView];
-    [_bridge registerHandler:@"webCallBack" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"webCallBack called: %@", data);
+    _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView webViewDelegate:self handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"ObjC received message from JS: %@", data);
+        responseCallback(@"Response for message from ObjC");
+    }];
+    [_bridge registerHandler:@"testObjcCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"testObjcCallback called: %@", data);
         responseCallback(@"Response from testObjcCallback");
     }];
 }
@@ -153,10 +156,10 @@
             NSString *cacheKey = [imageManager cacheKeyForURL:imageUrl];
             NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
             NSLog(@"imagePaths === %@",imagePaths);
-            [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
-//            [_bridge callHandler:@"webCallBack" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
-//                NSLog(@"%@",responseData);
-//            }];
+//            [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
+            [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],[self replaceUrlSpecialString:imagePaths]] responseCallback:^(id responseData) {
+                NSLog(@"%@",responseData);
+            }];
         }else {
             [imageManager downloadImageWithURL:imageUrl options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                 
@@ -168,10 +171,10 @@
                     NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
                     NSLog(@"imagePaths === %@",imagePaths);
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
-//                        [_bridge callHandler:@"webCallBack" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
-//                            NSLog(@"%@",responseData);
-//                        }];
+//                        [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
+                        [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],[self replaceUrlSpecialString:imagePaths]] responseCallback:^(id responseData) {
+                            NSLog(@"%@",responseData);
+                        }];
                     });
                     [weakSelf.tableView reloadData];
                     
