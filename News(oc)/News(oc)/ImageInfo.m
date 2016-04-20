@@ -1,19 +1,19 @@
 //
-//  VideoInfo.m
+//  ImageInfo.m
 //  News(oc)
 //
 //  Created by yunyi3g5 on 16/4/20.
 //  Copyright © 2016年 founder. All rights reserved.
 //
 
-#import "VideoInfo.h"
+#import "ImageInfo.h"
 
-@implementation VideoInfo
+@implementation ImageInfo
 
 - (id)initWithInfo:(NSDictionary *)dic
 {
     if (self) {
-        [self setValuesForKeysWithDictionary:dic];
+        [self setValuesForKeysWithDictionary:dic];//kvc
     }
     return self;
 }
@@ -22,4 +22,5 @@
 {
     
 }
+
 @end

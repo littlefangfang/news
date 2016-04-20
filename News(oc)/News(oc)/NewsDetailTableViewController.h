@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "WebViewJavascriptBridge.h"
 #import "HttpTool.h"
+#import "VideoInfo.h"
+#import "ImageInfo.h"
+#import "SDImageCache.h"
+#import "SDWebImageManager.h"
 
 @interface NewsDetailTableViewController : UITableViewController
 

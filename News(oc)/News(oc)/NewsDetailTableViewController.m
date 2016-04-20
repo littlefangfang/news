@@ -21,13 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.automaticallyAdjustsScrollViewInsets = YES;
     weakSelf = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self initJSBridge];
+    [self setupRequest];
 }
 
 #pragma mark - Helper
@@ -59,7 +60,7 @@
 - (void)setWebViewWithDictionary:(NSDictionary *)dictionary
 {
     if (dictionary) {
-        NSMutableString *bodyString = [NSMutableString stringWithString:[dictionary objectForKey:@"body"]];
+        NSMutableString *bodyStr = [NSMutableString stringWithString:[dictionary objectForKey:@"body"]];
         
         NSMutableString *titleStr= [dictionary objectForKey:@"title"];
         NSMutableString *sourceStr = [dictionary objectForKey:@"source"];
@@ -77,16 +78,117 @@
             NSLog(@"这个新闻里面有视频或者音频---");
             NSMutableArray *videos = [NSMutableArray arrayWithCapacity:[videoArray count]];
             for (NSDictionary *videoDic in videoArray) {
-                videoInfo *videoin = [[videoInfo alloc] initWithInfo:videoDic];
+                VideoInfo *videoin = [[VideoInfo alloc] initWithInfo:videoDic];
                 [videos addObject:videoin];
                 NSRange range = [bodyStr rangeOfString:videoin.ref];
                 NSString *videoStr = [NSString stringWithFormat:@"<embed height='50' width='280' src='%@' />",videoin.url_mp4];
                 [bodyStr replaceOccurrencesOfString:videoin.ref withString:videoStr options:NSCaseInsensitiveSearch range:range];
             }
+        }
+        
+        if ([imageArray count]==0) {
+            NSLog(@"新闻没图片");
+            NSString * str5 = [allTitleStr stringByAppendingString:bodyStr];
+            [_webView loadHTMLString:str5 baseURL:[[NSURL URLWithString:@""] baseURL]];
+            
+        }else{
+            NSLog(@"新闻内容里面有图片");
+            
+            NSMutableArray *images = [NSMutableArray arrayWithCapacity:[imageArray count]];
+            
+            for (NSDictionary *d in imageArray) {
+                
+                ImageInfo *info = [[ImageInfo alloc] initWithInfo:d];//kvc
+                [images addObject:info];
+
+                NSRange range = [bodyStr rangeOfString:info.ref];
+                NSArray *wh = [info.pixel componentsSeparatedByString:@"*"];
+                CGFloat width = [[wh objectAtIndex:0] floatValue];
+                
+                CGFloat rate = (self.view.bounds.size.width-15)/ width;
+                CGFloat height = [[wh objectAtIndex:1] floatValue];
+                CGFloat newWidth = width * rate;
+                CGFloat newHeight = height *rate;
+                
+                NSString *imageStr = [NSString stringWithFormat:@"<img src = 'loading' id = '%@' width = '%.0f' height = '%.0f' hspace='0.0' vspace='5'>",[self replaceUrlSpecialString:info.src],newWidth,newHeight];
+                [bodyStr replaceOccurrencesOfString:info.ref withString:imageStr options:NSCaseInsensitiveSearch range:range];
+            }
+        
+            [self getImageFromDownloaderOrDiskByImageUrlArray:imageArray];
+            [bodyStr replaceOccurrencesOfString:@"<p>　　" withString:@"<p>" options:NSCaseInsensitiveSearch range:[bodyStr rangeOfString:@"<p>　　"]];
+            
+            NSString * str5 = [allTitleStr stringByAppendingString:bodyStr];
+            
+            NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"WebViewHtml" ofType:@"html"];
+            NSMutableString* appHtml = [NSMutableString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+            
+            NSRange range = [appHtml rangeOfString:@"<p>mainnews</p>"];
+            
+            [appHtml replaceOccurrencesOfString:@"<p>mainnews</p>" withString:str5 options:NSCaseInsensitiveSearch range:range];
+            NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
+            [_webView loadHTMLString:appHtml baseURL:baseURL];
+            
+        }
+    }
+}
+
+- (void)getImageFromDownloaderOrDiskByImageUrlArray:(NSArray *)imageArray {
+    
+    SDWebImageManager *imageManager = [SDWebImageManager sharedManager];
+    [[SDWebImageManager sharedManager] setCacheKeyFilter:^(NSURL *url) {
+        url = [[NSURL alloc] initWithScheme:url.scheme host:url.host path:url.path];
+        NSString *str = [self replaceUrlSpecialString:[url absoluteString]];
+        return str;
+    }];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"com.hackemist.SDWebImageCache.default"];
+    
+    for (NSDictionary *d in imageArray) {
+        
+        NSMutableArray *images = [NSMutableArray arrayWithCapacity:[imageArray count]];
+        ImageInfo *info = [[ImageInfo alloc] initWithInfo:d];//kvc
+        [images addObject:info];
+        NSURL *imageUrl = [NSURL URLWithString:info.src];
+        if ([imageManager diskImageExistsForURL:imageUrl]) {
+            NSString *cacheKey = [imageManager cacheKeyForURL:imageUrl];
+            NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
+            NSLog(@"imagePaths === %@",imagePaths);
+            [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
+//            [_bridge callHandler:@"webCallBack" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
+//                NSLog(@"%@",responseData);
+//            }];
+        }else {
+            [imageManager downloadImageWithURL:imageUrl options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                
+            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                
+                if (image && finished) {//如果下载成功
+                    
+                    NSString *cacheKey = [imageManager cacheKeyForURL:imageUrl];
+                    NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
+                    NSLog(@"imagePaths === %@",imagePaths);
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
+//                        [_bridge callHandler:@"webCallBack" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
+//                            NSLog(@"%@",responseData);
+//                        }];
+                    });
+                    [weakSelf.tableView reloadData];
+                    
+                }else {
+                    
+                }
+                
+            }];
             
         }
         
     }
+}
+
+- (NSString *)replaceUrlSpecialString:(NSString *)string {
+    
+    return [string stringByReplacingOccurrencesOfString:@"/"withString:@"_"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,7 +220,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return [UIScreen mainScreen].bounds.size.height;
+        return [UIScreen mainScreen].bounds.size.height - 110;
     }
     return 0;
 }

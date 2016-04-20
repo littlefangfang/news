@@ -10,4 +10,9 @@
 
 @interface VideoInfo : NSObject
 
+@property (nonatomic,retain)NSString *url_mp4;
+
+@property(nonatomic,retain)NSString *ref;
+
+- (id)initWithInfo:(NSDictionary *)dic;
 @end
