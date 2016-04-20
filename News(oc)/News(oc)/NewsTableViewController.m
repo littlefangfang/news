@@ -31,9 +31,9 @@
     
     NSInteger currentIdx;
 
-    NSMutableArray *dataArray;
+    NSArray *dataArray;
     
-    UIStoryboardSegue *detailSegue;
+    UIActivityIndicatorView *indicatorView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,12 +46,17 @@
 
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    [_tableView setContentInset:UIEdgeInsetsMake(0, 0, -60, 0)];
+    [self createTableFooterView];
     [self.view addSubview:_tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-     [self loadNewsData];
+    if (dataArray.count == 0) {
+        pageNumber = 0;
+        [self loadNewsData];
+    }
 }
 
 #pragma mark Helper
@@ -98,6 +103,22 @@
     
 }
 
+- (void)createTableFooterView
+{
+    UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, _tableView.frame.size.height, [UIScreen mainScreen].bounds.size.width, 60)];
+    tableFooterView.backgroundColor = [UIColor lightGrayColor];
+    indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(30, 15, 30, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 100)];
+    label.backgroundColor = [UIColor redColor];
+    label.center = tableFooterView.center;
+    label.text = @"正在加载";
+    label.textColor = [UIColor blackColor];
+    
+    [tableFooterView addSubview:label];
+    [tableFooterView addSubview:indicatorView];
+    _tableView.tableFooterView = tableFooterView;
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -191,12 +212,13 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (scrollView.contentOffset.y + scrollView.frame.size.height >= scrollView.contentSize.height) {
+    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) {
         [UIView animateWithDuration:1.0 animations:^{
-            
-            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 60, 0)];
-        } completion:^(BOOL finished) {
+            [indicatorView startAnimating];
             [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        } completion:^(BOOL finished) {
+            [indicatorView stopAnimating];
+            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, -60, 0)];
             pageNumber += 20;
             [weakSelf loadNewsData];
         }];

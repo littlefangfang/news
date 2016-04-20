@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebViewJavascriptBridge.h"
+#import "HttpTool.h"
 
 @interface NewsDetailTableViewController : UITableViewController
 
 @property (nonatomic, retain) NSDictionary *dataDictionary;
+
+@property (retain, nonatomic) IBOutlet UIWebView *webView;
 
 @end
