@@ -15,7 +15,7 @@
 
 @implementation NewsDetailTableViewController{
     NSDictionary *dataDic;
-    
+    NSMutableArray *_allImagesOfThisArticle;
     __weak typeof(NewsDetailTableViewController *)weakSelf;
 }
 
@@ -118,8 +118,9 @@
             }
         
             [self getImageFromDownloaderOrDiskByImageUrlArray:imageArray];
-            [bodyStr replaceOccurrencesOfString:@"<p>　　" withString:@"<p>" options:NSCaseInsensitiveSearch range:[bodyStr rangeOfString:@"<p>　　"]];
-            
+
+//            [bodyStr replaceOccurrencesOfString:@"<p>　　" withString:@"<p>" options:NSCaseInsensitiveSearch range:[bodyStr rangeOfString:@"<p>　　"]];
+
             NSString * str5 = [allTitleStr stringByAppendingString:bodyStr];
             
             NSString* htmlPath = [[NSBundle mainBundle] pathForResource:@"WebViewHtml" ofType:@"html"];
@@ -157,7 +158,7 @@
             NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
             NSLog(@"imagePaths === %@",imagePaths);
 //            [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
-            [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],[self replaceUrlSpecialString:imagePaths]] responseCallback:^(id responseData) {
+            [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
                 NSLog(@"%@",responseData);
             }];
         }else {
@@ -172,7 +173,7 @@
                     NSLog(@"imagePaths === %@",imagePaths);
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //                        [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
-                        [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],[self replaceUrlSpecialString:imagePaths]] responseCallback:^(id responseData) {
+                        [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
                             NSLog(@"%@",responseData);
                         }];
                     });
