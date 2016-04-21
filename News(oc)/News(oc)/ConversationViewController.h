@@ -10,4 +10,8 @@
 
 @interface ConversationViewController : UIViewController
 
+@property (retain, nonatomic) NSString *replyBoard;
+
+@property (retain, nonatomic) NSString *docid;
+
 @end

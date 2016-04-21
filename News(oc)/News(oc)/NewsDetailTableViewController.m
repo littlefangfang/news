@@ -33,6 +33,7 @@
     [self setRightBarItem];
 }
 
+
 #pragma mark - Helper
 
 - (void)setLeftBarItem
@@ -99,7 +100,7 @@
 
 - (void)setupRequest
 {
-    NSString *requestString = [_dataDictionary objectForKey:@"postid"];
+    NSString *requestString = [_dataDictionary objectForKey:@"docid"];
     HttpTool *tool = [[HttpTool alloc] init];
     
     tool.handlerBlock = ^(NSData *data, NSURLResponse *response, NSError *error){
@@ -275,7 +276,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return [UIScreen mainScreen].bounds.size.height - 110;
+        return [UIScreen mainScreen].bounds.size.height - 64;
     }
     return 0;
 }
@@ -321,6 +322,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    ConversationViewController *vc = [segue destinationViewController];
+    vc.replyBoard = [dataDic objectForKey:@"replyBoard"];
+    vc.docid = [dataDic objectForKey:@"docid"];
 }
 
 

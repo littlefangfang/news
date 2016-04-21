@@ -56,6 +56,7 @@
             <objects>
                 <tabBarController id="MWc-Nz-ytU" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ggD-Cl-lE9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -120,7 +121,7 @@
         <!--新闻详情-->
         <scene sceneID="Bjo-C6-ba7">
             <objects>
-                <tableViewController storyboardIdentifier="news_detail" id="ZOj-Cs-p4R" userLabel="新闻详情" customClass="NewsDetailTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="news_detail" hidesBottomBarWhenPushed="YES" id="ZOj-Cs-p4R" userLabel="新闻详情" customClass="NewsDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WwP-l5-G8e">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,9 +173,10 @@
                             <outlet property="delegate" destination="ZOj-Cs-p4R" id="TPk-Oh-b8K"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="WVb-AM-FYk"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="Nxq-Db-EgI" id="S0h-i0-78a"/>
                         <segue destination="Xzp-YP-pCJ" kind="show" identifier="show_conversations" id="1Hh-OT-BGz"/>
@@ -187,7 +189,7 @@
         <!--Conversation View Controller-->
         <scene sceneID="Mx0-mz-PZL">
             <objects>
-                <viewController id="Xzp-YP-pCJ" customClass="ConversationViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Xzp-YP-pCJ" customClass="ConversationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LEf-EO-Ife"/>
                         <viewControllerLayoutGuide type="bottom" id="NIh-Od-Cd8"/>
@@ -195,8 +197,14 @@
                     <view key="view" contentMode="scaleToFill" id="vev-yd-RlT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="81.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="0NP-4n-lHw">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="363"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ve-DC-y9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,4 +370,7 @@
             <point key="canvasLocation" x="50" y="-504"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="81.jpg" width="1440" height="900"/>
+    </resources>
 </document>
