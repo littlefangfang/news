@@ -24,11 +24,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     btnTitleArray = [NSArray arrayWithObjects:@"头条",@"科技",@"游戏",@"娱乐",@"手机",@"漫画", nil];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setContentScrollView];
     [self setButtonScrollView];
+    UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 64)];
+    testView.backgroundColor = [UIColor colorWithRed:248.0 / 255.0 green:0 blue:0 alpha:1];
+    [self.view addSubview:testView];
 }
+
+
 
 #pragma mark - Helper
 
@@ -40,6 +46,7 @@
         [button setTitle:[btnTitleArray objectAtIndex:i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        button.titleLabel.font = [UIFont systemFontOfSize:15.0];
         button.tag = i * SCREEN_W;
         [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [_buttonScrollView addSubview:button];
@@ -47,6 +54,7 @@
     NSInteger index = _contentScrollView.contentOffset.x / SCREEN_W;
     UIButton *currentBtn = _buttonScrollView.subviews[index];
     [currentBtn setTitleColor:[UIColor colorWithRed:248.0 / 255.0 green:0 blue:0 alpha:1] forState:UIControlStateNormal];
+    currentBtn.transform = CGAffineTransformMakeScale(1.3, 1.3);
 }
 
 - (void)setContentScrollView
@@ -59,7 +67,6 @@
         [self addChildViewController:vc];
     }
     [_contentScrollView addSubview:self.childViewControllers[0].view];
-
 }
 
 - (void)clickButton:(UIButton *)sender
@@ -82,6 +89,8 @@
     if (leftIndex >= 0 && leftIndex < btnTitleArray.count - 1) {
         UIButton *leftButton = _buttonScrollView.subviews[leftIndex];
         UIButton *rightButton = _buttonScrollView.subviews[rightIndex];
+        leftButton.transform = CGAffineTransformMakeScale((rightIndex - index) * 0.3 + 1, (rightIndex - index) * 0.3 + 1);
+        rightButton.transform = CGAffineTransformMakeScale((index - leftIndex) * 0.3 + 1, (index - leftIndex) * 0.3 + 1);
         [leftButton setTitleColor:[UIColor colorWithRed:0.502 + (1 - (index - leftIndex)) * (248.0 / 255.0 - 0.502) green:(index - leftIndex) * 0.502 blue:(index - leftIndex) * 0.502 alpha:1] forState:UIControlStateNormal];
         [rightButton setTitleColor:[UIColor colorWithRed:0.502 + (index - leftIndex) * (248.0 / 255.0 - 0.502) green:0.502 - (index - leftIndex) * 0.502 blue:0.502 - (index - leftIndex) * 0.502 alpha:1] forState:UIControlStateNormal];
     }

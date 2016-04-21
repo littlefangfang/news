@@ -37,7 +37,7 @@
         <!--我-->
         <scene sceneID="wZh-8m-I82">
             <objects>
-                <navigationController id="ayX-Xz-l5Q" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ayX-Xz-l5Q" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" id="y9p-Yo-hrE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WGD-Ow-vA7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -106,11 +106,11 @@
                             <constraint firstAttribute="trailing" secondItem="ZgS-gh-QuY" secondAttribute="trailing" id="wMn-dS-Pca"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="新闻" id="T7z-yJ-4qA"/>
+                    <navigationItem key="navigationItem" title="新闻" id="oWr-eY-q9y"/>
                     <connections>
                         <outlet property="buttonScrollView" destination="hCr-mZ-PoE" id="yAv-HR-qL6"/>
                         <outlet property="contentScrollView" destination="ZgS-gh-QuY" id="zz9-yf-3Ko"/>
-                        <segue destination="ZOj-Cs-p4R" kind="show" identifier="show_Detail" id="uWU-IJ-Dlj"/>
+                        <segue destination="ZOj-Cs-p4R" kind="show" identifier="show_Detail" id="mLX-Fr-HOk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugQ-aT-HCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,13 +172,35 @@
                             <outlet property="delegate" destination="ZOj-Cs-p4R" id="TPk-Oh-b8K"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="WVb-AM-FYk"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="Nxq-Db-EgI" id="S0h-i0-78a"/>
+                        <segue destination="Xzp-YP-pCJ" kind="show" identifier="show_conversations" id="1Hh-OT-BGz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pf2-p0-f5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1468" y="-504"/>
+        </scene>
+        <!--Conversation View Controller-->
+        <scene sceneID="Mx0-mz-PZL">
+            <objects>
+                <viewController id="Xzp-YP-pCJ" customClass="ConversationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LEf-EO-Ife"/>
+                        <viewControllerLayoutGuide type="bottom" id="NIh-Od-Cd8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vev-yd-RlT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ve-DC-y9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2173" y="-504"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="Tek-2s-psX">
@@ -327,7 +349,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>

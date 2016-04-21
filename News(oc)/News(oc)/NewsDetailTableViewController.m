@@ -29,13 +29,65 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self initJSBridge];
     [self setupRequest];
+    [self setLeftBarItem];
+    [self setRightBarItem];
 }
 
 #pragma mark - Helper
+
+- (void)setLeftBarItem
+{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 54, 44)];
+    [button setImage:[UIImage imageNamed:@"icon_back.png"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"icon_back_highlighted.png"] forState:UIControlStateHighlighted];
+    [button addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    UIBarButtonItem *fixedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedButton.width = -12;
+    
+    self.navigationItem.leftBarButtonItems = @[fixedButton, backItem];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+}
+
+- (void)goBack:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)setRightBarItem
+{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 44)];
+    [button setTitle:[NSString stringWithFormat:@"%@跟帖  ",[_dataDictionary objectForKey:@"replyCount"]] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+    [button sizeToFit];
+    [button setFrame:CGRectMake(0, 0, button.frame.size.width + 20, 44)];
+    [button addTarget:self action:@selector(showNextPage:) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *buttonImage = [UIImage imageNamed:@"contentview_commentbacky.png"];
+    buttonImage = [buttonImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeTile];
+    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    UIBarButtonItem *fixedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedButton.width = -12;
+
+    self.navigationItem.rightBarButtonItems = @[rightItem,fixedButton];
+    
+}
+
+- (void)showNextPage:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"show_conversations" sender:nil];
+}
+
+
 - (void)initJSBridge
 {
     [WebViewJavascriptBridge enableLogging];
-    _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView webViewDelegate:self handler:^(id data, WVJBResponseCallback responseCallback) {
+    _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView webViewDelegate:(id)self handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"ObjC received message from JS: %@", data);
         responseCallback(@"Response for message from ObjC");
     }];
@@ -89,7 +141,7 @@
             }
         }
         
-        if ([imageArray count]==0) {
+        if (![imageArray count]) {
             NSLog(@"新闻没图片");
             NSString * str5 = [allTitleStr stringByAppendingString:bodyStr];
             [_webView loadHTMLString:str5 baseURL:[[NSURL URLWithString:@""] baseURL]];
@@ -157,10 +209,10 @@
             NSString *cacheKey = [imageManager cacheKeyForURL:imageUrl];
             NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
             NSLog(@"imagePaths === %@",imagePaths);
-//            [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
-            [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
-                NSLog(@"%@",responseData);
-            }];
+            [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
+//            [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
+//                NSLog(@"%@",responseData);
+//            }];
         }else {
             [imageManager downloadImageWithURL:imageUrl options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                 
@@ -172,12 +224,11 @@
                     NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
                     NSLog(@"imagePaths === %@",imagePaths);
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                        [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
-                        [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
-                            NSLog(@"%@",responseData);
-                        }];
+                        [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
+//                        [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
+//                            NSLog(@"%@",responseData);
+//                        }];
                     });
-                    [weakSelf.tableView reloadData];
                     
                 }else {
                     
@@ -263,7 +314,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -271,6 +322,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

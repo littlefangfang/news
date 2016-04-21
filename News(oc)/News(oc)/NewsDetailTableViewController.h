@@ -13,6 +13,7 @@
 #import "ImageInfo.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
+#import "ConversationViewController.h"
 
 @interface NewsDetailTableViewController : UITableViewController
 
