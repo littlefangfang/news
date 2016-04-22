@@ -55,8 +55,6 @@
         <scene sceneID="Ttq-oj-kOG">
             <objects>
                 <tabBarController id="MWc-Nz-ytU" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ggD-Cl-lE9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -73,6 +71,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlf-cQ-7Wo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-650" y="214"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TDm-QS-NlM">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="MzG-X4-WHY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i1x-oW-18a"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fgv-Jk-e12"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cGb-lj-hYc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ArG-UR-uo4">
+                                <rect key="frame" x="0.0" y="64" width="600" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Q1q-SZ-zlI"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cq0-DX-GSn">
+                                <rect key="frame" x="0.0" y="214" width="600" height="386"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ArG-UR-uo4" firstAttribute="top" secondItem="i1x-oW-18a" secondAttribute="bottom" id="0Uk-6S-WEi"/>
+                            <constraint firstItem="cq0-DX-GSn" firstAttribute="leading" secondItem="cGb-lj-hYc" secondAttribute="leading" id="CL5-Ee-sbx"/>
+                            <constraint firstItem="cq0-DX-GSn" firstAttribute="top" secondItem="ArG-UR-uo4" secondAttribute="bottom" id="Dki-ww-fqf"/>
+                            <constraint firstAttribute="trailing" secondItem="ArG-UR-uo4" secondAttribute="trailing" id="FiL-Pk-b8e"/>
+                            <constraint firstAttribute="trailing" secondItem="cq0-DX-GSn" secondAttribute="trailing" id="O6F-KN-KX7"/>
+                            <constraint firstItem="ArG-UR-uo4" firstAttribute="leading" secondItem="cGb-lj-hYc" secondAttribute="leading" id="mta-BY-ywJ"/>
+                            <constraint firstAttribute="bottom" secondItem="cq0-DX-GSn" secondAttribute="bottom" id="nXT-lP-1lL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZtQ-fj-Wtm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ykG-eN-qCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780" y="-1172"/>
         </scene>
         <!--新闻-->
         <scene sceneID="CZz-jC-Zv0">
@@ -107,7 +146,14 @@
                             <constraint firstAttribute="trailing" secondItem="ZgS-gh-QuY" secondAttribute="trailing" id="wMn-dS-Pca"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="新闻" id="oWr-eY-q9y"/>
+                    <navigationItem key="navigationItem" title="新闻" id="oWr-eY-q9y">
+                        <barButtonItem key="leftBarButtonItem" image="search_icon.png" id="lQM-LC-oka">
+                            <connections>
+                                <segue destination="MzG-X4-WHY" kind="show" id="Zqn-33-cCZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="awardeditor_coins_small.png" width="10" id="JG0-m3-dRf"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="buttonScrollView" destination="hCr-mZ-PoE" id="yAv-HR-qL6"/>
                         <outlet property="contentScrollView" destination="ZgS-gh-QuY" id="zz9-yf-3Ko"/>
@@ -372,5 +418,7 @@
     </scenes>
     <resources>
         <image name="81.jpg" width="1440" height="900"/>
+        <image name="awardeditor_coins_small.png" width="20" height="18"/>
+        <image name="search_icon.png" width="24" height="24"/>
     </resources>
 </document>

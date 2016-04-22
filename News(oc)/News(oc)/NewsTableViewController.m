@@ -34,6 +34,8 @@
     NSArray *dataArray;
     
     UIActivityIndicatorView *indicatorView;
+    
+    UILabel *label;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -128,13 +130,11 @@
 - (void)createTableFooterView
 {
     UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, _tableView.frame.size.height, [UIScreen mainScreen].bounds.size.width, 60)];
-    tableFooterView.backgroundColor = [UIColor lightGrayColor];
-    indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(30, 15, 30, 30)];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 100)];
-    label.backgroundColor = [UIColor redColor];
-//    label.center = tableFooterView.center;
-    label.text = @"正在加载";
-    label.textColor = [UIColor blackColor];
+    indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(60, 15, 30, 30)];
+    indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    label = [[UILabel alloc] initWithFrame:CGRectMake(150, 15, 200, 30)];
+    label.font = [UIFont systemFontOfSize:13.0];
+    label.text = @"上拉加载更多";
     
     [tableFooterView addSubview:label];
     [tableFooterView addSubview:indicatorView];
@@ -245,9 +245,11 @@
     if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) {
         [UIView animateWithDuration:1.0 animations:^{
             [indicatorView startAnimating];
+            label.text = @"正在加载";
             [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
         } completion:^(BOOL finished) {
             [indicatorView stopAnimating];
+            label.text = @"上拉加载更多";
             [scrollView setContentInset:UIEdgeInsetsMake(0, 0, -60, 0)];
             pageNumber += 20;
             [weakSelf loadNewsData];

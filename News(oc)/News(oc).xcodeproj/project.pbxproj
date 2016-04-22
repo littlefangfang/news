@@ -30,6 +30,11 @@
 		49A481881CC8D03700FF4067 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A481871CC8D03700FF4067 /* ConversationViewController.m */; };
 		49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */; };
 		49B497C91CC9F45200A0F173 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B497C81CC9F45200A0F173 /* NSString+UUID.m */; };
+		49B497CE1CCA2DF700A0F173 /* search_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B497CD1CCA2DF700A0F173 /* search_icon@2x.png */; };
+		49B497D01CCA2FFE00A0F173 /* awardeditor_coins_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B497CF1CCA2FFE00A0F173 /* awardeditor_coins_small@2x.png */; };
+		49B497D41CCA396000A0F173 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B497D31CCA396000A0F173 /* SearchViewController.m */; };
+		49B497D61CCA39CE00A0F173 /* CustomBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B497D51CCA39CE00A0F173 /* CustomBarView.xib */; };
+		49B497D91CCA3AF400A0F173 /* CustomBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B497D81CCA3AF400A0F173 /* CustomBarView.m */; };
 		49BAF4551CC766B8009D5FF2 /* VideoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4541CC766B8009D5FF2 /* VideoInfo.m */; };
 		49BAF4581CC7679F009D5FF2 /* ImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4571CC7679F009D5FF2 /* ImageInfo.m */; };
 		49BAF45A1CC768B5009D5FF2 /* WebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 49BAF4591CC768B5009D5FF2 /* WebViewHtml.html */; };
@@ -90,6 +95,13 @@
 		49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 		49B497C71CC9F45200A0F173 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
 		49B497C81CC9F45200A0F173 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
+		49B497CD1CCA2DF700A0F173 /* search_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_icon@2x.png"; sourceTree = "<group>"; };
+		49B497CF1CCA2FFE00A0F173 /* awardeditor_coins_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "awardeditor_coins_small@2x.png"; sourceTree = "<group>"; };
+		49B497D21CCA396000A0F173 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		49B497D31CCA396000A0F173 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		49B497D51CCA39CE00A0F173 /* CustomBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomBarView.xib; sourceTree = "<group>"; };
+		49B497D71CCA3AF400A0F173 /* CustomBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBarView.h; sourceTree = "<group>"; };
+		49B497D81CCA3AF400A0F173 /* CustomBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBarView.m; sourceTree = "<group>"; };
 		49BAF4531CC766B8009D5FF2 /* VideoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfo.h; sourceTree = "<group>"; };
 		49BAF4541CC766B8009D5FF2 /* VideoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfo.m; sourceTree = "<group>"; };
 		49BAF4561CC7679F009D5FF2 /* ImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageInfo.h; sourceTree = "<group>"; };
@@ -203,6 +215,7 @@
 		494C67671CABA117000FED11 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				49B497D11CCA392500A0F173 /* Search Controller */,
 				49A481851CC8D00400FF4067 /* Conversations */,
 				49A2655B1CC2568E00717D59 /* News Detail */,
 				0641ADD71CAAD1E60069559F /* NewsViewController.h */,
@@ -246,6 +259,8 @@
 		49A4817C1CC8A7AE00FF4067 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				49B497CF1CCA2FFE00A0F173 /* awardeditor_coins_small@2x.png */,
+				49B497CD1CCA2DF700A0F173 /* search_icon@2x.png */,
 				49A4817D1CC8A7C600FF4067 /* icon_back@2x.png */,
 				49A4817E1CC8A7C600FF4067 /* icon_back_highlighted@2x.png */,
 				49A481811CC8C06B00FF4067 /* contentview_commentbacky_selected@2x.png */,
@@ -270,6 +285,18 @@
 				49B497C81CC9F45200A0F173 /* NSString+UUID.m */,
 			);
 			path = "NSString + UUID";
+			sourceTree = "<group>";
+		};
+		49B497D11CCA392500A0F173 /* Search Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49B497D21CCA396000A0F173 /* SearchViewController.h */,
+				49B497D31CCA396000A0F173 /* SearchViewController.m */,
+				49B497D71CCA3AF400A0F173 /* CustomBarView.h */,
+				49B497D81CCA3AF400A0F173 /* CustomBarView.m */,
+				49B497D51CCA39CE00A0F173 /* CustomBarView.xib */,
+			);
+			name = "Search Controller";
 			sourceTree = "<group>";
 		};
 		49BAF4451CC754C4009D5FF2 /* 第三方 */ = {
@@ -392,14 +419,17 @@
 				499CC8651CC0DE000055680D /* PictureTableViewCell.xib in Resources */,
 				49A481841CC8C06B00FF4067 /* contentview_commentbacky@2x.png in Resources */,
 				49A481801CC8A7C600FF4067 /* icon_back_highlighted@2x.png in Resources */,
+				49B497CE1CCA2DF700A0F173 /* search_icon@2x.png in Resources */,
 				49BAF45A1CC768B5009D5FF2 /* WebViewHtml.html in Resources */,
 				494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */,
 				0641ADE11CAD72C90069559F /* test.jpg in Resources */,
+				49B497D01CCA2FFE00A0F173 /* awardeditor_coins_small@2x.png in Resources */,
 				49A4817F1CC8A7C600FF4067 /* icon_back@2x.png in Resources */,
 				0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */,
 				49A481831CC8C06B00FF4067 /* contentview_commentbacky_selected@2x.png in Resources */,
 				49BAF48E1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt in Resources */,
 				0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */,
+				49B497D61CCA39CE00A0F173 /* CustomBarView.xib in Resources */,
 				0641ADE31CAD74D20069559F /* 81.jpg in Resources */,
 				0641ADCB1CAAC7650069559F /* Main.storyboard in Resources */,
 			);
@@ -418,8 +448,10 @@
 				494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */,
 				49BAF4891CC7718E009D5FF2 /* UIImage+WebP.m in Sources */,
 				49BAF47E1CC7718E009D5FF2 /* NSData+ImageContentType.m in Sources */,
+				49B497D41CCA396000A0F173 /* SearchViewController.m in Sources */,
 				49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */,
 				49BAF4581CC7679F009D5FF2 /* ImageInfo.m in Sources */,
+				49B497D91CCA3AF400A0F173 /* CustomBarView.m in Sources */,
 				49BAF4811CC7718E009D5FF2 /* SDWebImageDecoder.m in Sources */,
 				49A481881CC8D03700FF4067 /* ConversationViewController.m in Sources */,
 				49BAF4861CC7718E009D5FF2 /* UIButton+WebCache.m in Sources */,

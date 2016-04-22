@@ -89,11 +89,11 @@
 {
     [WebViewJavascriptBridge enableLogging];
     _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView webViewDelegate:(id)self handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"ObjC received message from JS: %@", data);
+//        NSLog(@"ObjC received message from JS: %@", data);
         responseCallback(@"Response for message from ObjC");
     }];
     [_bridge registerHandler:@"testObjcCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"testObjcCallback called: %@", data);
+//        NSLog(@"testObjcCallback called: %@", data);
         responseCallback(@"Response from testObjcCallback");
     }];
 }
@@ -209,11 +209,8 @@
         if ([imageManager diskImageExistsForURL:imageUrl]) {
             NSString *cacheKey = [imageManager cacheKeyForURL:imageUrl];
             NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
-            NSLog(@"imagePaths === %@",imagePaths);
+   
             [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
-//            [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
-//                NSLog(@"%@",responseData);
-//            }];
         }else {
             [imageManager downloadImageWithURL:imageUrl options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                 
@@ -225,10 +222,8 @@
                     NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        
                         [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
-//                        [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
-//                            NSLog(@"%@",responseData);
-//                        }];
                     });
                     
                 }else {
@@ -242,23 +237,6 @@
     }
 }
 
-/**
- * 生成GUID
- */
-+ (NSString *)generateUuidString{
-    // create a new UUID which you own
-    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-    
-    // create a new CFStringRef (toll-free bridged to NSString)
-    // that you own
-    NSString *uuidString = (NSString *)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuid));
-    
-    
-    // release the UUID
-    CFRelease(uuid);
-    
-    return uuidString;
-}
 
 - (NSString *)replaceUrlSpecialString:(NSString *)string {
     
