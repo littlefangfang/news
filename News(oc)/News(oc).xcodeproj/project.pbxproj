@@ -29,6 +29,7 @@
 		49A481841CC8C06B00FF4067 /* contentview_commentbacky@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A481821CC8C06B00FF4067 /* contentview_commentbacky@2x.png */; };
 		49A481881CC8D03700FF4067 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A481871CC8D03700FF4067 /* ConversationViewController.m */; };
 		49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */; };
+		49B497C91CC9F45200A0F173 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B497C81CC9F45200A0F173 /* NSString+UUID.m */; };
 		49BAF4551CC766B8009D5FF2 /* VideoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4541CC766B8009D5FF2 /* VideoInfo.m */; };
 		49BAF4581CC7679F009D5FF2 /* ImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4571CC7679F009D5FF2 /* ImageInfo.m */; };
 		49BAF45A1CC768B5009D5FF2 /* WebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 49BAF4591CC768B5009D5FF2 /* WebViewHtml.html */; };
@@ -87,6 +88,8 @@
 		49A481871CC8D03700FF4067 /* ConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
 		49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
 		49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
+		49B497C71CC9F45200A0F173 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
+		49B497C81CC9F45200A0F173 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
 		49BAF4531CC766B8009D5FF2 /* VideoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfo.h; sourceTree = "<group>"; };
 		49BAF4541CC766B8009D5FF2 /* VideoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfo.m; sourceTree = "<group>"; };
 		49BAF4561CC7679F009D5FF2 /* ImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageInfo.h; sourceTree = "<group>"; };
@@ -169,7 +172,6 @@
 				0641ADDC1CAD67AC0069559F /* Connection */,
 				499CC85A1CC0C5910055680D /* Tools */,
 				49BAF4451CC754C4009D5FF2 /* 第三方 */,
-				49A4817C1CC8A7AE00FF4067 /* image */,
 				0641ADCC1CAAC7650069559F /* Assets.xcassets */,
 				0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */,
 				0641ADD11CAAC7650069559F /* Info.plist */,
@@ -181,6 +183,7 @@
 		0641ADC01CAAC7650069559F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49A4817C1CC8A7AE00FF4067 /* image */,
 				0641ADE01CAD72C90069559F /* test.jpg */,
 				0641ADE21CAD74D20069559F /* 81.jpg */,
 				0641ADC11CAAC7650069559F /* main.m */,
@@ -260,9 +263,19 @@
 			name = Conversations;
 			sourceTree = "<group>";
 		};
+		49B497C61CC9F45200A0F173 /* NSString + UUID */ = {
+			isa = PBXGroup;
+			children = (
+				49B497C71CC9F45200A0F173 /* NSString+UUID.h */,
+				49B497C81CC9F45200A0F173 /* NSString+UUID.m */,
+			);
+			path = "NSString + UUID";
+			sourceTree = "<group>";
+		};
 		49BAF4451CC754C4009D5FF2 /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				49B497C61CC9F45200A0F173 /* NSString + UUID */,
 				49BAF45B1CC7718E009D5FF2 /* SDWebImage */,
 				49BAF4461CC75786009D5FF2 /* WebViewJavascriptBridge */,
 			);
@@ -420,6 +433,7 @@
 				49BAF4821CC7718E009D5FF2 /* SDWebImageDownloader.m in Sources */,
 				49BAF4851CC7718E009D5FF2 /* SDWebImagePrefetcher.m in Sources */,
 				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,
+				49B497C91CC9F45200A0F173 /* NSString+UUID.m in Sources */,
 				49BAF47F1CC7718E009D5FF2 /* SDImageCache.m in Sources */,
 				49BAF4831CC7718E009D5FF2 /* SDWebImageDownloaderOperation.m in Sources */,
 				499CC8601CC0C8F30055680D /* UIImageView+Category.m in Sources */,

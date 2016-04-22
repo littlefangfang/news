@@ -12,6 +12,6 @@
 
 @property (retain, nonatomic) NSString *replyBoard;
 
-@property (retain, nonatomic) NSString *docid;
+@property (retain, nonatomic) NSString *postid;
 
 @end

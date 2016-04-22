@@ -19,7 +19,7 @@
                                    /* Init your app here */
                                    // 从OC  bridge.send 方法过来的 就会调用到这个方法
                                    bridge.init(function(message, responseCallback) {
-                                                alert('Received message: ' + message)
+                                            //alert('Received message: ' + message)
                                                if (message.match("replaceimage")) {
                                                //先截取图片id
                                                var index=message.indexOf(",")

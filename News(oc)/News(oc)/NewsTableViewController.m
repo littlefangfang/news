@@ -40,15 +40,9 @@
     // Do any additional setup after loading the view.
     currentIdx = 1;
     weakSelf = self;
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 143)];
-    [_tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    [_tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"picture_cell"];
-
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [_tableView setContentInset:UIEdgeInsetsMake(0, 0, -60, 0)];
-    [self createTableFooterView];
-    [self.view addSubview:_tableView];
+    
+    [self setTableViews];
+//    [self setTapGesture];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -60,6 +54,34 @@
 }
 
 #pragma mark Helper
+
+
+- (void)showDetail:(UITapGestureRecognizer *)tap
+{
+    if ([pictureArray count]) {
+        if (pictureArray.count == 1) {
+            [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:0]];
+        }else{
+            [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:currentIdx]];
+        }
+    }else{
+        [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[dataArray objectAtIndex:0]];
+    }
+
+}
+
+- (void)setTableViews
+{
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 143)];
+    [_tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"picture_cell"];
+    
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [_tableView setContentInset:UIEdgeInsetsMake(0, 0, -60, 0)];
+    [self createTableFooterView];
+    [self.view addSubview:_tableView];
+}
 
 - (void)loadNewsData
 {
@@ -110,7 +132,7 @@
     indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(30, 15, 30, 30)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 100)];
     label.backgroundColor = [UIColor redColor];
-    label.center = tableFooterView.center;
+//    label.center = tableFooterView.center;
     label.text = @"正在加载";
     label.textColor = [UIColor blackColor];
     
@@ -149,30 +171,33 @@
         }else{
             if (!_pictureCell) {
                 _pictureCell = [tableView dequeueReusableCellWithIdentifier:@"picture_cell"];
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showDetail:)];
+                [_pictureCell.scrollView addGestureRecognizer:tapGesture];
             }
             if ([[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"]) {
                 pictureArray = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"ads"];
+                if (pictureArray.count == 1) {
+                    _pictureCell.scrollView.scrollEnabled = NO;
+                    _pictureCell.pageControl.hidden = YES;
+                    [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
+                    _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:0] objectForKey:@"title"];
+                    return _pictureCell;
+                }
+                _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
+                _pictureCell.scrollView.delegate = self;
+                _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
+                _pictureCell.pageControl.numberOfPages = pictureArray.count;
+                [self setScrollViewPictures];
+                return _pictureCell;
+                
             }else{
                 _pictureCell.scrollView.scrollEnabled = NO;
                 _pictureCell.pageControl.hidden = YES;
-                [_pictureCell.currentImageView downloadImageWithURL:[[dataArray objectAtIndex:0] objectForKey:@"imgsrc"]];
+                [_pictureCell.beforeImageView downloadImageWithURL:[[dataArray objectAtIndex:0] objectForKey:@"imgsrc"]];
+                [_pictureCell.currentImageView  downloadImageWithURL:[[dataArray objectAtIndex:0] objectForKey:@"imgsrc"]];
                 _pictureCell.pictureTitleLabel.text = [[dataArray objectAtIndex:0] objectForKey:@"title"];
                 return _pictureCell;
             }
-            
-            if (pictureArray.count == 1) {
-                _pictureCell.scrollView.scrollEnabled = NO;
-                _pictureCell.pageControl.hidden = YES;
-                [_pictureCell.currentImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
-                _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:0] objectForKey:@"title"];
-                return _pictureCell;
-            }
-            _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
-            _pictureCell.scrollView.delegate = self;
-            _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
-            _pictureCell.pageControl.numberOfPages = pictureArray.count;
-            [self setScrollViewPictures];
-            return _pictureCell;
         }
 
     return cell;
@@ -198,6 +223,9 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    if (![pictureArray count]) {
+        return;
+    }
     currentIdx += _pictureCell.scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width - 1;
     if (currentIdx <= -1) {
         currentIdx = pictureArray.count - 1;
@@ -206,7 +234,9 @@
     }
     [self setScrollViewPictures];
     [_pictureCell.scrollView setContentOffset:CGPointMake([UIScreen mainScreen].bounds.size.width, 0) animated:NO];
+
     _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
+   
     _pictureCell.pageControl.currentPage = currentIdx;
 }
 
@@ -228,9 +258,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row > 0) {
-
         [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[dataArray objectAtIndex:indexPath.row]];
-
     }
 }
 

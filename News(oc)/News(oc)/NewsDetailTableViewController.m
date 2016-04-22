@@ -59,12 +59,12 @@
 - (void)setRightBarItem
 {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 44)];
-    [button setTitle:[NSString stringWithFormat:@"%@跟帖  ",[_dataDictionary objectForKey:@"replyCount"]] forState:UIControlStateNormal];
+    [button setTitle:[NSString stringWithFormat:@"%@跟帖   ",[_dataDictionary objectForKey:@"replyCount"]] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:12.0];
     [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     [button sizeToFit];
-    [button setFrame:CGRectMake(0, 0, button.frame.size.width + 20, 44)];
+    [button setFrame:CGRectMake(0, 0, button.frame.size.width + 10, 44)];
     [button addTarget:self action:@selector(showNextPage:) forControlEvents:UIControlEventTouchUpInside];
     UIImage *buttonImage = [UIImage imageNamed:@"contentview_commentbacky.png"];
     buttonImage = [buttonImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeTile];
@@ -75,7 +75,7 @@
     UIBarButtonItem *fixedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedButton.width = -12;
 
-    self.navigationItem.rightBarButtonItems = @[rightItem,fixedButton];
+    self.navigationItem.rightBarButtonItems = @[fixedButton,rightItem];
     
 }
 
@@ -100,7 +100,7 @@
 
 - (void)setupRequest
 {
-    NSString *requestString = [_dataDictionary objectForKey:@"docid"];
+    NSString *requestString = [_dataDictionary objectForKey:@"postid"];
     HttpTool *tool = [[HttpTool alloc] init];
     
     tool.handlerBlock = ^(NSData *data, NSURLResponse *response, NSError *error){
@@ -115,7 +115,7 @@
 
 - (void)setWebViewWithDictionary:(NSDictionary *)dictionary
 {
-    if (dictionary) {
+    if ([dictionary count]) {
         NSMutableString *bodyStr = [NSMutableString stringWithString:[dictionary objectForKey:@"body"]];
         
         NSMutableString *titleStr= [dictionary objectForKey:@"title"];
@@ -198,7 +198,7 @@
         return str;
     }];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"com.hackemist.SDWebImageCache.default"];
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"default/com.hackemist.SDWebImageCache.default"];
     
     for (NSDictionary *d in imageArray) {
         
@@ -223,7 +223,7 @@
                     
                     NSString *cacheKey = [imageManager cacheKeyForURL:imageUrl];
                     NSString *imagePaths = [NSString stringWithFormat:@"%@/%@",filePath,[imageManager.imageCache cachedFileNameForKey:cacheKey]];
-                    NSLog(@"imagePaths === %@",imagePaths);
+                    
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
 //                        [_bridge callHandler:@"downloadFinish" data:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths] responseCallback:^(id responseData) {
@@ -240,6 +240,24 @@
         }
         
     }
+}
+
+/**
+ * 生成GUID
+ */
++ (NSString *)generateUuidString{
+    // create a new UUID which you own
+    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+    
+    // create a new CFStringRef (toll-free bridged to NSString)
+    // that you own
+    NSString *uuidString = (NSString *)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuid));
+    
+    
+    // release the UUID
+    CFRelease(uuid);
+    
+    return uuidString;
 }
 
 - (NSString *)replaceUrlSpecialString:(NSString *)string {
@@ -324,7 +342,7 @@
     // Pass the selected object to the new view controller.
     ConversationViewController *vc = [segue destinationViewController];
     vc.replyBoard = [dataDic objectForKey:@"replyBoard"];
-    vc.docid = [dataDic objectForKey:@"docid"];
+    vc.postid = [dataDic objectForKey:@"postid"];
 }
 
 

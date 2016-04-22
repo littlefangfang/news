@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NewsTableViewController.h"
 
 @interface UIImageView (Category)
 
