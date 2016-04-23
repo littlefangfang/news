@@ -215,19 +215,10 @@
 		494C67671CABA117000FED11 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				49B497D11CCA392500A0F173 /* Search Controller */,
-				49A481851CC8D00400FF4067 /* Conversations */,
+				49A3EED71CCB195A00F51FC3 /* News List */,
 				49A2655B1CC2568E00717D59 /* News Detail */,
-				0641ADD71CAAD1E60069559F /* NewsViewController.h */,
-				0641ADD81CAAD1E60069559F /* NewsViewController.m */,
-				49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */,
-				49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */,
-				499CC8611CC0DE000055680D /* PictureTableViewCell.h */,
-				499CC8621CC0DE000055680D /* PictureTableViewCell.m */,
-				499CC8631CC0DE000055680D /* PictureTableViewCell.xib */,
-				494D22DF1CACCEFB0069CCAE /* FirstTableViewCell.h */,
-				494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */,
-				494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */,
+				49A481851CC8D00400FF4067 /* Conversations */,
+				49B497D11CCA392500A0F173 /* Search Controller */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -254,6 +245,23 @@
 				49BAF48D1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt */,
 			);
 			name = "News Detail";
+			sourceTree = "<group>";
+		};
+		49A3EED71CCB195A00F51FC3 /* News List */ = {
+			isa = PBXGroup;
+			children = (
+				0641ADD71CAAD1E60069559F /* NewsViewController.h */,
+				0641ADD81CAAD1E60069559F /* NewsViewController.m */,
+				49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */,
+				49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */,
+				499CC8611CC0DE000055680D /* PictureTableViewCell.h */,
+				499CC8621CC0DE000055680D /* PictureTableViewCell.m */,
+				499CC8631CC0DE000055680D /* PictureTableViewCell.xib */,
+				494D22DF1CACCEFB0069CCAE /* FirstTableViewCell.h */,
+				494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */,
+				494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */,
+			);
+			name = "News List";
 			sourceTree = "<group>";
 		};
 		49A4817C1CC8A7AE00FF4067 /* image */ = {

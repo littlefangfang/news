@@ -10,4 +10,8 @@
 
 @interface CustomBarView : UIView
 
+@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
+
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
 @end
