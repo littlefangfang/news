@@ -20,4 +20,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *articleLabel;
 
+@property (nonatomic, assign) NSInteger viewCount;
+
 @end
