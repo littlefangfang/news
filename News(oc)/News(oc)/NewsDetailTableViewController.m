@@ -320,7 +320,7 @@
     // Pass the selected object to the new view controller.
     ConversationViewController *vc = [segue destinationViewController];
     vc.replyBoard = [dataDic objectForKey:@"replyBoard"];
-    vc.postid = [dataDic objectForKey:@"postid"];
+    vc.postid = [dataDic objectForKey:@"docid"];
 }
 
 

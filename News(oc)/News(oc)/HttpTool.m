@@ -7,6 +7,8 @@
 //
 
 #import "HttpTool.h"
+#import "AFNetworking.h"
+
 @implementation HttpTool{
     __weak typeof(HttpTool *)weakSelf;
 }
@@ -34,6 +36,17 @@
         [weakSelf callBackFromTask:data withReponse:response andError:error];
     }];
     [dataTask resume];
+}
+
+- (void)getConversationWithUrl:(NSString *)url
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [weakSelf callBackFromTask:(NSData *)task withReponse:responseObject andError:nil];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)callBackFromTask:(NSData *)data withReponse:(NSURLResponse *)response andError:(NSError *)error

@@ -13,4 +13,6 @@
 @property (nonatomic, copy) void (^ handlerBlock)(NSData *data,NSURLResponse *response,NSError *error);
 
 - (void)getData:(NSString *)url;
+
+- (void)getConversationWithUrl:(NSString *)url;
 @end

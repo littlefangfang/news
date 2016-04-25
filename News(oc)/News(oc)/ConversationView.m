@@ -1,22 +1,25 @@
 //
-//  CustomBarView.m
+//  ConversationView.m
 //  News(oc)
 //
-//  Created by yunyi3g5 on 16/4/22.
+//  Created by yunyi3g5 on 16/4/25.
 //  Copyright © 2016年 founder. All rights reserved.
 //
 
-#import "CustomBarView.h"
+#import "ConversationView.h"
 
-@implementation CustomBarView
+@implementation ConversationView
 
-
+/*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    self.searchBar.backgroundImage = [UIImage new];
 }
+*/
 
-
+- (void)layoutSubviews
+{
+    
+}
 @end
