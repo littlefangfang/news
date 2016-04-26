@@ -64,6 +64,10 @@
 		49BAF48C1CC7718E009D5FF2 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF47C1CC7718E009D5FF2 /* UIView+WebCacheOperation.m */; };
 		49BAF48E1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 49BAF48D1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt */; };
 		49BAF4911CC7889C009D5FF2 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4901CC7889C009D5FF2 /* WebViewJavascriptBridge.m */; };
+		49C57CFC1CCF3F21004E04BE /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C57CFB1CCF3F21004E04BE /* UITableView+FDTemplateLayoutCell.m */; };
+		49C57D031CCF405B004E04BE /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C57CFE1CCF405B004E04BE /* UITableView+FDIndexPathHeightCache.m */; };
+		49C57D041CCF405B004E04BE /* UITableView+FDKeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C57D001CCF405B004E04BE /* UITableView+FDKeyedHeightCache.m */; };
+		49C57D051CCF405B004E04BE /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C57D021CCF405B004E04BE /* UITableView+FDTemplateLayoutCellDebug.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +172,14 @@
 		49BAF48D1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
 		49BAF48F1CC7889C009D5FF2 /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		49BAF4901CC7889C009D5FF2 /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		49C57CFA1CCF3F21004E04BE /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		49C57CFB1CCF3F21004E04BE /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		49C57CFD1CCF405A004E04BE /* UITableView+FDIndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDIndexPathHeightCache.h"; sourceTree = "<group>"; };
+		49C57CFE1CCF405B004E04BE /* UITableView+FDIndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDIndexPathHeightCache.m"; sourceTree = "<group>"; };
+		49C57CFF1CCF405B004E04BE /* UITableView+FDKeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDKeyedHeightCache.h"; sourceTree = "<group>"; };
+		49C57D001CCF405B004E04BE /* UITableView+FDKeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDKeyedHeightCache.m"; sourceTree = "<group>"; };
+		49C57D011CCF405B004E04BE /* UITableView+FDTemplateLayoutCellDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCellDebug.h"; sourceTree = "<group>"; };
+		49C57D021CCF405B004E04BE /* UITableView+FDTemplateLayoutCellDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCellDebug.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +371,14 @@
 		49BAF4451CC754C4009D5FF2 /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				49C57CFA1CCF3F21004E04BE /* UITableView+FDTemplateLayoutCell.h */,
+				49C57CFB1CCF3F21004E04BE /* UITableView+FDTemplateLayoutCell.m */,
+				49C57CFD1CCF405A004E04BE /* UITableView+FDIndexPathHeightCache.h */,
+				49C57CFE1CCF405B004E04BE /* UITableView+FDIndexPathHeightCache.m */,
+				49C57CFF1CCF405B004E04BE /* UITableView+FDKeyedHeightCache.h */,
+				49C57D001CCF405B004E04BE /* UITableView+FDKeyedHeightCache.m */,
+				49C57D011CCF405B004E04BE /* UITableView+FDTemplateLayoutCellDebug.h */,
+				49C57D021CCF405B004E04BE /* UITableView+FDTemplateLayoutCellDebug.m */,
 				49AD371A1CCDF23E00DBF2F6 /* AFNetworking */,
 				49B497C61CC9F45200A0F173 /* NSString + UUID */,
 				49BAF45B1CC7718E009D5FF2 /* SDWebImage */,
@@ -502,6 +522,7 @@
 			files = (
 				49BAF4871CC7718E009D5FF2 /* UIImage+GIF.m in Sources */,
 				0641ADC81CAAC7650069559F /* ViewController.m in Sources */,
+				49C57D051CCF405B004E04BE /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				49BAF4551CC766B8009D5FF2 /* VideoInfo.m in Sources */,
 				494D22E21CACCEFB0069CCAE /* FirstTableViewCell.m in Sources */,
 				49BAF4891CC7718E009D5FF2 /* UIImage+WebP.m in Sources */,
@@ -511,10 +532,12 @@
 				49AD372A1CCDF23E00DBF2F6 /* AFSecurityPolicy.m in Sources */,
 				49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */,
 				49BAF4581CC7679F009D5FF2 /* ImageInfo.m in Sources */,
+				49C57D031CCF405B004E04BE /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				49AD37291CCDF23E00DBF2F6 /* AFNetworkReachabilityManager.m in Sources */,
 				49B497D91CCA3AF400A0F173 /* CustomBarView.m in Sources */,
 				49BAF4811CC7718E009D5FF2 /* SDWebImageDecoder.m in Sources */,
 				49AD37281CCDF23E00DBF2F6 /* AFHTTPSessionManager.m in Sources */,
+				49C57CFC1CCF3F21004E04BE /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				49A481881CC8D03700FF4067 /* ConversationViewController.m in Sources */,
 				49BAF4861CC7718E009D5FF2 /* UIButton+WebCache.m in Sources */,
 				49BAF4841CC7718E009D5FF2 /* SDWebImageManager.m in Sources */,
@@ -522,6 +545,7 @@
 				49BAF48B1CC7718E009D5FF2 /* UIImageView+WebCache.m in Sources */,
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
 				49A2655E1CC256D600717D59 /* NewsDetailTableViewController.m in Sources */,
+				49C57D041CCF405B004E04BE /* UITableView+FDKeyedHeightCache.m in Sources */,
 				0641ADC21CAAC7650069559F /* main.m in Sources */,
 				49BAF48A1CC7718E009D5FF2 /* UIImageView+HighlightedWebCache.m in Sources */,
 				49BAF4821CC7718E009D5FF2 /* SDWebImageDownloader.m in Sources */,

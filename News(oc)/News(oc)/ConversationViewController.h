@@ -18,4 +18,10 @@
 @property (retain, nonatomic) NSString *postid;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, retain) UIButton *nButton;
+
+@property (nonatomic, retain) UILabel *aLabel;
+
+@property (nonatomic, retain) UILabel *contentLabel;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ConversationViewController.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 @interface ConversationViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -21,6 +22,8 @@
     NSArray *normalArray;
     
     NSDictionary *normalInfo;
+    
+    CGFloat cellH;
 }
 
 - (void)viewDidLoad {
@@ -115,15 +118,98 @@
     }else{
         tempDic = [normalArray objectAtIndex:indexPath.row];
     }
+    NSInteger viewCount = [tempDic count];
+    NSInteger lastH = 0;
+    for (NSInteger i = 1; i < viewCount - 1; i++) {
+        NSDictionary *dic = [tempDic objectForKey:[NSString stringWithFormat:@"%ld",i]];
+
+        if (lastH == 0) {
+            if (viewCount * 3 >= 18) {
+                lastH = 18;
+            }else{
+                lastH = viewCount * 3;
+            }
+        }
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake((viewCount - 2 - i) * 3, (viewCount - 2 - i) * 3, [UIScreen mainScreen].bounds.size.width - 49 - ((viewCount - 2 - i) * 2) * 3, 0)];
+        
+        if (view.frame.size.width <= [UIScreen mainScreen].bounds.size.width - 49 - (3 * 2) * 6) {
+            CGRect frame = view.frame;
+            frame.size.width = [UIScreen mainScreen].bounds.size.width - 49 - (3 * 2) * 6;
+            frame.origin.y = 6 * 3;
+            view.frame = frame;
+        }
+        _nButton = [[UIButton alloc] initWithFrame:CGRectMake(8, lastH + 3, 250, 15)];
+        if ([dic objectForKey:@"n"]) {
+            [_nButton setTitle:[dic objectForKey:@"n"] forState:UIControlStateNormal];
+        }else{
+            [_nButton setTitle:@"火星网友" forState:UIControlStateNormal];
+        }
+        _nButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        _nButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [_nButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        
+        _aLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, lastH + 31, 173, 12)];
+        _aLabel.text = [dic objectForKey:@"f"];
+        _aLabel.font = [UIFont systemFontOfSize:12.0];
+        
+        _contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, lastH + 51, view.bounds.size.width - 16, 21)];
+        _contentLabel.numberOfLines = 0;
+        _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _contentLabel.text = [dic objectForKey:@"b"];
+        CGSize size = [_contentLabel sizeThatFits:CGSizeMake(_contentLabel.bounds.size.width, MAXFLOAT)];
+        _contentLabel.frame = CGRectMake(8, lastH + 51, view.bounds.size.width - 16, size.height);
+        
+        CGRect tempFrame = view.frame;
+        tempFrame.size.height = _contentLabel.frame.size.height + _contentLabel.frame.origin.y + 8;
+        view.frame = tempFrame;
+        
+        view.layer.borderWidth = 0.5;
+        view.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        
+        
+        [view addSubview:_nButton];
+        [view addSubview:_aLabel];
+        [view addSubview:_contentLabel];
+        
+        [cell.replyView setFrame:view.frame];
+        
+        lastH = CGRectGetMaxY(view.frame);
+        
+        [cell.replyView insertSubview:view aboveSubview:cell.replyView];
+    }
+    
+    
     NSString *imgURLStr = [[tempDic objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)tempDic.count]] objectForKey:@"timg"];
     if (imgURLStr) {
         [cell.potraitButton sd_setBackgroundImageWithURL:[NSURL URLWithString:imgURLStr] forState:UIControlStateNormal];
+        cell.potraitButton.layer.cornerRadius = 12.5;
+        cell.potraitButton.clipsToBounds = YES;
     }
-    [cell.nameButton setTitle:[[tempDic objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)tempDic.count]] objectForKey:@"n"] forState:UIControlStateNormal];
+    if ([[tempDic objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)tempDic.count]] objectForKey:@"n"]) {
+        [cell.nameButton setTitle:[[tempDic objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)tempDic.count]] objectForKey:@"n"] forState:UIControlStateNormal];
+    }else{
+        [cell.nameButton setTitle:@"火星网友" forState:UIControlStateNormal];
+    }
+    
     cell.addressLabel.text = [[[[tempDic objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)tempDic.count]] objectForKey:@"f"] componentsSeparatedByString:@"&"] firstObject];
     cell.articleLabel.text = [[tempDic objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)tempDic.count]] objectForKey:@"b"];
+    CGSize size = [cell.articleLabel sizeThatFits:CGSizeMake(cell.articleLabel.bounds.size.width, MAXFLOAT)];
+    cell.articleLabel.frame = CGRectMake(cell.articleLabel.frame.origin.x, cell.articleLabel.frame.origin.y, cell.articleLabel.frame.size.width, size.height);
+    
+    cell.viewHeight.constant = lastH;
+    cell.bottomConstrait.constant = cell.articleLabel.bounds.size.height + 8;
+    cellH = cell.viewHeight.constant + cell.articleLabel.bounds.size.height + 16;
+    if (viewCount <= 2) {
+        cell.replyView.hidden = YES;
+    }else{
+        cell.replyView.hidden = NO;
+    }
+    
     return cell;
 }
+
+
 
 /*
 #pragma mark - Navigation

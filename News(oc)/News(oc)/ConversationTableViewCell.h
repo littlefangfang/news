@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *articleLabel;
 
-@property (nonatomic, assign) NSInteger viewCount;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *viewHeight;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomConstrait;
 
 @end
