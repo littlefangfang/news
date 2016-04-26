@@ -7,28 +7,34 @@
 //
 
 #import "ConversationViewController.h"
-#import "UITableView+FDTemplateLayoutCell.h"
 
-@interface ConversationViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ConversationViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @end
 
 @implementation ConversationViewController
 {
+    __weak typeof (ConversationViewController *)weakSelf;
+    
     NSInteger pageNum;
     
     NSArray *hotArray;
     
-    NSArray *normalArray;
+    NSMutableArray *normalArray;
     
     NSDictionary *normalInfo;
     
     CGFloat cellH;
+    
+    UIActivityIndicatorView *indicatorView;
+    
+    UILabel *label;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    weakSelf = self;
     pageNum = 0;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -59,7 +65,12 @@
     HttpTool *tool = [[HttpTool alloc] init];
     tool.handlerBlock = ^(NSData *data,NSURLResponse *response,NSError *error){
         normalInfo = (NSDictionary *)response;
-        normalArray = [normalInfo objectForKey:@"newPosts"];
+        if ([normalArray count] > 0) {
+            normalArray = [[normalArray arrayByAddingObjectsFromArray:[normalInfo objectForKey:@"newPosts"]] mutableCopy];
+        }else{
+            normalArray = [normalInfo objectForKey:@"newPosts"];
+        }
+        
         [_tableView reloadData];
     };
     [tool getConversationWithUrl:urlString];
@@ -98,8 +109,10 @@
     button.titleLabel.font = [UIFont systemFontOfSize:13.0];
     if (section == 0) {
         [button setTitle:@"热门跟帖" forState:UIControlStateNormal];
+    }else{
+        [button setTitle:@"最新跟帖" forState:UIControlStateNormal];
     }
-    [button setTitle:@"最新跟帖" forState:UIControlStateNormal];
+    
     [headerView addSubview:button];
     return headerView;
 }
@@ -200,6 +213,7 @@
     cell.viewHeight.constant = lastH;
     cell.bottomConstrait.constant = cell.articleLabel.bounds.size.height + 8;
     cellH = cell.viewHeight.constant + cell.articleLabel.bounds.size.height + 16;
+    
     if (viewCount <= 2) {
         cell.replyView.hidden = YES;
     }else{
@@ -208,8 +222,38 @@
     
     return cell;
 }
+- (void)createTableFooterView
+{
+    UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, _tableView.frame.size.height, [UIScreen mainScreen].bounds.size.width, 60)];
+    tableFooterView.backgroundColor = [UIColor lightGrayColor];
+    indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(60, 15, 30, 30)];
+    indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    label = [[UILabel alloc] initWithFrame:CGRectMake(150, 15, 200, 30)];
+    label.font = [UIFont systemFontOfSize:13.0];
+    label.text = @"上拉加载更多";
+    
+    [tableFooterView addSubview:label];
+    [tableFooterView addSubview:indicatorView];
+    _tableView.tableFooterView = tableFooterView;
+    
+}
 
-
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height + 60) {
+        [UIView animateWithDuration:1.0 animations:^{
+            [indicatorView startAnimating];
+            label.text = @"正在加载";
+            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 60, 0)];
+        } completion:^(BOOL finished) {
+            [indicatorView stopAnimating];
+            label.text = @"上拉加载更多";
+            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+            pageNum += 10;
+            [weakSelf getNormalInfo];
+        }];
+    }
+}
 
 /*
 #pragma mark - Navigation

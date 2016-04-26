@@ -44,7 +44,6 @@
     weakSelf = self;
     
     [self setTableViews];
-//    [self setTapGesture];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -69,7 +68,6 @@
     }else{
         [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[dataArray objectAtIndex:0]];
     }
-
 }
 
 - (void)setTableViews
