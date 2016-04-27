@@ -31,10 +31,13 @@
     [self setupRequest];
     [self setLeftBarItem];
     [self setRightBarItem];
+
 }
 
 
 #pragma mark - Helper
+
+
 
 - (void)setLeftBarItem
 {

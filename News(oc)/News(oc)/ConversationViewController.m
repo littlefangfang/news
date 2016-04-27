@@ -25,8 +25,6 @@
     
     NSDictionary *normalInfo;
     
-    CGFloat cellH;
-    
     UIActivityIndicatorView *indicatorView;
     
     UILabel *label;
@@ -39,6 +37,7 @@
     pageNum = 0;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self.tableView setContentInset:UIEdgeInsetsMake(0, 0, 40, 0)];
     [self getHotInfo];
     [self getNormalInfo];
     [self createTableFooterView];
@@ -135,11 +134,15 @@
     }
     NSInteger viewCount = [tempDic count];
     NSInteger lastH = 0;
+    
+    // 删除replyView中的所有view
     for (id v in cell.replyView.subviews) {
         if ([v isKindOfClass:[UIView class]]) {
             [v removeFromSuperview];
         }
     }
+    
+    // 计算楼中楼的每个View的frame
     for (NSInteger i = 1; i < viewCount - 1; i++) {
         NSDictionary *dic = [tempDic objectForKey:[NSString stringWithFormat:@"%ld",i]];
 
@@ -171,7 +174,7 @@
         [_nButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         
         _aLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, lastH + 31, 173, 12)];
-        _aLabel.text = [dic objectForKey:@"f"];
+        _aLabel.text = [[[dic objectForKey:@"f"] componentsSeparatedByString:@"&"] firstObject];
         _aLabel.font = [UIFont systemFontOfSize:12.0];
         
         _contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, lastH + 51, view.bounds.size.width - 16, 21)];
@@ -220,7 +223,6 @@
     
     cell.viewHeight.constant = lastH;
     cell.bottomConstrait.constant = cell.articleLabel.bounds.size.height + 8;
-    cellH = cell.viewHeight.constant + cell.articleLabel.bounds.size.height + 16;
     
     if (viewCount <= 2) {
         cell.replyView.hidden = YES;
@@ -245,21 +247,29 @@
     
 }
 
+#pragma mark - UIScrollViewDelegate
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height + 60) {
         [UIView animateWithDuration:1.0 animations:^{
             [indicatorView startAnimating];
             label.text = @"正在加载";
-            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 60, 0)];
+            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
         } completion:^(BOOL finished) {
             [indicatorView stopAnimating];
             label.text = @"上拉加载更多";
-            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 40, 0)];
             pageNum += 10;
             [weakSelf getNormalInfo];
         }];
     }
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView
+{
+    pageNum = 0;
+    [self getNormalInfo];
 }
 
 /*

@@ -32,11 +32,19 @@
     UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 64)];
     testView.backgroundColor = [UIColor colorWithRed:248.0 / 255.0 green:0 blue:0 alpha:1];
     [self.view addSubview:testView];
+    // 设置tabbar文字和图片颜色
+    [self setTabbarColor];
 }
 
 
 
 #pragma mark - Helper
+
+- (void)setTabbarColor
+{
+    UIImage *img = [self.tabBarController.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.tabBarItem.selectedImage = img;
+}
 
 - (void)setButtonScrollView
 {

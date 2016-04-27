@@ -39,7 +39,7 @@
         <scene sceneID="wZh-8m-I82">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ayX-Xz-l5Q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" id="y9p-Yo-hrE"/>
+                    <tabBarItem key="tabBarItem" title="我" image="tabbar_icon_me_normal.png" selectedImage="tabbar_icon_me_highlight.png" id="y9p-Yo-hrE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WGD-Ow-vA7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -60,6 +60,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.9721319211409396" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="kKb-ng-1ge" kind="relationship" relationship="viewControllers" id="Ch7-sO-Glc"/>
@@ -228,7 +233,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCr-mZ-PoE">
-                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <rect key="frame" x="0.0" y="64" width="570" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Y8h-Pd-cOd"/>
                                 </constraints>
@@ -236,13 +241,23 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgS-gh-QuY">
                                 <rect key="frame" x="0.0" y="94" width="600" height="457"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEa-Zh-Ql0">
+                                <rect key="frame" x="570" y="64" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="u25-7h-6b8"/>
+                                </constraints>
+                                <state key="normal" image="channel_nav_plus.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZgS-gh-QuY" firstAttribute="leading" secondItem="pXn-g5-fTz" secondAttribute="leading" id="8x9-l6-KYS"/>
                             <constraint firstItem="hCr-mZ-PoE" firstAttribute="leading" secondItem="pXn-g5-fTz" secondAttribute="leading" id="Esp-r7-0gk"/>
-                            <constraint firstAttribute="trailing" secondItem="hCr-mZ-PoE" secondAttribute="trailing" id="kee-FB-oj9"/>
+                            <constraint firstItem="EEa-Zh-Ql0" firstAttribute="top" secondItem="oS1-8U-ZxP" secondAttribute="bottom" id="JNJ-i9-fkB"/>
+                            <constraint firstItem="ZgS-gh-QuY" firstAttribute="top" secondItem="EEa-Zh-Ql0" secondAttribute="bottom" id="gpZ-sM-PTw"/>
+                            <constraint firstAttribute="trailing" secondItem="hCr-mZ-PoE" secondAttribute="trailing" constant="30" id="kee-FB-oj9"/>
                             <constraint firstItem="hCr-mZ-PoE" firstAttribute="top" secondItem="oS1-8U-ZxP" secondAttribute="bottom" id="qM7-IO-u0M"/>
+                            <constraint firstAttribute="trailing" secondItem="EEa-Zh-Ql0" secondAttribute="trailing" id="rDT-4f-OGW"/>
                             <constraint firstItem="ZgS-gh-QuY" firstAttribute="top" secondItem="hCr-mZ-PoE" secondAttribute="bottom" id="sRR-Ru-7PV"/>
                             <constraint firstItem="Gvl-F7-xyd" firstAttribute="top" secondItem="ZgS-gh-QuY" secondAttribute="bottom" id="vpG-U4-pAv"/>
                             <constraint firstAttribute="trailing" secondItem="ZgS-gh-QuY" secondAttribute="trailing" id="wMn-dS-Pca"/>
@@ -504,7 +519,7 @@
         <scene sceneID="N6k-Wg-gy7">
             <objects>
                 <navigationController id="JLB-GQ-oR9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="阅读" id="cvr-2X-b9c"/>
+                    <tabBarItem key="tabBarItem" title="阅读" image="tabbar_icon_reader_normal.png" selectedImage="tabbar_icon_reader_highlight.png" id="cvr-2X-b9c"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vzj-HK-8gr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -579,7 +594,7 @@
         <scene sceneID="duw-wr-bDC">
             <objects>
                 <navigationController id="QTQ-XX-m2O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="话题" id="Ixk-Fj-NCh"/>
+                    <tabBarItem key="tabBarItem" title="话题" image="tabbar_icon_bar_normal.png" selectedImage="tabbar_icon_bar_highlight.png" id="Ixk-Fj-NCh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v2R-Ou-wBQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -596,7 +611,7 @@
         <scene sceneID="qaR-hu-onX">
             <objects>
                 <navigationController id="ZCa-xg-Slj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="视听" id="4eF-hE-AnT"/>
+                    <tabBarItem key="tabBarItem" title="视听" image="tabbar_icon_media_normal.png" selectedImage="tabbar_icon_media_highlight.png" id="4eF-hE-AnT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q2X-GU-ebJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -613,7 +628,7 @@
         <scene sceneID="JoC-vd-MKO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kKb-ng-1ge" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="新闻" id="r9X-Uz-dXC"/>
+                    <tabBarItem key="tabBarItem" title="新闻" image="tabbar_icon_news_normal.png" selectedImage="tabbar_icon_news_highlight.png" id="r9X-Uz-dXC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3x-Hr-C86">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -633,6 +648,17 @@
     </scenes>
     <resources>
         <image name="awardeditor_coins_small.png" width="20" height="18"/>
+        <image name="channel_nav_plus.png" width="18" height="18"/>
         <image name="search_icon.png" width="24" height="24"/>
+        <image name="tabbar_icon_bar_highlight.png" width="18" height="21"/>
+        <image name="tabbar_icon_bar_normal.png" width="18" height="21"/>
+        <image name="tabbar_icon_me_highlight.png" width="19" height="19"/>
+        <image name="tabbar_icon_me_normal.png" width="19" height="19"/>
+        <image name="tabbar_icon_media_highlight.png" width="19" height="19"/>
+        <image name="tabbar_icon_media_normal.png" width="19" height="19"/>
+        <image name="tabbar_icon_news_highlight.png" width="21" height="16"/>
+        <image name="tabbar_icon_news_normal.png" width="21" height="16"/>
+        <image name="tabbar_icon_reader_highlight.png" width="20" height="18"/>
+        <image name="tabbar_icon_reader_normal.png" width="20" height="18"/>
     </resources>
 </document>
