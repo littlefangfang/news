@@ -7,6 +7,7 @@
 //
 
 #import "ConversationViewController.h"
+#import "ConversationView.h"
 
 @interface ConversationViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
@@ -40,6 +41,7 @@
     self.tableView.dataSource = self;
     [self getHotInfo];
     [self getNormalInfo];
+    [self createTableFooterView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,6 +135,11 @@
     }
     NSInteger viewCount = [tempDic count];
     NSInteger lastH = 0;
+    for (id v in cell.replyView.subviews) {
+        if ([v isKindOfClass:[UIView class]]) {
+            [v removeFromSuperview];
+        }
+    }
     for (NSInteger i = 1; i < viewCount - 1; i++) {
         NSDictionary *dic = [tempDic objectForKey:[NSString stringWithFormat:@"%ld",i]];
 
@@ -146,10 +153,11 @@
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake((viewCount - 2 - i) * 3, (viewCount - 2 - i) * 3, [UIScreen mainScreen].bounds.size.width - 49 - ((viewCount - 2 - i) * 2) * 3, 0)];
         
-        if (view.frame.size.width <= [UIScreen mainScreen].bounds.size.width - 49 - (3 * 2) * 6) {
+        if (view.frame.size.width <= [UIScreen mainScreen].bounds.size.width - 49 - (2 * 2) * 6) {
             CGRect frame = view.frame;
-            frame.size.width = [UIScreen mainScreen].bounds.size.width - 49 - (3 * 2) * 6;
-            frame.origin.y = 6 * 3;
+            frame.size.width = [UIScreen mainScreen].bounds.size.width - 49 - (2 * 2) * 6;
+            frame.origin.y = 4 * 3;
+            frame.origin.x = 4 * 3;
             view.frame = frame;
         }
         _nButton = [[UIButton alloc] initWithFrame:CGRectMake(8, lastH + 3, 250, 15)];
@@ -225,7 +233,6 @@
 - (void)createTableFooterView
 {
     UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, _tableView.frame.size.height, [UIScreen mainScreen].bounds.size.width, 60)];
-    tableFooterView.backgroundColor = [UIColor lightGrayColor];
     indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(60, 15, 30, 30)];
     indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     label = [[UILabel alloc] initWithFrame:CGRectMake(150, 15, 200, 30)];
