@@ -36,6 +36,8 @@
 }
 #pragma mark - Helper
 
+
+
 - (NSString *)setUrlStringWithString:(NSString *)str
 {
     NSInteger strIdx = [str rangeOfString:@"|"].location;

@@ -43,13 +43,4 @@
     _scrollView.contentInset = UIEdgeInsetsMake(vertical, horizon, vertical, horizon);
 }
 
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
-{
-    CGSize imageViewSize = _imgView.frame.size;
-    CGSize scrollViewSize = _scrollView.bounds.size;
-    CGFloat vertical = imageViewSize.height < scrollViewSize.height ? (scrollViewSize.height - imageViewSize.height) / 2 : 0;
-    CGFloat horizon = imageViewSize.width < scrollViewSize.width ? (scrollViewSize.width - imageViewSize.width) / 2 : 0;
-    _scrollView.contentInset = UIEdgeInsetsMake(vertical, horizon, vertical, horizon);
-}
-
 @end
