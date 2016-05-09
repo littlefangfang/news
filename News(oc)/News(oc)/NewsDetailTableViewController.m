@@ -228,15 +228,11 @@
                         
                         [_bridge send:[NSString stringWithFormat:@"replaceimage%@,%@",[self replaceUrlSpecialString:info.src],imagePaths]];
                     });
-                    
                 }else {
                     
                 }
-                
             }];
-            
         }
-        
     }
 }
 

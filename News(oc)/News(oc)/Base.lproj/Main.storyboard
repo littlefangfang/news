@@ -275,11 +275,90 @@
                         <outlet property="buttonScrollView" destination="hCr-mZ-PoE" id="yAv-HR-qL6"/>
                         <outlet property="contentScrollView" destination="ZgS-gh-QuY" id="zz9-yf-3Ko"/>
                         <segue destination="ZOj-Cs-p4R" kind="show" identifier="show_Detail" id="mLX-Fr-HOk"/>
+                        <segue destination="Chx-VU-CyH" kind="show" identifier="show_picture_detail" id="Zwd-gy-hD9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugQ-aT-HCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="780" y="-504"/>
+        </scene>
+        <!--Picture News Detail View Controller-->
+        <scene sceneID="1hp-j8-p0M">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Chx-VU-CyH" customClass="PictureNewsDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KDS-SF-YJH"/>
+                        <viewControllerLayoutGuide type="bottom" id="CCh-rp-qa5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uhZ-X4-0bG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tOa-Li-vgr">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="04A-4Y-gpi">
+                                    <size key="itemSize" width="394" height="301"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="picture_collection_cell" id="CF5-5z-nRl" customClass="PictureNewsDetailCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="118" width="394" height="301"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="301"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLF-vu-9uy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="301"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OTi-dW-oCz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="301"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="OTi-dW-oCz" firstAttribute="centerX" secondItem="MLF-vu-9uy" secondAttribute="centerX" id="ImJ-Vv-swr"/>
+                                                        <constraint firstItem="OTi-dW-oCz" firstAttribute="centerY" secondItem="MLF-vu-9uy" secondAttribute="centerY" id="S4H-eu-MwC"/>
+                                                        <constraint firstItem="OTi-dW-oCz" firstAttribute="leading" secondItem="MLF-vu-9uy" secondAttribute="leading" id="bso-Hu-9hs"/>
+                                                        <constraint firstAttribute="trailing" secondItem="OTi-dW-oCz" secondAttribute="trailing" id="lDO-1R-ivK"/>
+                                                        <constraint firstAttribute="bottom" secondItem="OTi-dW-oCz" secondAttribute="bottom" id="no9-pB-6bi"/>
+                                                        <constraint firstItem="OTi-dW-oCz" firstAttribute="top" secondItem="MLF-vu-9uy" secondAttribute="top" id="pNy-Yj-P5F"/>
+                                                    </constraints>
+                                                </scrollView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="MLF-vu-9uy" secondAttribute="bottom" id="GfF-VV-JdM"/>
+                                            <constraint firstAttribute="trailing" secondItem="MLF-vu-9uy" secondAttribute="trailing" id="S2R-Fm-phm"/>
+                                            <constraint firstItem="MLF-vu-9uy" firstAttribute="leading" secondItem="CF5-5z-nRl" secondAttribute="leading" id="UIh-aq-ivR"/>
+                                            <constraint firstItem="MLF-vu-9uy" firstAttribute="top" secondItem="CF5-5z-nRl" secondAttribute="top" id="WZe-1e-hhb"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imgView" destination="OTi-dW-oCz" id="6Gl-ag-YQN"/>
+                                            <outlet property="scrollView" destination="MLF-vu-9uy" id="97b-r7-uAd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tOa-Li-vgr" firstAttribute="leading" secondItem="uhZ-X4-0bG" secondAttribute="leading" id="2B2-QT-J0f"/>
+                            <constraint firstAttribute="trailing" secondItem="tOa-Li-vgr" secondAttribute="trailing" id="D97-HH-tTY"/>
+                            <constraint firstItem="tOa-Li-vgr" firstAttribute="top" secondItem="KDS-SF-YJH" secondAttribute="bottom" id="WOv-1T-g4Y"/>
+                            <constraint firstItem="CCh-rp-qa5" firstAttribute="top" secondItem="tOa-Li-vgr" secondAttribute="bottom" id="rWP-30-yOZ"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="tOa-Li-vgr" id="FD5-wA-gbF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40B-0r-80x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1468" y="-1172"/>
         </scene>
         <!--新闻详情-->
         <scene sceneID="Bjo-C6-ba7">

@@ -9,6 +9,7 @@
 #import "NewsViewController.h"
 #import "NewsTableViewController.h"
 #import "NewsDetailTableViewController.h"
+#import "PictureNewsDetailViewController.h"
 
 #define SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height
@@ -134,9 +135,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NewsDetailTableViewController *vc = (NewsDetailTableViewController *)[segue destinationViewController];
-    if ([vc respondsToSelector:@selector(setDataDictionary:)]) {
-        vc.dataDictionary = (NSDictionary *)sender;
+    if ([segue.identifier isEqualToString:@"show_Detail"]) {
+        NewsDetailTableViewController *vc = (NewsDetailTableViewController *)[segue destinationViewController];
+        if ([vc respondsToSelector:@selector(setDataDictionary:)]) {
+            vc.dataDictionary = (NSDictionary *)sender;
+        }
+    }else if ([segue.identifier isEqualToString:@"show_Detail"]) {
+        PictureNewsDetailViewController *vc = [segue destinationViewController];
+        vc.dataArray = sender;
     }
 }
 

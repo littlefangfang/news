@@ -206,9 +206,11 @@
     
     NSString *imgURLStr = [[tempDic objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)tempDic.count]] objectForKey:@"timg"];
     if (imgURLStr) {
-        [cell.potraitButton sd_setBackgroundImageWithURL:[NSURL URLWithString:imgURLStr] forState:UIControlStateNormal];
+        [cell.potraitButton sd_setBackgroundImageWithURL:[NSURL URLWithString:imgURLStr] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"covernewscell_editor_default"]];
         cell.potraitButton.layer.cornerRadius = 12.5;
         cell.potraitButton.clipsToBounds = YES;
+    }else{
+        [cell.potraitButton setBackgroundImage:[UIImage imageNamed:@"covernewscell_editor_default"] forState:UIControlStateNormal];
     }
     if ([[tempDic objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)tempDic.count]] objectForKey:@"n"]) {
         [cell.nameButton setTitle:[[tempDic objectForKey:[NSString stringWithFormat:@"%lu",(unsigned long)tempDic.count]] objectForKey:@"n"] forState:UIControlStateNormal];

@@ -61,9 +61,17 @@
 {
     if ([pictureArray count]) {
         if (pictureArray.count == 1) {
-            [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:0]];
+            if ([[[pictureArray objectAtIndex:0] objectForKey:@"tag"] isEqualToString:@"photoset"]) {
+                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[pictureArray objectAtIndex:0]];
+            }else{
+                [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:0]];
+            }
         }else{
-            [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:currentIdx]];
+            if ([[[pictureArray objectAtIndex:0] objectForKey:@"tag"] isEqualToString:@"photoset"]) {
+                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[pictureArray objectAtIndex:currentIdx]];
+            }else{
+                [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:currentIdx]];
+            }
         }
     }else{
         [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[dataArray objectAtIndex:0]];
@@ -137,7 +145,6 @@
     [tableFooterView addSubview:label];
     [tableFooterView addSubview:indicatorView];
     _tableView.tableFooterView = tableFooterView;
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -178,7 +185,7 @@
                     _pictureCell.scrollView.scrollEnabled = NO;
                     _pictureCell.pageControl.hidden = YES;
                     [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
-                    _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:0] objectForKey:@"title"];
+                    _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
                     return _pictureCell;
                 }
                 _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
