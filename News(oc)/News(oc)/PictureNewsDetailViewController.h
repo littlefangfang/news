@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (retain, nonatomic) NSMutableArray *dataArray;
+@property (retain, nonatomic) NSString *dataString;
 
 @end

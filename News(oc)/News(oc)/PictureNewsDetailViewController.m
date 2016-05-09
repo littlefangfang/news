@@ -8,7 +8,8 @@
 
 #import "PictureNewsDetailViewController.h"
 #import "PictureNewsDetailCollectionViewCell.h"
-#import "SDWebImageCompat.h"
+#import "UIImageView+WebCache.h"
+#import "HttpTool.h"
 
 @interface PictureNewsDetailViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -21,7 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
     // Do any additional setup after loading the view.
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self getData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,10 +42,27 @@
     NSString *firstStr = [str substringWithRange:NSMakeRange(strIdx - 4, 4)];
     NSString *lastStr = [str substringFromIndex:strIdx + 1];
     NSString *fullStr = [NSString stringWithFormat:@"%@/%@",firstStr,lastStr];
-    return fullStr;
+    NSString *urlStr = [NSString stringWithFormat:@"http://c.m.163.com/photo/api/set/%@.json",fullStr];
+    return urlStr;
+}
+
+- (void)getData
+{
+    HttpTool *tool = [[HttpTool alloc] init];
+    tool.handlerBlock = ^(NSData *data, NSURLResponse *response, NSError *error){
+        NSDictionary *dic = (NSDictionary *)response;
+        _pictureArray = [dic objectForKey:@"photos"];
+        [_collectionView reloadData];
+    };
+    [tool getConversationWithUrl:[self setUrlStringWithString:_dataString]];
 }
 
 #pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -49,6 +72,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PictureNewsDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"picture_collection_cell" forIndexPath:indexPath];
+    [cell.imgView sd_setImageWithURL:[[_pictureArray objectAtIndex:indexPath.row] objectForKey:@"imgurl"]];
     
     return cell;
 }
@@ -57,7 +81,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.collectionView.bounds.size;
+    return _collectionView.bounds.size;
 }
 /*
 #pragma mark - Navigation

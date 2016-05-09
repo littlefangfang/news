@@ -140,9 +140,9 @@
         if ([vc respondsToSelector:@selector(setDataDictionary:)]) {
             vc.dataDictionary = (NSDictionary *)sender;
         }
-    }else if ([segue.identifier isEqualToString:@"show_Detail"]) {
+    }else if ([segue.identifier isEqualToString:@"show_picture_detail"]) {
         PictureNewsDetailViewController *vc = [segue destinationViewController];
-        vc.dataArray = sender;
+        vc.dataString = sender;
     }
 }
 

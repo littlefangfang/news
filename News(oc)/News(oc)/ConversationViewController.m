@@ -37,7 +37,7 @@
     pageNum = 0;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView setContentInset:UIEdgeInsetsMake(0, 0, 40, 0)];
+    [self.tableView setContentInset:UIEdgeInsetsMake(0, 0, -60, 0)];
     [self getHotInfo];
     [self getNormalInfo];
     [self createTableFooterView];
@@ -71,7 +71,6 @@
         }else{
             normalArray = [normalInfo objectForKey:@"newPosts"];
         }
-        
         [_tableView reloadData];
     };
     [tool getConversationWithUrl:urlString];
@@ -253,7 +252,7 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height + 60) {
+    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) {
         [UIView animateWithDuration:1.0 animations:^{
             [indicatorView startAnimating];
             label.text = @"正在加载";
@@ -261,7 +260,7 @@
         } completion:^(BOOL finished) {
             [indicatorView stopAnimating];
             label.text = @"上拉加载更多";
-            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 40, 0)];
+            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, -60, 0)];
             pageNum += 10;
             [weakSelf getNormalInfo];
         }];

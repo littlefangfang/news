@@ -62,13 +62,13 @@
     if ([pictureArray count]) {
         if (pictureArray.count == 1) {
             if ([[[pictureArray objectAtIndex:0] objectForKey:@"tag"] isEqualToString:@"photoset"]) {
-                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[pictureArray objectAtIndex:0]];
+                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[[pictureArray objectAtIndex:0] objectForKey:@"url"]];
             }else{
                 [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:0]];
             }
         }else{
             if ([[[pictureArray objectAtIndex:0] objectForKey:@"tag"] isEqualToString:@"photoset"]) {
-                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[pictureArray objectAtIndex:currentIdx]];
+                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[[pictureArray objectAtIndex:currentIdx] objectForKey:@"url"]];
             }else{
                 [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:currentIdx]];
             }
@@ -130,7 +130,6 @@
     }else if ([self.title isEqualToString:@"漫画"]){
         [tool getData:[NSString stringWithFormat:@"article/%@/%ld-20.html",requestString,pageNumber]];
     }
-    
 }
 
 - (void)createTableFooterView
@@ -190,7 +189,7 @@
                 }
                 _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
                 _pictureCell.scrollView.delegate = self;
-                _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
+                _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx - 1] objectForKey:@"title"];
                 _pictureCell.pageControl.numberOfPages = pictureArray.count;
                 [self setScrollViewPictures];
                 return _pictureCell;
@@ -265,7 +264,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row > 0) {
-        [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[dataArray objectAtIndex:indexPath.row]];
+        if ([[[dataArray objectAtIndex:indexPath.row] objectForKey:@"skipType"] isEqualToString:@"photoset"]) {
+            [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"photosetID"]];
+        }else{
+            [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[dataArray objectAtIndex:indexPath.row]];
+        }
     }
 }
 
