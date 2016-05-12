@@ -14,6 +14,7 @@
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
 #import "ConversationViewController.h"
+#import "MoveTransition.h"
 
 @interface NewsDetailTableViewController : UITableViewController
 

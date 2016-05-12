@@ -184,7 +184,7 @@
                     _pictureCell.scrollView.scrollEnabled = NO;
                     _pictureCell.pageControl.hidden = YES;
                     [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
-                    _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
+                    _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:0] objectForKey:@"title"];
                     return _pictureCell;
                 }
                 _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
@@ -198,7 +198,7 @@
                 _pictureCell.scrollView.scrollEnabled = NO;
                 _pictureCell.pageControl.hidden = YES;
                 [_pictureCell.beforeImageView downloadImageWithURL:[[dataArray objectAtIndex:0] objectForKey:@"imgsrc"]];
-                [_pictureCell.currentImageView  downloadImageWithURL:[[dataArray objectAtIndex:0] objectForKey:@"imgsrc"]];
+                [_pictureCell.currentImageView downloadImageWithURL:[[dataArray objectAtIndex:0] objectForKey:@"imgsrc"]];
                 _pictureCell.pictureTitleLabel.text = [[dataArray objectAtIndex:0] objectForKey:@"title"];
                 return _pictureCell;
             }

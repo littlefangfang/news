@@ -566,6 +566,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="Dro-AU-gl4"/>
                     <connections>
                         <outlet property="tableView" destination="p8D-Sb-gnh" id="nSJ-7W-OEE"/>
                     </connections>

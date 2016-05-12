@@ -230,7 +230,7 @@
     }else{
         cell.replyView.hidden = NO;
     }
-    
+    [self.view setNeedsLayout];
     return cell;
 }
 - (void)createTableFooterView
