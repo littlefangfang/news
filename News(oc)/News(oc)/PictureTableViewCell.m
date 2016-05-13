@@ -12,8 +12,7 @@
 #import "UIImageView+Category.h"
 
 @implementation PictureTableViewCell{
-    UIViewController *vc;
-    NSMutableArray *controllers;
+
 }
 
 - (void)awakeFromNib {

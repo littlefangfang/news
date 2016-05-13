@@ -28,7 +28,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationController.delegate = self;
+    
+//    self.navigationController.delegate = self;
     [self initJSBridge];
     [self setupRequest];
     [self setLeftBarItem];
@@ -82,38 +83,38 @@
     
 }
 
-//- (void)addGesture
-//{
-//    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showNextPage:)];
-//    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
-//    [self.tableView addGestureRecognizer:swipeGesture];
-//}
-
 - (void)addGesture
 {
-    UIScreenEdgePanGestureRecognizer *panGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgePanGesture:)];
-    panGesture.edges = UIRectEdgeRight;
-    [self.tableView addGestureRecognizer:panGesture];
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showNextPage:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.tableView addGestureRecognizer:swipeGesture];
 }
 
-- (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer *)pan
-{
-    CGFloat progress = [pan translationInView:self.view].x / self.view.bounds.size.width;
-    NSLog(@"%f",progress);
-    if (pan.state == UIGestureRecognizerStateBegan) {
-        _percentDrivenInteractiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
-        [self showNextPage:nil];
-    }else if (pan.state == UIGestureRecognizerStateChanged){
-        [_percentDrivenInteractiveTransition updateInteractiveTransition:progress];
-    }else if (pan.state == UIGestureRecognizerStateCancelled || pan.state == UIGestureRecognizerStateEnded) {
-        if (progress < -0.5) {
-            [_percentDrivenInteractiveTransition finishInteractiveTransition];
-        } else {
-            [_percentDrivenInteractiveTransition cancelInteractiveTransition];
-        }
-        _percentDrivenInteractiveTransition = nil;
-    }
-}
+//- (void)addGesture
+//{
+//    UIScreenEdgePanGestureRecognizer *panGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgePanGesture:)];
+//    panGesture.edges = UIRectEdgeRight;
+//    [self.tableView addGestureRecognizer:panGesture];
+//}
+//
+//- (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer *)pan
+//{
+//    CGFloat progress = [pan translationInView:self.view].x / self.view.bounds.size.width;
+//    NSLog(@"%f",progress);
+//    if (pan.state == UIGestureRecognizerStateBegan) {
+//        _percentDrivenInteractiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
+//        [self showNextPage:nil];
+//    }else if (pan.state == UIGestureRecognizerStateChanged){
+//        [_percentDrivenInteractiveTransition updateInteractiveTransition:progress];
+//    }else if (pan.state == UIGestureRecognizerStateCancelled || pan.state == UIGestureRecognizerStateEnded) {
+//        if (progress < -0.5) {
+//            [_percentDrivenInteractiveTransition finishInteractiveTransition];
+//        } else {
+//            [_percentDrivenInteractiveTransition cancelInteractiveTransition];
+//        }
+//        _percentDrivenInteractiveTransition = nil;
+//    }
+//}
 
 - (void)showNextPage:(UIButton *)sender
 {
@@ -344,23 +345,23 @@
 */
 
 #pragma UINavigationController Delegate
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
-{
-    if (operation == UINavigationControllerOperationPush) {
-        return [[MoveTransition alloc] init];
-    }else{
-        return nil;
-    }
-}
-
-- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
-{
-    if ([navigationController isKindOfClass:[MoveTransition class]]) {
-        return _percentDrivenInteractiveTransition;
-    }else {
-        return nil;
-    }
-}
+//- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
+//{
+//    if (operation == UINavigationControllerOperationPush) {
+//        return [[MoveTransition alloc] init];
+//    }else{
+//        return nil;
+//    }
+//}
+//
+//- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
+//{
+//    if ([navigationController isKindOfClass:[MoveTransition class]]) {
+//        return _percentDrivenInteractiveTransition;
+//    }else {
+//        return nil;
+//    }
+//}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -186,12 +186,13 @@
                     [_pictureCell.beforeImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
                     _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:0] objectForKey:@"title"];
                     return _pictureCell;
-                }
+                }else
                 _pictureCell.scrollView.contentSize = CGSizeMake(3 * [UIScreen mainScreen].bounds.size.width, _pictureCell.frame.size.height);
                 _pictureCell.scrollView.delegate = self;
-                _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx - 1] objectForKey:@"title"];
+                
                 _pictureCell.pageControl.numberOfPages = pictureArray.count;
-                [self setScrollViewPictures];
+                
+                [self scrollViewDidEndDecelerating:_pictureCell.scrollView];
                 return _pictureCell;
                 
             }else{
@@ -210,6 +211,8 @@
 - (void)setScrollViewPictures
 {
     [_pictureCell.currentImageView downloadImageWithURL:[[pictureArray objectAtIndex:currentIdx] objectForKey:@"imgsrc"]];
+    _pictureCell.pictureTitleLabel.text = [[pictureArray objectAtIndex:currentIdx] objectForKey:@"title"];
+    
     if (currentIdx == pictureArray.count - 1) {
         [_pictureCell.afterImageView downloadImageWithURL:[[pictureArray objectAtIndex:0] objectForKey:@"imgsrc"]];
     }else{
