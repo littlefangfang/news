@@ -16,6 +16,16 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     self.searchBar.backgroundImage = [UIImage new];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        self.frame = CGRectMake(-5, 0,[UIScreen mainScreen].bounds.size.width, 44);
+    }
+    return self;
 }
 
 
