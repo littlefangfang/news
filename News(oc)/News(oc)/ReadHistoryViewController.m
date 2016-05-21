@@ -75,7 +75,7 @@
 {
     NSDictionary * dictionary = [_dataArray objectAtIndex:indexPath.row];
     if ([[dictionary objectForKey:@"skipType"] isEqualToString:@"photoset"]) {
-        [self performSegueWithIdentifier:@"showwith_picture" sender:dictionary];
+        [self performSegueWithIdentifier:@"show_with_picture" sender:dictionary];
     }else if([[dictionary objectForKey:@"tag"] isEqualToString:@"photoset"]){
         [self performSegueWithIdentifier:@"show_with_picture" sender:dictionary];
     }else{
