@@ -8,6 +8,7 @@
 
 #import "PictureNewsDetailViewController.h"
 #import "PictureNewsDetailCollectionViewCell.h"
+#import "ConversationViewController.h"
 #import "UIImageView+WebCache.h"
 #import "HttpTool.h"
 
@@ -18,6 +19,8 @@
 @implementation PictureNewsDetailViewController
 {
     NSArray *_pictureArray;
+    
+    NSDictionary *_dic;
 }
 
 - (void)viewDidLoad {
@@ -28,6 +31,9 @@
     _collectionView.dataSource = self;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self getData];
+    [self setLeftBarItem];
+    [self setRightBarItem];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +42,52 @@
 }
 #pragma mark - Helper
 
+- (void)setLeftBarItem
+{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 54, 44)];
+    [button setImage:[UIImage imageNamed:@"top_navigation_back.png"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"top_navigation_back_highlighted.png"] forState:UIControlStateHighlighted];
+    [button addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    UIBarButtonItem *fixedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedButton.width = -12;
+    
+    self.navigationItem.leftBarButtonItems = @[fixedButton, backItem];
+}
 
+- (void)goBack:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)setRightBarItem
+{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 44)];
+    [button setTitle:@"查看跟帖   " forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+    [button sizeToFit];
+    [button setFrame:CGRectMake(0, 0, button.frame.size.width + 10, 44)];
+    [button addTarget:self action:@selector(showNextPage) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *buttonImage = [UIImage imageNamed:@"contentview_commentbacky.png"];
+    buttonImage = [buttonImage resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeTile];
+    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    UIBarButtonItem *fixedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedButton.width = -12;
+    
+    self.navigationItem.rightBarButtonItems = @[fixedButton,rightItem];
+    
+}
+
+- (void)showNextPage
+{
+    [self performSegueWithIdentifier:@"show_picture_reply" sender:nil];
+}
 
 - (NSString *)setUrlStringWithString:(NSString *)str
 {
@@ -52,8 +103,8 @@
 {
     HttpTool *tool = [[HttpTool alloc] init];
     tool.handlerBlock = ^(NSData *data, NSURLResponse *response, NSError *error){
-        NSDictionary *dic = (NSDictionary *)response;
-        _pictureArray = [dic objectForKey:@"photos"];
+        _dic = (NSDictionary *)response;
+        _pictureArray = [_dic objectForKey:@"photos"];
         [_collectionView reloadData];
     };
     [tool getConversationWithUrl:[self setUrlStringWithString:_dataString]];
@@ -85,14 +136,17 @@
 {
     return _collectionView.bounds.size;
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    ConversationViewController *vc = [segue destinationViewController];
+    vc.postid = [_dic objectForKey:@"postid"];
+    vc.replyBoard = [_dic objectForKey:@"boardid"];
 }
-*/
+
 
 @end

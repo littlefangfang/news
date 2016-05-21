@@ -41,11 +41,34 @@
     [self getHotInfo];
     [self getNormalInfo];
     [self createTableFooterView];
+    [self setLeftBarItem];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Helper
+
+- (void)setLeftBarItem
+{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 54, 44)];
+    [button setImage:[UIImage imageNamed:@"icon_back.png"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"icon_back_highlighted.png"] forState:UIControlStateHighlighted];
+    [button addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    UIBarButtonItem *fixedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedButton.width = -12;
+    
+    self.navigationItem.leftBarButtonItems = @[fixedButton, backItem];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+}
+
+- (void)goBack:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)getHotInfo

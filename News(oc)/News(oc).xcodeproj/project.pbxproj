@@ -38,6 +38,7 @@
 		49AD372D1CCDF23E00DBF2F6 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AD37271CCDF23E00DBF2F6 /* AFURLSessionManager.m */; };
 		49AD37301CCE1A6100DBF2F6 /* ConversationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AD372F1CCE1A6100DBF2F6 /* ConversationView.m */; };
 		49AD70CB1CE47B30007C264B /* MoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AD70CA1CE47B30007C264B /* MoveTransition.m */; };
+		49B0A4A21CF04D0A00880FDC /* ReadHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B0A4A11CF04D0A00880FDC /* ReadHistoryViewController.m */; };
 		49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */; };
 		49B3BFA91CD06F6900DFAC88 /* channel_nav_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B3BFA71CD06F6900DFAC88 /* channel_nav_plus@2x.png */; };
 		49B3BFAA1CD06F6900DFAC88 /* home_header_add_slim@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B3BFA81CD06F6900DFAC88 /* home_header_add_slim@2x.png */; };
@@ -80,6 +81,8 @@
 		49BAF4911CC7889C009D5FF2 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BAF4901CC7889C009D5FF2 /* WebViewJavascriptBridge.m */; };
 		49D7E92E1CE02EE0004BA797 /* PictureNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7E92D1CE02EE0004BA797 /* PictureNewsDetailViewController.m */; };
 		49D7E9311CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7E9301CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m */; };
+		49E153851CED65300011A682 /* top_navigation_back_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E153831CED65300011A682 /* top_navigation_back_highlighted@2x.png */; };
+		49E153861CED65300011A682 /* top_navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E153841CED65300011A682 /* top_navigation_back@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +138,8 @@
 		49AD372F1CCE1A6100DBF2F6 /* ConversationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationView.m; sourceTree = "<group>"; };
 		49AD70C91CE47B30007C264B /* MoveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveTransition.h; sourceTree = "<group>"; };
 		49AD70CA1CE47B30007C264B /* MoveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveTransition.m; sourceTree = "<group>"; };
+		49B0A4A01CF04D0A00880FDC /* ReadHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadHistoryViewController.h; sourceTree = "<group>"; };
+		49B0A4A11CF04D0A00880FDC /* ReadHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadHistoryViewController.m; sourceTree = "<group>"; };
 		49B230B51CBF3ACE00FEF3C1 /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
 		49B230B61CBF3ACE00FEF3C1 /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 		49B3BFA71CD06F6900DFAC88 /* channel_nav_plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "channel_nav_plus@2x.png"; sourceTree = "<group>"; };
@@ -203,6 +208,8 @@
 		49D7E92D1CE02EE0004BA797 /* PictureNewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureNewsDetailViewController.m; sourceTree = "<group>"; };
 		49D7E92F1CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureNewsDetailCollectionViewCell.h; sourceTree = "<group>"; };
 		49D7E9301CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureNewsDetailCollectionViewCell.m; sourceTree = "<group>"; };
+		49E153831CED65300011A682 /* top_navigation_back_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back_highlighted@2x.png"; sourceTree = "<group>"; };
+		49E153841CED65300011A682 /* top_navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +340,8 @@
 		49A4817C1CC8A7AE00FF4067 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				49E153831CED65300011A682 /* top_navigation_back_highlighted@2x.png */,
+				49E153841CED65300011A682 /* top_navigation_back@2x.png */,
 				499FA4531CDDEEDE00D49190 /* covernewscell_editor_default@2x.png */,
 				49B3BFAB1CD08D4200DFAC88 /* tabbar_icon_reader_normal@2x.png */,
 				49B3BFAC1CD08D4200DFAC88 /* tabbar_icon_bar_highlight@2x.png */,
@@ -406,6 +415,8 @@
 				49B497D71CCA3AF400A0F173 /* CustomBarView.h */,
 				49B497D81CCA3AF400A0F173 /* CustomBarView.m */,
 				49B497D51CCA39CE00A0F173 /* CustomBarView.xib */,
+				49B0A4A01CF04D0A00880FDC /* ReadHistoryViewController.h */,
+				49B0A4A11CF04D0A00880FDC /* ReadHistoryViewController.m */,
 			);
 			name = "Search Controller";
 			sourceTree = "<group>";
@@ -532,6 +543,7 @@
 				49A481841CC8C06B00FF4067 /* contentview_commentbacky@2x.png in Resources */,
 				49A481801CC8A7C600FF4067 /* icon_back_highlighted@2x.png in Resources */,
 				49B497CE1CCA2DF700A0F173 /* search_icon@2x.png in Resources */,
+				49E153861CED65300011A682 /* top_navigation_back@2x.png in Resources */,
 				49BAF45A1CC768B5009D5FF2 /* WebViewHtml.html in Resources */,
 				494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */,
 				49B3BFB71CD08D4200DFAC88 /* tabbar_icon_bar_normal@2x.png in Resources */,
@@ -551,6 +563,7 @@
 				0641ADCD1CAAC7650069559F /* Assets.xcassets in Resources */,
 				49B497D61CCA39CE00A0F173 /* CustomBarView.xib in Resources */,
 				49B3BFB61CD08D4200DFAC88 /* tabbar_icon_bar_highlight@2x.png in Resources */,
+				49E153851CED65300011A682 /* top_navigation_back_highlighted@2x.png in Resources */,
 				49B3BFBE1CD08D4200DFAC88 /* tabbar_icon_news_highlight@2x.png in Resources */,
 				0641ADE31CAD74D20069559F /* 81.jpg in Resources */,
 				0641ADCB1CAAC7650069559F /* Main.storyboard in Resources */,
@@ -599,6 +612,7 @@
 				49AD37301CCE1A6100DBF2F6 /* ConversationView.m in Sources */,
 				49BAF4851CC7718E009D5FF2 /* SDWebImagePrefetcher.m in Sources */,
 				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,
+				49B0A4A21CF04D0A00880FDC /* ReadHistoryViewController.m in Sources */,
 				49B497C91CC9F45200A0F173 /* NSString+UUID.m in Sources */,
 				49BAF47F1CC7718E009D5FF2 /* SDImageCache.m in Sources */,
 				49BAF4831CC7718E009D5FF2 /* SDWebImageDownloaderOperation.m in Sources */,

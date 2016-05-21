@@ -62,13 +62,13 @@
     if ([pictureArray count]) {
         if (pictureArray.count == 1) {
             if ([[[pictureArray objectAtIndex:0] objectForKey:@"tag"] isEqualToString:@"photoset"]) {
-                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[[pictureArray objectAtIndex:0] objectForKey:@"url"]];
+                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[pictureArray objectAtIndex:0]];
             }else{
                 [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:0]];
             }
         }else{
             if ([[[pictureArray objectAtIndex:0] objectForKey:@"tag"] isEqualToString:@"photoset"]) {
-                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[[pictureArray objectAtIndex:currentIdx] objectForKey:@"url"]];
+                [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[pictureArray objectAtIndex:currentIdx]];
             }else{
                 [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[pictureArray objectAtIndex:currentIdx]];
             }
@@ -268,7 +268,7 @@
 {
     if (indexPath.row > 0) {
         if ([[[dataArray objectAtIndex:indexPath.row] objectForKey:@"skipType"] isEqualToString:@"photoset"]) {
-            [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"photosetID"]];
+            [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[dataArray objectAtIndex:indexPath.row]];
         }else{
             [self.parentViewController performSegueWithIdentifier:@"show_Detail" sender:[dataArray objectAtIndex:indexPath.row]];
         }

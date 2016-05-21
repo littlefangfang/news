@@ -12,8 +12,7 @@
 
 + (NSString *)stringWithUniquePath {
     NSString *unique = [NSString stringWithUUID];
-//    return [NSTemporaryDirectory() stringByAppendingPathComponent: unique];
-    return unique;
+    return [NSTemporaryDirectory() stringByAppendingPathComponent: unique];
 }
 
 @end

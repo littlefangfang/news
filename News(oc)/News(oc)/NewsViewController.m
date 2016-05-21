@@ -10,12 +10,18 @@
 #import "NewsTableViewController.h"
 #import "NewsDetailTableViewController.h"
 #import "PictureNewsDetailViewController.h"
+#import "SearchViewController.h"
 
 #define SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height
 
 @interface NewsViewController ()<UIScrollViewDelegate>{
+    
     NSArray *btnTitleArray;
+    
+    NSMutableArray *plistArray;
+    
+    NSString *filePath;
 }
 
 @end
@@ -30,6 +36,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setContentScrollView];
     [self setButtonScrollView];
+    [self setPlistFile];
     UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 64)];
     testView.backgroundColor = [UIColor colorWithRed:248.0 / 255.0 green:0 blue:0 alpha:1];
     [self.view addSubview:testView];
@@ -37,9 +44,19 @@
     [self setTabbarColor];
 }
 
-
-
 #pragma mark - Helper
+
+- (void)setPlistFile
+{
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    filePath = [path stringByAppendingPathComponent:@"History.plist"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:filePath]) {
+        
+        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+    }
+    plistArray = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+}
 
 - (void)setTabbarColor
 {
@@ -138,11 +155,34 @@
     if ([segue.identifier isEqualToString:@"show_Detail"]) {
         NewsDetailTableViewController *vc = (NewsDetailTableViewController *)[segue destinationViewController];
         if ([vc respondsToSelector:@selector(setDataDictionary:)]) {
+            if (plistArray.count >= 20) {
+                [plistArray removeLastObject];
+                [plistArray insertObject:sender atIndex:0];
+                [plistArray writeToFile:filePath atomically:YES];
+            }else {
+                [plistArray insertObject:sender atIndex:0];
+                [plistArray writeToFile:filePath atomically:YES];
+            }
             vc.dataDictionary = (NSDictionary *)sender;
         }
     }else if ([segue.identifier isEqualToString:@"show_picture_detail"]) {
         PictureNewsDetailViewController *vc = [segue destinationViewController];
-        vc.dataString = sender;
+        if (plistArray.count >= 20) {
+            [plistArray removeLastObject];
+            [plistArray insertObject:sender atIndex:0];
+            [plistArray writeToFile:filePath atomically:YES];
+        }else {
+            [plistArray insertObject:sender atIndex:0];
+            [plistArray writeToFile:filePath atomically:YES];
+        }
+        if ([sender objectForKey:@"url"]) {
+            vc.dataString = [sender objectForKey:@"url"];
+        }else{
+            vc.dataString = [sender objectForKey:@"photosetID"];
+        }
+    }else if ([segue.identifier isEqualToString:@"show_search_and_history"]) {
+        SearchViewController *vc = [segue destinationViewController];
+        vc.dataArray = plistArray;
     }
 }
 
