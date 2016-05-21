@@ -52,10 +52,13 @@
     filePath = [path stringByAppendingPathComponent:@"History.plist"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:filePath]) {
+        plistArray = [NSMutableArray array];
         
-        [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+    }else{
+        plistArray = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     }
-    plistArray = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+    NSLog(@"%@",filePath);
+    
 }
 
 - (void)setTabbarColor
