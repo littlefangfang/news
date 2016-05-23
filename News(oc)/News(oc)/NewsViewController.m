@@ -57,8 +57,6 @@
     }else{
         plistArray = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     }
-    NSLog(@"%@",filePath);
-    
 }
 
 - (void)setTabbarColor
@@ -158,26 +156,12 @@
     if ([segue.identifier isEqualToString:@"show_Detail"]) {
         NewsDetailTableViewController *vc = (NewsDetailTableViewController *)[segue destinationViewController];
         if ([vc respondsToSelector:@selector(setDataDictionary:)]) {
-            if (plistArray.count >= 20) {
-                [plistArray removeLastObject];
-                [plistArray insertObject:sender atIndex:0];
-                [plistArray writeToFile:filePath atomically:YES];
-            }else {
-                [plistArray insertObject:sender atIndex:0];
-                [plistArray writeToFile:filePath atomically:YES];
-            }
+            [self addObjectToPlistWithSender:(NSDictionary *)sender];
             vc.dataDictionary = (NSDictionary *)sender;
         }
     }else if ([segue.identifier isEqualToString:@"show_picture_detail"]) {
         PictureNewsDetailViewController *vc = [segue destinationViewController];
-        if (plistArray.count >= 20) {
-            [plistArray removeLastObject];
-            [plistArray insertObject:sender atIndex:0];
-            [plistArray writeToFile:filePath atomically:YES];
-        }else {
-            [plistArray insertObject:sender atIndex:0];
-            [plistArray writeToFile:filePath atomically:YES];
-        }
+        [self addObjectToPlistWithSender:(NSDictionary *)sender];
         if ([sender objectForKey:@"url"]) {
             vc.dataString = [sender objectForKey:@"url"];
         }else{
@@ -189,5 +173,32 @@
     }
 }
 
+- (void)addObjectToPlistWithSender:(NSDictionary *)sender
+{
+    if (plistArray.count >= 20) {
+        [plistArray removeLastObject];
+        if (![self equalBetween:plistArray andDic:sender]) {
+            [plistArray insertObject:sender atIndex:0];
+            [plistArray writeToFile:filePath atomically:YES];
+        }
+    }else {
+        if (![self equalBetween:plistArray andDic:sender]) {
+            [plistArray insertObject:sender atIndex:0];
+            [plistArray writeToFile:filePath atomically:YES];
+        }
+    }
+}
+
+- (BOOL)equalBetween:(NSMutableArray *)array andDic:(NSDictionary *)dic
+{
+    for (NSDictionary *dictionary in array) {
+        if ([[dictionary objectForKey:@"title"] isEqualToString:[dic objectForKey:@"title"]]) {
+            return YES;
+        }else{
+            return NO;
+        }
+    }
+    return YES;
+}
 
 @end

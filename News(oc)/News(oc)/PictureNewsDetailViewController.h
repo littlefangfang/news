@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PictureNewsDetailView.h"
 
 @interface PictureNewsDetailViewController : UIViewController 
 
@@ -14,4 +15,11 @@
 
 @property (retain, nonatomic) NSString *dataString;
 
+@property (strong, nonatomic) IBOutlet UILabel *pictureNewsTitleLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *pictureNewsSubtitleLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *pictureCountLabel;
+
+@property (strong, nonatomic) IBOutlet PictureNewsDetailView *detailView;
 @end

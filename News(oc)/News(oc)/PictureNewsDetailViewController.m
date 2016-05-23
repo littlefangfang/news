@@ -12,7 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "HttpTool.h"
 
-@interface PictureNewsDetailViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface PictureNewsDetailViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
 @end
 
@@ -81,7 +81,6 @@
     fixedButton.width = -12;
     
     self.navigationItem.rightBarButtonItems = @[fixedButton,rightItem];
-    
 }
 
 - (void)showNextPage
@@ -105,6 +104,9 @@
     tool.handlerBlock = ^(NSData *data, NSURLResponse *response, NSError *error){
         _dic = (NSDictionary *)response;
         _pictureArray = [_dic objectForKey:@"photos"];
+        _pictureNewsTitleLabel.text = [_dic objectForKey:@"setname"];
+        _pictureNewsSubtitleLabel.text = [[_pictureArray objectAtIndex:0] objectForKey:@"note"];
+        _pictureCountLabel.text = [NSString stringWithFormat:@"1/%lu",(unsigned long)_pictureArray.count];
         [_collectionView reloadData];
     };
     [tool getConversationWithUrl:[self setUrlStringWithString:_dataString]];
@@ -135,6 +137,18 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return _collectionView.bounds.size;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSIndexPath *indexPath;
+    for (UICollectionViewCell *cell in [_collectionView visibleCells]) {
+        indexPath = [_collectionView indexPathForCell:cell];
+    }
+    _pictureCountLabel.text = [NSString stringWithFormat:@"%ld/%lu",indexPath.row + 1,(unsigned long)_pictureArray.count];
+    _pictureNewsSubtitleLabel.text = [[_pictureArray objectAtIndex:indexPath.row] objectForKey:@"note"];
 }
 
 #pragma mark - Navigation

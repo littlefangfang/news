@@ -36,6 +36,8 @@
     UIActivityIndicatorView *indicatorView;
     
     UILabel *label;
+    
+    NSMutableSet *hasReadSet;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +46,8 @@
     weakSelf = self;
     
     [self setTableViews];
+    
+    hasReadSet = [NSMutableSet set];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -167,11 +171,19 @@
 {
      FirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         if (indexPath.row > 0) {
+            
             cell.titleLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"title"];
             [cell.titleImageView downloadImageWithURL:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"]];
             cell.contentLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"digest"];
             cell.replyLabel.text = [NSString stringWithFormat:@"%@跟帖",[[dataArray objectAtIndex:indexPath.row] objectForKey:@"replyCount"]];
             [cell.replyLabel sizeToFit];
+            
+            if ([hasReadSet containsObject:indexPath]) {
+                cell.titleLabel.textColor = [UIColor lightGrayColor];
+            }else {
+                cell.titleLabel.textColor = [UIColor blackColor];
+            }
+
         }else{
             if (!_pictureCell) {
                 _pictureCell = [tableView dequeueReusableCellWithIdentifier:@"picture_cell"];
@@ -207,6 +219,7 @@
 
     return cell;
 }
+
 
 - (void)setScrollViewPictures
 {
@@ -266,7 +279,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    FirstTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (indexPath.row > 0) {
+        [hasReadSet addObject:indexPath];
+        cell.titleLabel.textColor = [UIColor lightGrayColor];
         if ([[[dataArray objectAtIndex:indexPath.row] objectForKey:@"skipType"] isEqualToString:@"photoset"]) {
             [self.parentViewController performSegueWithIdentifier:@"show_picture_detail" sender:[dataArray objectAtIndex:indexPath.row]];
         }else{
