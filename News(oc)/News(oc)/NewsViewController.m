@@ -32,6 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     btnTitleArray = [NSArray arrayWithObjects:@"头条",@"科技",@"游戏",@"娱乐",@"手机",@"漫画", nil];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setContentScrollView];
