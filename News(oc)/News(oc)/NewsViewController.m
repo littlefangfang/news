@@ -70,7 +70,9 @@
 {
     _buttonScrollView.contentSize = CGSizeMake(10 + btnTitleArray.count * 80 - 20, _buttonScrollView.frame.size.height);
     for (int i = 0; i < btnTitleArray.count; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10 + i * 80, 2, 50, 26)];
+
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(10 + i * 80, 2, 50, 26);
         [button setTitle:[btnTitleArray objectAtIndex:i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateSelected];

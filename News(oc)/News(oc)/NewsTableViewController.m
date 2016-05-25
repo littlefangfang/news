@@ -52,6 +52,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     if (dataArray.count == 0) {
         pageNumber = 0;
         [self loadNewsData];
@@ -84,15 +85,17 @@
 
 - (void)setTableViews
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 143)];
-    [_tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    [_tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"picture_cell"];
-    
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [_tableView setContentInset:UIEdgeInsetsMake(0, 0, -60, 0)];
-    [self createTableFooterView];
-    [self.view addSubview:_tableView];
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 143)];
+        [_tableView registerNib:[UINib nibWithNibName:@"FirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+        [_tableView registerNib:[UINib nibWithNibName:@"PictureTableViewCell" bundle:nil] forCellReuseIdentifier:@"picture_cell"];
+        
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView setContentInset:UIEdgeInsetsMake(0, 0, -60, 0)];
+        [self createTableFooterView];
+        [self.view addSubview:_tableView];
+    }
 }
 
 - (void)loadNewsData
