@@ -10,6 +10,7 @@
 #import "FirstTableViewCell.h"
 #import "HttpTool.h"
 #import "UIImageView+Category.h"
+#import "UIImageView+WebCache.h"
 #import "PictureTableViewCell.h"
 #import "NewsDetailTableViewController.h"
 
@@ -176,8 +177,9 @@
         if (indexPath.row > 0) {
             
             cell.titleLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"title"];
-            [cell.titleImageView downloadImageWithURL:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"]];
-            cell.contentLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"digest"];
+//            [cell.titleImageView downloadImageWithURL:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"]];
+            [cell.titleImageView sd_setImageWithURL:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"imgsrc"] placeholderImage:[UIImage imageNamed:@"test.jpg"]];
+//            cell.contentLabel.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"digest"];
             cell.replyLabel.text = [NSString stringWithFormat:@"%@跟帖",[[dataArray objectAtIndex:indexPath.row] objectForKey:@"replyCount"]];
             [cell.replyLabel sizeToFit];
             
