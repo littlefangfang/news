@@ -213,7 +213,7 @@
         view.layer.borderWidth = 0.5;
         view.layer.borderColor = [UIColor lightGrayColor].CGColor;
         
-        
+        [view layoutIfNeeded];
         [view addSubview:_nButton];
         [view addSubview:_aLabel];
         [view addSubview:_contentLabel];
@@ -221,7 +221,7 @@
         [cell.replyView setFrame:view.frame];
         
         lastH = CGRectGetMaxY(view.frame);
-        
+        [cell layoutIfNeeded];
         [cell.replyView insertSubview:view aboveSubview:cell.replyView];
     }
     
