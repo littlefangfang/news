@@ -51,10 +51,11 @@
 {
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     filePath = [path stringByAppendingPathComponent:@"History.plist"];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"History" ofType:@"plist"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:filePath]) {
         plistArray = [NSMutableArray array];
-        
+        [fileManager copyItemAtPath:bundlePath toPath:filePath error:nil];
     }else{
         plistArray = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
     }
@@ -178,7 +179,7 @@
 
 - (void)addObjectToPlistWithSender:(NSDictionary *)sender
 {
-    if (plistArray.count >= 20) {
+    if (plistArray.count >= 100) {
         [plistArray removeLastObject];
         if (![self equalBetween:plistArray andDic:sender]) {
             [plistArray insertObject:sender atIndex:0];
@@ -194,14 +195,14 @@
 
 - (BOOL)equalBetween:(NSMutableArray *)array andDic:(NSDictionary *)dic
 {
+    int equalCount = 0;
+    
     for (NSDictionary *dictionary in array) {
         if ([[dictionary objectForKey:@"title"] isEqualToString:[dic objectForKey:@"title"]]) {
-            return YES;
-        }else{
-            return NO;
+            equalCount++;
         }
     }
-    return YES;
+    return equalCount;
 }
 
 @end

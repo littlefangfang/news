@@ -91,6 +91,7 @@
 		49D7E9311CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7E9301CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m */; };
 		49E153851CED65300011A682 /* top_navigation_back_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E153831CED65300011A682 /* top_navigation_back_highlighted@2x.png */; };
 		49E153861CED65300011A682 /* top_navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E153841CED65300011A682 /* top_navigation_back@2x.png */; };
+		70FCBC751D5311C100C5C339 /* History.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70FCBC741D5311C100C5C339 /* History.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +232,7 @@
 		49D7E9301CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureNewsDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		49E153831CED65300011A682 /* top_navigation_back_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back_highlighted@2x.png"; sourceTree = "<group>"; };
 		49E153841CED65300011A682 /* top_navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back@2x.png"; sourceTree = "<group>"; };
+		70FCBC741D5311C100C5C339 /* History.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = History.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +376,7 @@
 				494D22DF1CACCEFB0069CCAE /* FirstTableViewCell.h */,
 				494D22E01CACCEFB0069CCAE /* FirstTableViewCell.m */,
 				494D22E11CACCEFB0069CCAE /* FirstTableViewCell.xib */,
+				70FCBC741D5311C100C5C339 /* History.plist */,
 			);
 			name = "News List";
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				49BAF45A1CC768B5009D5FF2 /* WebViewHtml.html in Resources */,
 				494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */,
 				49B3BFB71CD08D4200DFAC88 /* tabbar_icon_bar_normal@2x.png in Resources */,
+				70FCBC751D5311C100C5C339 /* History.plist in Resources */,
 				49B3BFBA1CD08D4200DFAC88 /* tabbar_icon_media_normal@2x.png in Resources */,
 				49B3BFBB1CD08D4200DFAC88 /* tabbar_icon_me_normal@2x.png in Resources */,
 				49B3BFBD1CD08D4200DFAC88 /* tabbar_icon_reader_highlight@2x.png in Resources */,

@@ -37,6 +37,7 @@
 
 #pragma mark - Action
 - (IBAction)clickHistoryButton:(UIButton *)sender {
+
     NSDictionary * dictionary = [_dataArray objectAtIndex:sender.tag - 1];
     if ([[dictionary objectForKey:@"skipType"] isEqualToString:@"photoset"]) {
         [self performSegueWithIdentifier:@"show_detail_with_picture" sender:dictionary];
@@ -74,10 +75,13 @@
         [_secondTitleButton setTitle:[[_dataArray objectAtIndex:1] objectForKey:@"title"] forState:UIControlStateNormal];
     } else if (_dataArray.count == 1) {
         [_firstTitleButton setTitle:[[_dataArray objectAtIndex:0] objectForKey:@"title"] forState:UIControlStateNormal];
-        [_secondTitleButton setTitle:@"" forState:UIControlStateNormal];
+//        [_secondTitleButton setTitle:@"" forState:UIControlStateNormal];
+        _secondTitleButton.hidden = YES;
     } else {
-        [_firstTitleButton setTitle:@"" forState:UIControlStateNormal];
-        [_secondTitleButton setTitle:@"" forState:UIControlStateNormal];
+//        [_firstTitleButton setTitle:@"" forState:UIControlStateNormal];
+//        [_secondTitleButton setTitle:@"" forState:UIControlStateNormal];
+        _firstTitleButton.hidden = YES;
+        _secondTitleButton.hidden = YES;
     }
 }
 
