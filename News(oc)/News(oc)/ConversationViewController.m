@@ -213,7 +213,6 @@
         view.layer.borderWidth = 0.5;
         view.layer.borderColor = [UIColor lightGrayColor].CGColor;
         
-        [view layoutIfNeeded];
         [view addSubview:_nButton];
         [view addSubview:_aLabel];
         [view addSubview:_contentLabel];
@@ -221,8 +220,9 @@
         [cell.replyView setFrame:view.frame];
         
         lastH = CGRectGetMaxY(view.frame);
-        [cell layoutIfNeeded];
+//        [cell layoutIfNeeded];
         [cell.replyView insertSubview:view aboveSubview:cell.replyView];
+//        [cell.contentView layoutIfNeeded];
     }
     
     
@@ -247,13 +247,12 @@
     
     cell.viewHeight.constant = lastH;
     cell.bottomConstrait.constant = cell.articleLabel.bounds.size.height + 8;
-    
+ 
     if (viewCount <= 2) {
         cell.replyView.hidden = YES;
     }else{
         cell.replyView.hidden = NO;
     }
-    [self.view setNeedsLayout];
     return cell;
 }
 - (void)createTableFooterView

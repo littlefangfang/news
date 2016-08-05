@@ -640,7 +640,7 @@
                                                     <rect key="frame" x="41" y="51" width="551" height="98"/>
                                                     <color key="backgroundColor" red="0.9865771812080526" green="0.98980180369127513" blue="0.94124895134228193" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="98" id="mqg-WW-QM8"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="98" id="mqg-WW-QM8"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWith">
@@ -650,7 +650,7 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Qvd-JD-FSN" secondAttribute="bottom" constant="29" id="6vJ-eR-VLV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Qvd-JD-FSN" secondAttribute="bottom" priority="998" constant="29" id="6vJ-eR-VLV"/>
                                                 <constraint firstAttribute="trailing" secondItem="Qvd-JD-FSN" secondAttribute="trailing" constant="8" id="7MH-5D-AeZ"/>
                                                 <constraint firstItem="6yZ-f4-v4P" firstAttribute="leading" secondItem="1cY-ys-eJs" secondAttribute="leading" constant="8" id="8nT-KE-FjL"/>
                                                 <constraint firstItem="b99-B4-J93" firstAttribute="top" secondItem="vbu-UJ-Kuv" secondAttribute="bottom" constant="8" id="AWW-ny-7I9"/>
@@ -887,8 +887,8 @@
         <image name="tabbar_icon_reader_normal.png" width="20" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sFg-q9-X1N"/>
-        <segue reference="QOJ-Gk-X9s"/>
+        <segue reference="mLX-Fr-HOk"/>
+        <segue reference="Zwd-gy-hD9"/>
         <segue reference="1Hh-OT-BGz"/>
     </inferredMetricsTieBreakers>
 </document>
