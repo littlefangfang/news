@@ -220,9 +220,8 @@
         [cell.replyView setFrame:view.frame];
         
         lastH = CGRectGetMaxY(view.frame);
-//        [cell layoutIfNeeded];
+        
         [cell.replyView insertSubview:view aboveSubview:cell.replyView];
-//        [cell.contentView layoutIfNeeded];
     }
     
     

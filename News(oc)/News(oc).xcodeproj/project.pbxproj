@@ -272,7 +272,6 @@
 				0641ADC91CAAC7650069559F /* Main.storyboard */,
 				494C67671CABA117000FED11 /* News */,
 				499E0BAB1CF43C7600F61EC5 /* Videos */,
-				0641ADDC1CAD67AC0069559F /* Connection */,
 				499CC85A1CC0C5910055680D /* Tools */,
 				49BAF4451CC754C4009D5FF2 /* 第三方 */,
 				0641ADCC1CAAC7650069559F /* Assets.xcassets */,
@@ -317,6 +316,7 @@
 		499CC85A1CC0C5910055680D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0641ADDC1CAD67AC0069559F /* Connection */,
 				499CC85E1CC0C8F30055680D /* UIImageView+Category.h */,
 				499CC85F1CC0C8F30055680D /* UIImageView+Category.m */,
 			);

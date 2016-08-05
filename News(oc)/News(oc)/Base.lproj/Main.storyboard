@@ -432,18 +432,9 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-Va-O3j" customClass="PictureNewsDetailView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-Va-O3j" customClass="PictureNewsDetailView">
                                 <rect key="frame" x="0.0" y="538" width="600" height="62"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="He9-hr-skz">
-                                        <rect key="frame" x="8" y="8" width="518" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="o9s-3j-7A2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-Ew-AAL">
                                         <rect key="frame" x="8" y="37" width="584" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -460,8 +451,17 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="He9-hr-skz">
+                                        <rect key="frame" x="8" y="8" width="518" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="o9s-3j-7A2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="He9-hr-skz" firstAttribute="leading" secondItem="VbE-Va-O3j" secondAttribute="leading" constant="8" id="48l-mj-g8D"/>
                                     <constraint firstAttribute="trailing" secondItem="ahy-ts-3Ic" secondAttribute="trailing" constant="8" id="BeW-vP-hhP"/>
@@ -887,8 +887,8 @@
         <image name="tabbar_icon_reader_normal.png" width="20" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mLX-Fr-HOk"/>
-        <segue reference="Zwd-gy-hD9"/>
-        <segue reference="1Hh-OT-BGz"/>
+        <segue reference="sFg-q9-X1N"/>
+        <segue reference="QOJ-Gk-X9s"/>
+        <segue reference="C82-Na-3Pl"/>
     </inferredMetricsTieBreakers>
 </document>
