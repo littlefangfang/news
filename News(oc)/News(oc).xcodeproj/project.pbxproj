@@ -91,6 +91,27 @@
 		49D7E9311CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7E9301CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m */; };
 		49E153851CED65300011A682 /* top_navigation_back_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E153831CED65300011A682 /* top_navigation_back_highlighted@2x.png */; };
 		49E153861CED65300011A682 /* top_navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E153841CED65300011A682 /* top_navigation_back@2x.png */; };
+		7003C5DC1E3353DE005FB997 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003C5DB1E3353DE005FB997 /* IJKMediaFramework.framework */; };
+		700773C81DBDADC5004D99B8 /* WaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 700773C71DBDADC5004D99B8 /* WaveView.m */; };
+		7024596C1DB774D800C8B3B8 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7024596B1DB774D800C8B3B8 /* IJKMediaFramework.framework */; };
+		702FF2F21DBA01CE00672F89 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702FF2F11DBA01CE00672F89 /* MyViewController.m */; };
+		70ED18CC1D7D1414002F9CB7 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18CB1D7D1414002F9CB7 /* VideoToolbox.framework */; };
+		70ED18CE1D7D1420002F9CB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18CD1D7D1420002F9CB7 /* UIKit.framework */; };
+		70ED18D01D7D142F002F9CB7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18CF1D7D142F002F9CB7 /* OpenGLES.framework */; };
+		70ED18D21D7D143F002F9CB7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18D11D7D143F002F9CB7 /* MobileCoreServices.framework */; };
+		70ED18D41D7D1453002F9CB7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18D31D7D1453002F9CB7 /* MediaPlayer.framework */; };
+		70ED18D61D7D1462002F9CB7 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18D51D7D1462002F9CB7 /* CoreVideo.framework */; };
+		70ED18D81D7D1478002F9CB7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18D71D7D1478002F9CB7 /* CoreMedia.framework */; };
+		70ED18DA1D7D1486002F9CB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18D91D7D1486002F9CB7 /* CoreGraphics.framework */; };
+		70ED18DC1D7D149C002F9CB7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18DB1D7D149C002F9CB7 /* AVFoundation.framework */; };
+		70ED18DE1D7D14AD002F9CB7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18DD1D7D14AD002F9CB7 /* AudioToolbox.framework */; };
+		70ED18E01D7D14BD002F9CB7 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18DF1D7D14BD002F9CB7 /* libbz2.tbd */; };
+		70ED18E21D7D14CA002F9CB7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 70ED18E11D7D14CA002F9CB7 /* libz.tbd */; };
+		70ED18E91D7D14F0002F9CB7 /* TVListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ED18E41D7D14F0002F9CB7 /* TVListViewController.m */; };
+		70ED18EA1D7D14F0002F9CB7 /* TVShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ED18E61D7D14F0002F9CB7 /* TVShowViewController.m */; };
+		70ED18EB1D7D14F0002F9CB7 /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70ED18E81D7D14F0002F9CB7 /* ListCell.m */; };
+		70ED18EE1D7D1543002F9CB7 /* test_image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 70ED18ED1D7D1543002F9CB7 /* test_image.jpeg */; };
+		70ED18F01D7D160C002F9CB7 /* tvlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 70ED18EF1D7D160C002F9CB7 /* tvlist.txt */; };
 		70FCBC751D5311C100C5C339 /* History.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70FCBC741D5311C100C5C339 /* History.plist */; };
 /* End PBXBuildFile section */
 
@@ -232,6 +253,32 @@
 		49D7E9301CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureNewsDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		49E153831CED65300011A682 /* top_navigation_back_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back_highlighted@2x.png"; sourceTree = "<group>"; };
 		49E153841CED65300011A682 /* top_navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back@2x.png"; sourceTree = "<group>"; };
+		7003C5DB1E3353DE005FB997 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		700773C61DBDADC5004D99B8 /* WaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaveView.h; path = ../WaveView.h; sourceTree = "<group>"; };
+		700773C71DBDADC5004D99B8 /* WaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaveView.m; path = ../WaveView.m; sourceTree = "<group>"; };
+		7024596B1DB774D800C8B3B8 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IJKMediaFramework.framework; path = "News(oc)/IJKMediaFramework.framework"; sourceTree = "<group>"; };
+		702FF2F01DBA01CE00672F89 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		702FF2F11DBA01CE00672F89 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		70ED18CB1D7D1414002F9CB7 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		70ED18CD1D7D1420002F9CB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		70ED18CF1D7D142F002F9CB7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		70ED18D11D7D143F002F9CB7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		70ED18D31D7D1453002F9CB7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		70ED18D51D7D1462002F9CB7 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		70ED18D71D7D1478002F9CB7 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		70ED18D91D7D1486002F9CB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		70ED18DB1D7D149C002F9CB7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		70ED18DD1D7D14AD002F9CB7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		70ED18DF1D7D14BD002F9CB7 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		70ED18E11D7D14CA002F9CB7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		70ED18E31D7D14F0002F9CB7 /* TVListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVListViewController.h; sourceTree = "<group>"; };
+		70ED18E41D7D14F0002F9CB7 /* TVListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVListViewController.m; sourceTree = "<group>"; };
+		70ED18E51D7D14F0002F9CB7 /* TVShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVShowViewController.h; sourceTree = "<group>"; };
+		70ED18E61D7D14F0002F9CB7 /* TVShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVShowViewController.m; sourceTree = "<group>"; };
+		70ED18E71D7D14F0002F9CB7 /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
+		70ED18E81D7D14F0002F9CB7 /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
+		70ED18ED1D7D1543002F9CB7 /* test_image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_image.jpeg; sourceTree = "<group>"; };
+		70ED18EF1D7D160C002F9CB7 /* tvlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tvlist.txt; sourceTree = "<group>"; };
 		70FCBC741D5311C100C5C339 /* History.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = History.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,6 +287,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7003C5DC1E3353DE005FB997 /* IJKMediaFramework.framework in Frameworks */,
+				7024596C1DB774D800C8B3B8 /* IJKMediaFramework.framework in Frameworks */,
+				70ED18E21D7D14CA002F9CB7 /* libz.tbd in Frameworks */,
+				70ED18E01D7D14BD002F9CB7 /* libbz2.tbd in Frameworks */,
+				70ED18DE1D7D14AD002F9CB7 /* AudioToolbox.framework in Frameworks */,
+				70ED18DC1D7D149C002F9CB7 /* AVFoundation.framework in Frameworks */,
+				70ED18DA1D7D1486002F9CB7 /* CoreGraphics.framework in Frameworks */,
+				70ED18D81D7D1478002F9CB7 /* CoreMedia.framework in Frameworks */,
+				70ED18D61D7D1462002F9CB7 /* CoreVideo.framework in Frameworks */,
+				70ED18D41D7D1453002F9CB7 /* MediaPlayer.framework in Frameworks */,
+				70ED18D21D7D143F002F9CB7 /* MobileCoreServices.framework in Frameworks */,
+				70ED18D01D7D142F002F9CB7 /* OpenGLES.framework in Frameworks */,
+				70ED18CE1D7D1420002F9CB7 /* UIKit.framework in Frameworks */,
+				70ED18CC1D7D1414002F9CB7 /* VideoToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +310,19 @@
 		0641ADB41CAAC7650069559F = {
 			isa = PBXGroup;
 			children = (
+				70ED18E11D7D14CA002F9CB7 /* libz.tbd */,
+				70ED18DF1D7D14BD002F9CB7 /* libbz2.tbd */,
+				70ED18DD1D7D14AD002F9CB7 /* AudioToolbox.framework */,
+				70ED18DB1D7D149C002F9CB7 /* AVFoundation.framework */,
+				70ED18D91D7D1486002F9CB7 /* CoreGraphics.framework */,
+				70ED18D71D7D1478002F9CB7 /* CoreMedia.framework */,
+				70ED18D51D7D1462002F9CB7 /* CoreVideo.framework */,
+				70ED18D31D7D1453002F9CB7 /* MediaPlayer.framework */,
+				70ED18D11D7D143F002F9CB7 /* MobileCoreServices.framework */,
+				70ED18CF1D7D142F002F9CB7 /* OpenGLES.framework */,
+				70ED18CD1D7D1420002F9CB7 /* UIKit.framework */,
+				70ED18CB1D7D1414002F9CB7 /* VideoToolbox.framework */,
+				7024596A1DB774D500C8B3B8 /* Frameworks */,
 				0641ADBF1CAAC7650069559F /* News(oc) */,
 				0641ADBE1CAAC7650069559F /* Products */,
 			);
@@ -272,8 +346,12 @@
 				0641ADC91CAAC7650069559F /* Main.storyboard */,
 				494C67671CABA117000FED11 /* News */,
 				499E0BAB1CF43C7600F61EC5 /* Videos */,
+				70ED18EC1D7D14FD002F9CB7 /* 直播 */,
+				702FF2EF1DBA018F00672F89 /* 我 */,
 				499CC85A1CC0C5910055680D /* Tools */,
 				49BAF4451CC754C4009D5FF2 /* 第三方 */,
+				70ED18EF1D7D160C002F9CB7 /* tvlist.txt */,
+				70ED18ED1D7D1543002F9CB7 /* test_image.jpeg */,
 				0641ADCC1CAAC7650069559F /* Assets.xcassets */,
 				0641ADCE1CAAC7650069559F /* LaunchScreen.storyboard */,
 				0641ADD11CAAC7650069559F /* Info.plist */,
@@ -526,6 +604,39 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		7024596A1DB774D500C8B3B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7003C5DB1E3353DE005FB997 /* IJKMediaFramework.framework */,
+				7024596B1DB774D800C8B3B8 /* IJKMediaFramework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		702FF2EF1DBA018F00672F89 /* 我 */ = {
+			isa = PBXGroup;
+			children = (
+				702FF2F01DBA01CE00672F89 /* MyViewController.h */,
+				702FF2F11DBA01CE00672F89 /* MyViewController.m */,
+				700773C61DBDADC5004D99B8 /* WaveView.h */,
+				700773C71DBDADC5004D99B8 /* WaveView.m */,
+			);
+			name = "我";
+			sourceTree = "<group>";
+		};
+		70ED18EC1D7D14FD002F9CB7 /* 直播 */ = {
+			isa = PBXGroup;
+			children = (
+				70ED18E31D7D14F0002F9CB7 /* TVListViewController.h */,
+				70ED18E41D7D14F0002F9CB7 /* TVListViewController.m */,
+				70ED18E51D7D14F0002F9CB7 /* TVShowViewController.h */,
+				70ED18E61D7D14F0002F9CB7 /* TVShowViewController.m */,
+				70ED18E71D7D14F0002F9CB7 /* ListCell.h */,
+				70ED18E81D7D14F0002F9CB7 /* ListCell.m */,
+			);
+			name = "直播";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -552,7 +663,7 @@
 		0641ADB51CAAC7650069559F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = founder;
 				TargetAttributes = {
 					0641ADBC1CAAC7650069559F = {
@@ -591,6 +702,7 @@
 				49B497CE1CCA2DF700A0F173 /* search_icon@2x.png in Resources */,
 				49E153861CED65300011A682 /* top_navigation_back@2x.png in Resources */,
 				49BAF45A1CC768B5009D5FF2 /* WebViewHtml.html in Resources */,
+				70ED18F01D7D160C002F9CB7 /* tvlist.txt in Resources */,
 				494D22E31CACCEFB0069CCAE /* FirstTableViewCell.xib in Resources */,
 				49B3BFB71CD08D4200DFAC88 /* tabbar_icon_bar_normal@2x.png in Resources */,
 				70FCBC751D5311C100C5C339 /* History.plist in Resources */,
@@ -601,6 +713,7 @@
 				49B497D01CCA2FFE00A0F173 /* awardeditor_coins_small@2x.png in Resources */,
 				49A4817F1CC8A7C600FF4067 /* icon_back@2x.png in Resources */,
 				0641ADD01CAAC7650069559F /* LaunchScreen.storyboard in Resources */,
+				70ED18EE1D7D1543002F9CB7 /* test_image.jpeg in Resources */,
 				49A481831CC8C06B00FF4067 /* contentview_commentbacky_selected@2x.png in Resources */,
 				49B3BFB91CD08D4200DFAC88 /* tabbar_icon_me_highlight@2x.png in Resources */,
 				49BAF48E1CC7812E009D5FF2 /* WebViewJavascriptBridge.js.txt in Resources */,
@@ -641,6 +754,7 @@
 				49AD372A1CCDF23E00DBF2F6 /* AFSecurityPolicy.m in Sources */,
 				49B230B71CBF3ACE00FEF3C1 /* NewsTableViewController.m in Sources */,
 				49BAF4581CC7679F009D5FF2 /* ImageInfo.m in Sources */,
+				70ED18EB1D7D14F0002F9CB7 /* ListCell.m in Sources */,
 				49AD37291CCDF23E00DBF2F6 /* AFNetworkReachabilityManager.m in Sources */,
 				49B497D91CCA3AF400A0F173 /* CustomBarView.m in Sources */,
 				49BAF4811CC7718E009D5FF2 /* SDWebImageDecoder.m in Sources */,
@@ -649,6 +763,7 @@
 				49BAF4861CC7718E009D5FF2 /* UIButton+WebCache.m in Sources */,
 				49BAF4841CC7718E009D5FF2 /* SDWebImageManager.m in Sources */,
 				499CC8641CC0DE000055680D /* PictureTableViewCell.m in Sources */,
+				700773C81DBDADC5004D99B8 /* WaveView.m in Sources */,
 				49BAF48B1CC7718E009D5FF2 /* UIImageView+WebCache.m in Sources */,
 				0641ADC51CAAC7650069559F /* AppDelegate.m in Sources */,
 				49A2655E1CC256D600717D59 /* NewsDetailTableViewController.m in Sources */,
@@ -656,10 +771,12 @@
 				49BAF48A1CC7718E009D5FF2 /* UIImageView+HighlightedWebCache.m in Sources */,
 				49BAF4821CC7718E009D5FF2 /* SDWebImageDownloader.m in Sources */,
 				49AD70CB1CE47B30007C264B /* MoveTransition.m in Sources */,
+				70ED18EA1D7D14F0002F9CB7 /* TVShowViewController.m in Sources */,
 				49D7E9311CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m in Sources */,
 				49D7E92E1CE02EE0004BA797 /* PictureNewsDetailViewController.m in Sources */,
 				49AD372D1CCDF23E00DBF2F6 /* AFURLSessionManager.m in Sources */,
 				49AD37301CCE1A6100DBF2F6 /* ConversationView.m in Sources */,
+				70ED18E91D7D14F0002F9CB7 /* TVListViewController.m in Sources */,
 				49BAF4851CC7718E009D5FF2 /* SDWebImagePrefetcher.m in Sources */,
 				0641ADDA1CAAD1E60069559F /* NewsViewController.m in Sources */,
 				49B0A4A21CF04D0A00880FDC /* ReadHistoryViewController.m in Sources */,
@@ -674,6 +791,7 @@
 				499F2B8A1CF58BD9006E74DB /* VideoTableViewCell.m in Sources */,
 				49BAF4911CC7889C009D5FF2 /* WebViewJavascriptBridge.m in Sources */,
 				49B31B1D1CF3203C00C3D024 /* PictureNewsDetailView.m in Sources */,
+				702FF2F21DBA01CE00672F89 /* MyViewController.m in Sources */,
 				49BAF4881CC7718E009D5FF2 /* UIImage+MultiFormat.m in Sources */,
 				49BAF48C1CC7718E009D5FF2 /* UIView+WebCacheOperation.m in Sources */,
 				499F2B921CF5A95A006E74DB /* FYTableFooterView.m in Sources */,
@@ -717,8 +835,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -760,8 +880,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -790,10 +912,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8U3VM32L8Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/News(oc)",
+				);
 				INFOPLIST_FILE = "News(oc)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fy.fynews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fy.works;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -805,10 +933,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8U3VM32L8Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/News(oc)",
+				);
 				INFOPLIST_FILE = "News(oc)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fy.fynews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fy.works;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

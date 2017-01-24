@@ -13,7 +13,7 @@
                                     }, false)
         }
       }
-    // 这2句是必须写的
+    //这2句是必须写的
     connectWebViewJavascriptBridge(function(bridge) {
                                    
                                    /* Init your app here */
@@ -23,7 +23,7 @@
                                                if (message.match("replaceimage")) {
                                                //先截取图片id
                                                var index=message.indexOf(",")
-                                               var messagereplace=message.substring(0,index)
+                                               var messagereplace=message.substring(0, index)
                                                
                                                //截取到本地图片的路径
                                                var messagepath=message.substring(index+1)

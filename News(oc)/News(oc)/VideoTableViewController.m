@@ -132,7 +132,7 @@
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"使用流量中" message:@"是否继续播放？" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *actionYes = [UIAlertAction actionWithTitle:@"有钱！继续看！" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
-                 __strong __typeof(self) strongSelf = weakSelf;
+                __strong __typeof(self) strongSelf = weakSelf;
                 if (!AvViewController) {
                     AvViewController = [[AVPlayerViewController alloc] init];
                     AvViewController.player = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:[[responsArray objectAtIndex:indexPath.row] objectForKey:@"mp4_url"]]];

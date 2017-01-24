@@ -139,6 +139,7 @@
         tempPoint.x = _buttonScrollView.contentSize.width - _buttonScrollView.frame.size.width;
     }
     [_buttonScrollView setContentOffset:tempPoint animated:YES];
+    
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
@@ -147,6 +148,13 @@
     [self.childViewControllers[index].view setFrame:CGRectMake(index * SCREEN_W, 0, SCREEN_W, _tableScrollView.frame.size.height)];
     self.childViewControllers[index].view.tag = index + 100;
     [_tableScrollView addSubview:self.childViewControllers[index].view];
+    
+    for (UIButton *btn in _buttonScrollView.subviews) {
+        if (![btn isEqual:_buttonScrollView.subviews[index]]) {
+            [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            btn.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        }
+    }
 }
 
 /*

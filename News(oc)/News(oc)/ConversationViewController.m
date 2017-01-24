@@ -274,10 +274,11 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) {
+        [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
         [UIView animateWithDuration:1.0 animations:^{
             [indicatorView startAnimating];
             label.text = @"正在加载";
-            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+            [scrollView setContentInset:UIEdgeInsetsMake(0, 0, -1, 0)];
         } completion:^(BOOL finished) {
             [indicatorView stopAnimating];
             label.text = @"上拉加载更多";

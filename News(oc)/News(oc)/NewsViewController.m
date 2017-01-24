@@ -69,7 +69,9 @@
 
 - (void)setButtonScrollView
 {
-    _buttonScrollView.contentSize = CGSizeMake(10 + btnTitleArray.count * 80 - 20, _buttonScrollView.frame.size.height);
+    //_buttonScrollView.contentSize = CGSizeMake(10 + btnTitleArray.count * 80 - 20, _buttonScrollView.frame.size.height);
+    _buttonScrollView.contentSize = CGSizeMake(10 + btnTitleArray.count * 80 - 20, 30);
+
     for (int i = 0; i < btnTitleArray.count; i++) {
 
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -90,7 +92,8 @@
 
 - (void)setContentScrollView
 {
-    _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count  * SCREEN_W, _contentScrollView.frame.size.height);
+    //_contentScrollView.contentSize = CGSizeMake(btnTitleArray.count  * SCREEN_W, _contentScrollView.frame.size.height);
+    _contentScrollView.contentSize = CGSizeMake(btnTitleArray.count  * SCREEN_W, 524);
     _contentScrollView.delegate = self;
     for (int i = 0; i < btnTitleArray.count; i++) {
         NewsTableViewController *vc = [[NewsTableViewController alloc] init];
@@ -149,6 +152,13 @@
     [self.childViewControllers[index].view setFrame:CGRectMake(index * SCREEN_W, 0, SCREEN_W, _contentScrollView.frame.size.height)];
     self.childViewControllers[index].view.tag = index + 100;
     [_contentScrollView addSubview:self.childViewControllers[index].view];
+    
+    for (UIButton *btn in _buttonScrollView.subviews) {
+        if (![btn isEqual:_buttonScrollView.subviews[index]]) {
+            [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            btn.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        }
+    }
 }
 
 #pragma mark - Navigation

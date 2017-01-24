@@ -94,13 +94,15 @@
 //{
 //    UIScreenEdgePanGestureRecognizer *panGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgePanGesture:)];
 //    panGesture.edges = UIRectEdgeRight;
+//    panGesture.delegate = (id)self;
 //    [self.tableView addGestureRecognizer:panGesture];
 //}
-//
+
 //- (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer *)pan
 //{
 //    CGFloat progress = [pan translationInView:self.view].x / self.view.bounds.size.width;
 //    NSLog(@"%f",progress);
+//    
 //    if (pan.state == UIGestureRecognizerStateBegan) {
 //        _percentDrivenInteractiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
 //        [self showNextPage:nil];
@@ -118,6 +120,8 @@
 
 - (void)showNextPage:(UIButton *)sender
 {
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
     [self performSegueWithIdentifier:@"show_conversations" sender:nil];
 }
 
@@ -174,7 +178,7 @@
                 VideoInfo *videoin = [[VideoInfo alloc] initWithInfo:videoDic];
                 [videos addObject:videoin];
                 NSRange range = [bodyStr rangeOfString:videoin.ref];
-                NSString *videoStr = [NSString stringWithFormat:@"<embed height='50' width='280' src='%@' />",videoin.url_mp4];
+                NSString *videoStr = [NSString stringWithFormat:@"<embed height='210' width='280' src='%@' />",videoin.url_mp4];
                 [bodyStr replaceOccurrencesOfString:videoin.ref withString:videoStr options:NSCaseInsensitiveSearch range:range];
             }
         }
@@ -345,6 +349,7 @@
 */
 
 #pragma UINavigationController Delegate
+
 //- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 //{
 //    if (operation == UINavigationControllerOperationPush) {
