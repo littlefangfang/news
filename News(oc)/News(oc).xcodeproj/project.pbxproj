@@ -91,7 +91,6 @@
 		49D7E9311CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D7E9301CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m */; };
 		49E153851CED65300011A682 /* top_navigation_back_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E153831CED65300011A682 /* top_navigation_back_highlighted@2x.png */; };
 		49E153861CED65300011A682 /* top_navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E153841CED65300011A682 /* top_navigation_back@2x.png */; };
-		7003C5DC1E3353DE005FB997 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7003C5DB1E3353DE005FB997 /* IJKMediaFramework.framework */; };
 		700773C81DBDADC5004D99B8 /* WaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 700773C71DBDADC5004D99B8 /* WaveView.m */; };
 		7024596C1DB774D800C8B3B8 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7024596B1DB774D800C8B3B8 /* IJKMediaFramework.framework */; };
 		702FF2F21DBA01CE00672F89 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702FF2F11DBA01CE00672F89 /* MyViewController.m */; };
@@ -253,7 +252,6 @@
 		49D7E9301CE031FF004BA797 /* PictureNewsDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureNewsDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		49E153831CED65300011A682 /* top_navigation_back_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back_highlighted@2x.png"; sourceTree = "<group>"; };
 		49E153841CED65300011A682 /* top_navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back@2x.png"; sourceTree = "<group>"; };
-		7003C5DB1E3353DE005FB997 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		700773C61DBDADC5004D99B8 /* WaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaveView.h; path = ../WaveView.h; sourceTree = "<group>"; };
 		700773C71DBDADC5004D99B8 /* WaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaveView.m; path = ../WaveView.m; sourceTree = "<group>"; };
 		7024596B1DB774D800C8B3B8 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IJKMediaFramework.framework; path = "News(oc)/IJKMediaFramework.framework"; sourceTree = "<group>"; };
@@ -287,7 +285,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7003C5DC1E3353DE005FB997 /* IJKMediaFramework.framework in Frameworks */,
 				7024596C1DB774D800C8B3B8 /* IJKMediaFramework.framework in Frameworks */,
 				70ED18E21D7D14CA002F9CB7 /* libz.tbd in Frameworks */,
 				70ED18E01D7D14BD002F9CB7 /* libbz2.tbd in Frameworks */,
@@ -607,7 +604,6 @@
 		7024596A1DB774D500C8B3B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7003C5DB1E3353DE005FB997 /* IJKMediaFramework.framework */,
 				7024596B1DB774D800C8B3B8 /* IJKMediaFramework.framework */,
 			);
 			name = Frameworks;

@@ -99,6 +99,7 @@
         NewsTableViewController *vc = [[NewsTableViewController alloc] init];
         vc.title = [btnTitleArray objectAtIndex:i];
         [self addChildViewController:vc];
+        [vc becomeFirstResponder];
     }
     [_contentScrollView addSubview:self.childViewControllers[0].view];
 }
